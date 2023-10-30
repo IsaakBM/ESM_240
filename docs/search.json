@@ -1,0 +1,149 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "ESM_240",
+    "section": "",
+    "text": "Preface\nThis is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "01_preparation.html#open-science-nceas",
+    "href": "01_preparation.html#open-science-nceas",
+    "title": "1  Welcome!",
+    "section": "1.1 Open Science: NCEAS",
+    "text": "1.1 Open Science: NCEAS\nWith this material, we are following the NCEAS data approach to make research more transparent and reproducible, which enhances the credibility, utility, and accuracy of the science used to solve global challenges.\nOpen science is the philosophy and practice of making data and methods accessible, replicable, and free to use, typically through computer programming tools and techniques. It helps researchers compile and analyze data more efficiently and identify solutions more quickly."
+  },
+  {
+    "objectID": "02_set_up.html#r",
+    "href": "02_set_up.html#r",
+    "title": "2  Setting up your computer",
+    "section": "2.1 R",
+    "text": "2.1 R\nThe R statistical computing environment can be downloaded from the Comprehensive R Archive Network (CRAN). Specifically, you can download the latest version of R (version 4.2.3) from here: https://cloud.r-project.org. Please note that you will need to download the correct file for your operating system (i.e. Linux, Mac OSX, Windows)."
+  },
+  {
+    "objectID": "02_set_up.html#rstudio",
+    "href": "02_set_up.html#rstudio",
+    "title": "2  Setting up your computer",
+    "section": "2.2 RStudio",
+    "text": "2.2 RStudio\nRStudio is an integrated development environment (IDE). In other words, it is a program that is designed to make your R programming experience more enjoyable. During this workshop, you will interact with R through RStudio—meaning that you will open RStudio to code in R. You can download the latest version of RStudio here: http://www.rstudio.com/download. When you start RStudio, you will see two main parts of the interface:\n\n\n\n\n\nYou can type R code into the Console and press the enter key to run code."
+  },
+  {
+    "objectID": "02_set_up.html#r-packages",
+    "href": "02_set_up.html#r-packages",
+    "title": "2  Setting up your computer",
+    "section": "2.3 R packages",
+    "text": "2.3 R packages\nAn R package is a collection of R code and documentation that can be installed to enhance the standard R environment with additional functionality. Currently, there are over fifteen thousand R packages available on CRAN. Each of these R packages are developed to perform a specific task, such as reading Excel spreadsheets, downloading satellite imagery data, downloading and cleaning protected area data, or fitting environmental niche models. In fact, R has such a diverse ecosystem of R packages, that the question is almost always not “can I use R to …?” but “what R package can I use to …?”. During this workshop, we will use several R packages. To install these R packages, please enter the code below in the Console part of the RStudio interface and press enter. Note that you will require an Internet connection and the installation process may take some time to complete.\n\ninstall.packages(c(\"sf\", \"terra\", \"dplyr\", \"sp\", \"rgeos\", \"rgdal\", \"raster\",\n                   \"units\", \"tidyr\", \"stringr\", \"readr\", \"transformr\", \"data.table\",\n                   \"ggplot2\", \"RColorBrewer\", \"rnaturalearth\", \"rnaturalearthdata\",\n                   \"ggtext\", \"lwgeom\", \"patchwork\", \"gganimate\", \"animation\"))\n\n# Optional packages\n  # library(ncdf4)\n  # library(ncdf4.helpers)\n  # library(PCICt)\n  # library(magrittr)\n  # library(exactextractr)\n  # library(nngeo)"
+  },
+  {
+    "objectID": "03_climate_data.html#installation-process",
+    "href": "03_climate_data.html#installation-process",
+    "title": "3  Getting Started with Front/Climate Data",
+    "section": "3.1 Installation Process",
+    "text": "3.1 Installation Process\n\n3.1.1 MacOS\nFollow the instruction and downloaded MacPorts. MacPorts is an open-source community initiative to design an easy-to-use system for compiling, installing, and upgrading the command-line on the Mac operating system.\nMacPorts website MacPorts download\nAfter the installation (if you have admin rights) open the terminal and type:\nport install cdo\nIf you don’t have admin rights, open the terminal and type:\nsudo port install cdo and write your password\n\n\n3.1.2 Windows 10\nIn the current windows 10 version(s) Microsoft includes an Ubuntu 16.04 LTS embedded Linux. This environment offers a clean integration with the windows file systems and and the opportunity to install CDO via the native package manager of Ubuntu.\nInstall the Ubuntu app from the Microsoft Store application. Then open the Ubuntu terminal and type:\nsudo apt-get install cdo and write your password\n\n\n3.1.3 Linux\nFor Linux go to: Linux"
+  },
+  {
+    "objectID": "03_climate_data.html#ncview-a-netcdf-visual-browser",
+    "href": "03_climate_data.html#ncview-a-netcdf-visual-browser",
+    "title": "3  Getting Started with Front/Climate Data",
+    "section": "3.2 Ncview: a netCDF visual browser",
+    "text": "3.2 Ncview: a netCDF visual browser\nNcview is quick visual browser that allows you to explore netCDF files very easily: ncview. ncview is an easy to use netCDF file viewer for linux and OS X. It can read any netCDF file.\nTo install ncview, open the terminal and type:\n\nOS X: port install ncview\nLinux: sudo apt-get install ncview"
+  },
+  {
+    "objectID": "03_climate_data.html#working-with-cdo-and-ncview",
+    "href": "03_climate_data.html#working-with-cdo-and-ncview",
+    "title": "3  Getting Started with Front/Climate Data",
+    "section": "3.3 Working with CDO and ncview",
+    "text": "3.3 Working with CDO and ncview\nTo work with CDO and ncview you will need to use the terminal command line. Open the Ubuntu app in Windows and the Terminal on OS X. Let’s check a folder in your desktop:\nIn your command line type:\n\ncd OceanFrontsChange_Workshop2023/data/ (this will establish data as your primary directory)\n\nIf your are using Windows your desktop path should be located at /mnt/c/.\nBecause you have setting OceanFrontsChange_Workshop2023/data/ as your directory in the terminal, we can use ncview to get a quick view of the front data\n\ntype ls -l to see if the front data is in your directory.\nto view the model with ncview, in the terminal type ncview BOAonMUR_SWIO_Y2003-M1-D1.nc.\n\nWe can check the file details using cdo. In the terminal type:\n\ncdo -sinfov BOAonMUR_SWIO_Y2003-M1-D1.nc\n\nThe model details are:\n\nVariable: temp_gradient\nHorizontal component: resolution 5001x3001\nVertical component: 1 level (i.e., depth)\nTime component: 1 steps"
+  },
+  {
+    "objectID": "03_climate_data.html#cdo-extra-functions",
+    "href": "03_climate_data.html#cdo-extra-functions",
+    "title": "3  Getting Started with Front/Climate Data",
+    "section": "3.4 CDO extra functions",
+    "text": "3.4 CDO extra functions\nThere are several things that you can explore. Some interesting functions that I’ve used a lot are:\n\ncdo -yearmean calculates the annual mean of a monthly data input netCDF file\ncdo -yearmin calculates the annual min of a monthly data input netCDF file\ncdo -yearmax calculates the annual max of a monthly data input netCDF file\ncdo -ensmean calculates the ensemble mean of several netCDF files. If your input files are different models, this function will estimate a mean of all those models\ncdo -vertmean calculates the vertical mean for netCDF with olevel (i.e., depth)\ncdo -mergetime merge all the netCDF files in your directory\n\nTo use those argument remember just type in the terminal:\n\ncdo -[function] input_file output_file"
+  },
+  {
+    "objectID": "04_ncRaster.html#data-import",
+    "href": "04_ncRaster.html#data-import",
+    "title": "4  netCDF files in R: Raster, Spatial objects",
+    "section": "4.1 Data import",
+    "text": "4.1 Data import\nLoad the required packages.\n\ninstall.packages(c(\"terra\", \"ncdf4\", \"ncdf4.helpers\", \"PCICt\", \n                   \"dplyr\", \"magrittr\"))\n\n# load packages\nlibrary(terra)\nlibrary(ncdf4)\nlibrary(ncdf4.helpers)\nlibrary(PCICt)\nlibrary(dplyr)\nlibrary(magrittr)\n\n# # List of pacakges that we will use\n#   list.of.packages &lt;- c(\"raster\", \"data.table\", \"dplyr\", \"foreach\", \"doParallel\", \"ggplot2\", \"magrittr\", \"sf\", \"tidyselect\")\n# # If is not installed, install the pacakge\n#   new.packages &lt;- list.of.packages[!(list.of.packages %in% installed.packages()[,\"Package\"])]\n#       if(length(new.packages)) install.packages(new.packages)\n# # Load packages\n#   lapply(list.of.packages, require, character.only = TRUE)"
+  },
+  {
+    "objectID": "04_ncRaster.html#function-to-transform-netcdf-files-into-raster-objects",
+    "href": "04_ncRaster.html#function-to-transform-netcdf-files-into-raster-objects",
+    "title": "4  netCDF files in R: Raster, Spatial objects",
+    "section": "4.2 Function to transform netCDF files into Raster objects",
+    "text": "4.2 Function to transform netCDF files into Raster objects\nYou can read netCDF using raster::stack or the terra::rast functions from the raster and terra packages. However, this code allows more control over the outputs.\n\n# NO GUARANTEES THAT CODE IS CORRECT\n# Caveat Emptor! (Latin for \"Let the buyer beware\")\n  \n# Define generalities \n  nc = \"data/BOAonMUR_SWIO_Y2003-M1-D1.nc\"\n  v = \"temp_gradient\" \n  x = \"lon\"\n  y = \"lat\"\n\n  nc &lt;- ncdf4::nc_open(nc)\n  dat &lt;- ncdf4::ncvar_get(nc, v) # x, y, year\n  dat[] &lt;- dat\n  rlon &lt;- ncdf4::ncvar_get(nc, varid = x) %&gt;% \n    range()\n  rlat &lt;- ncdf4::ncvar_get(nc, varid = y) %&gt;% \n    range()\n  X &lt;- dim(dat)[1] # nolint\n  Y &lt;- dim(dat)[2] # nolint\n  tt &lt;- ncdf4.helpers::nc.get.time.series(nc,\n                                          v = \"time\",\n                                          time.dim.name = \"time\")\n  tt &lt;- as.POSIXct(tt)\n  tt &lt;- as.Date(tt)\n  ncdf4::nc_close(nc)\n# Make a raster with the right dims to fill with lat&lon\n  rs &lt;- terra::rast(nrow = Y, ncol = X, extent = terra::ext(c(rlon, rlat)))\n  # Fix orientation of original data\n  # [and then create a raster with this fix orientation]\n    drs &lt;- terra::xyFromCell(rs, 1:terra::ncell(rs)) %&gt;%\n      as_tibble()\n  # Create raster stacks of depths for every month\n    rs_list &lt;- list() # to allocate results # nolint\n    st &lt;- terra::rast()\n    for (i in 1:length(tt)) { # nolint\n      dt1 &lt;- dplyr::bind_cols(drs,\n                              as.vector(dat[])) %&gt;% # actually no need to loop but if you have more than just one year would be dat[, , i] , which is == X, Y, TIME\n        magrittr::set_colnames(c(\"x\", \"y\", v))\n      dt1 &lt;- terra::rast(dt1, type = \"xyz\")\n      names(dt1) &lt;- tt[i]\n      st &lt;- c(st, terra::flip(dt1))\n      print(paste0(tt[i], \" of \", length(tt)))\n    }\n\nCrop/Manipulate and project\n\n# The Mozambique Channel\n  st &lt;- terra::crop(st, terra::ext(c(30, 75, -35, -7)))\n  terra::crs(st) &lt;- \"+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0\""
+  },
+  {
+    "objectID": "05_equalGrid.html#data-import",
+    "href": "05_equalGrid.html#data-import",
+    "title": "5  Equal-area grid for your area of interest.",
+    "section": "5.1 Data import",
+    "text": "5.1 Data import\nLoad the required packages.\n\nsource(\"zscripts/z_helpFX.R\")"
+  },
+  {
+    "objectID": "05_equalGrid.html#polygons-on-the-area-of-interest",
+    "href": "05_equalGrid.html#polygons-on-the-area-of-interest",
+    "title": "5  Equal-area grid for your area of interest.",
+    "section": "5.2 Polygons on the area of interest",
+    "text": "5.2 Polygons on the area of interest\n\n# Creating the bounding box\n  bbox &lt;- st_bbox(c(xmin = 30, xmax = 60, ymax = -7, ymin = -35),\n                  crs = st_crs(\"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs\")) %&gt;% \n    st_as_sfc() %&gt;% \n    st_transform(crs = robin)\n  \n# Taking 0.1 from borders to avoid border effect\n  f_bbox &lt;- st_bbox(c(xmin = 30.1, xmax = 59.9, ymax = -7.1, ymin = -34.9),\n                    crs = st_crs(\"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs\")) %&gt;% \n    st_as_sfc() %&gt;% \n    st_transform(crs = robin)\n# Area\n  CellArea &lt;- 100 # in km2\n  h_diameter &lt;- 2 * sqrt((CellArea*1e6)/((3*sqrt(3)/2))) * sqrt(3)/2 # Diameter in m\n  s_diameter &lt;- sqrt(CellArea*1e6) # Diameter in m"
+  },
+  {
+    "objectID": "05_equalGrid.html#planning-units-for-the-whole-region",
+    "href": "05_equalGrid.html#planning-units-for-the-whole-region",
+    "title": "5  Equal-area grid for your area of interest.",
+    "section": "5.3 Planning units for the whole region",
+    "text": "5.3 Planning units for the whole region\n\n# Creating an equal-area grid\n  PUs &lt;- st_make_grid(f_bbox,\n                      square = F,\n                      cellsize = c(h_diameter, h_diameter),\n                      what = \"polygons\",\n                      crs = st_crs(f_bbox)) %&gt;%\n    st_sf()\n\n# Check cell size worked OK.\n  print(paste0(\"Range of cellsize are \",\n               round(as.numeric(range(units::set_units(st_area(PUs), \"km^2\")))[1]),\" km2 to \",\n               round(as.numeric(range(units::set_units(st_area(PUs), \"km^2\")))[2]),\" km2\"))"
+  },
+  {
+    "objectID": "05_equalGrid.html#final-equal-area-grid",
+    "href": "05_equalGrid.html#final-equal-area-grid",
+    "title": "5  Equal-area grid for your area of interest.",
+    "section": "5.4 Final equal-area grid",
+    "text": "5.4 Final equal-area grid\n\n# Get rid of \"land\" polygons\n  logi_PUs &lt;- st_centroid(PUs) %&gt;%\n    st_intersects(world_sfRob) %&gt;% \n    lengths &gt; 0 # Get logical vector instead of sparse geometry binary\n  PUs1 &lt;- PUs[logi_PUs == FALSE, ]\n  plot(st_geometry(PUs1))"
+  },
+  {
+    "objectID": "05_equalGrid.html#plot-the-output",
+    "href": "05_equalGrid.html#plot-the-output",
+    "title": "5  Equal-area grid for your area of interest.",
+    "section": "5.5 Plot the output",
+    "text": "5.5 Plot the output\n\n  g1 &lt;- ggplot() +\n    geom_sf(data = PUs1, size = 0.05) +\n    geom_sf(data = world_sfRob, size = 0.05, fill = \"grey20\") +\n    theme_bw()\n  \n  print(g1)\n  \n  # ggsave(\"MYFILE.png\", plot = g1, width = 30, height = 30, dpi = 600, limitsize = FALSE)\n  # st_write(obj = PUs, dsn = \"MYDIRECTORY\", layer = \"MYFILE\", driver = \"ESRI Shapefile\")"
+  },
+  {
+    "objectID": "06_climatePUs.html#data-import",
+    "href": "06_climatePUs.html#data-import",
+    "title": "6  Fronts (or any variable) by equal-size grid",
+    "section": "6.1 Data import",
+    "text": "6.1 Data import\nLoad the required packages.\n\nlibrary(terra)\nlibrary(sf)\nlibrary(exactextractr)\nlibrary(dplyr)\nlibrary(nngeo)\nlibrary(stringr)"
+  },
+  {
+    "objectID": "06_climatePUs.html#generic-function-to-replace-nas-with-nearest-neighbor.",
+    "href": "06_climatePUs.html#generic-function-to-replace-nas-with-nearest-neighbor.",
+    "title": "6  Fronts (or any variable) by equal-size grid",
+    "section": "6.2 Generic Function to replace NAs with nearest neighbor.",
+    "text": "6.2 Generic Function to replace NAs with nearest neighbor.\nThis is just a generic function that uses nngeo R package. Feel free to used and adapt it to your needs.\n\n  fCheckNAs &lt;- function(df, vari) {\n    if (sum(is.na(pull(df, !!sym(vari))))&gt;0){ # Check if there are NAs\n        \n        gp &lt;- df %&gt;%\n          mutate(isna = is.finite(!!sym(vari))) %&gt;%\n          group_by(isna) %&gt;%\n          group_split()\n        \n        out_na &lt;- gp[[1]] # DF with NAs\n        out_finite &lt;- gp[[2]] # DF without NAs\n        \n        d &lt;- st_nn(out_na, out_finite) %&gt;% # Get nearest neighbour\n          unlist()\n        \n        out_na &lt;- out_na %&gt;%\n          mutate(!!sym(vari) := pull(out_finite, !!sym(vari))[d])\n        \n        df &lt;- rbind(out_finite, out_na)\n        \n      }\n      return(df)\n    }"
+  },
+  {
+    "objectID": "06_climatePUs.html#read-extract-and-weighted-mean-interpolation",
+    "href": "06_climatePUs.html#read-extract-and-weighted-mean-interpolation",
+    "title": "6  Fronts (or any variable) by equal-size grid",
+    "section": "6.3 Read, Extract and weighted mean interpolation",
+    "text": "6.3 Read, Extract and weighted mean interpolation\n\n# Create the projection\n  proj.geo = \"+proj=robin +lon_0=0 +datum=WGS84 +units=m +no_defs\"\n# Reading equal grid file\n  shp_file &lt;- st_read(\"data/PUs_MZ_100km2.shp\") %&gt;% \n    st_transform(crs = terra::crs(proj.geo))\n# Read raster object\n  rs_file &lt;- rast(\"data/BOAonMUR_SWIO_Y2003-M1-D1.nc\")\n  crs(rs_file) &lt;- terra::crs(\"+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0\")\n  weight_rs &lt;- terra::cellSize(rs_file)\n  rs_file &lt;- terra::project(rs_file, y = terra::crs(proj.geo), method = \"near\")\n  weight_rs &lt;- terra::project(weight_rs, y = terra::crs(proj.geo), method = \"near\")\n# Getting value by polygon\n  rs_bypu &lt;- exact_extract(rs_file, \n                           shp_file, \n                           \"weighted_mean\", \n                           weights = weight_rs, \n                           append_cols = TRUE, \n                           full_colnames = TRUE)\n  rs_shp &lt;- dplyr::right_join(shp_file, rs_bypu, \"FID\")\n  colnames(rs_shp) &lt;- c(stringr::str_remove_all(string = names(rs_shp), pattern = \"weighted_mean.\"))"
+  },
+  {
+    "objectID": "06_climatePUs.html#run-replace-nas-with-nearest-neighbor.",
+    "href": "06_climatePUs.html#run-replace-nas-with-nearest-neighbor.",
+    "title": "6  Fronts (or any variable) by equal-size grid",
+    "section": "6.4 RUN: replace NAs with nearest neighbor.",
+    "text": "6.4 RUN: replace NAs with nearest neighbor.\n\nnms &lt;- names(rs_shp)\nnms &lt;- nms[nms != \"geometry\" & nms != \"FID\"]\n\nsingle &lt;- rs_shp %&gt;% \n  dplyr::select(FID, nms[1])\nrs_sfInt &lt;- fCheckNAs(df = single, vari = names(single)[2]) %&gt;% \n  as_tibble() %&gt;%\n  dplyr::arrange(FID) %&gt;%\n  dplyr::select(-FID, -geometry, -isna)\n\nsaveRDS(rs_sfInt, \"data/BOAonMUR_SWIO_Y2003-M1-D1.rds\")"
+  },
+  {
+    "objectID": "06_climatePUs.html#plot-the-output",
+    "href": "06_climatePUs.html#plot-the-output",
+    "title": "6  Fronts (or any variable) by equal-size grid",
+    "section": "6.5 Plot the output",
+    "text": "6.5 Plot the output\n\npus &lt;- st_read(\"data/PUs_MZ_100km2.shp\") %&gt;%\n  st_transform(crs = robin)\nsf1 &lt;- readRDS(\"data/BOAonMUR_SWIO_Y2003-M1-D1.rds\")\ndf1 &lt;- cbind(pus, sf1) %&gt;% \n  st_transform(crs = robin)\n\np1 &lt;- ggplot() +\n  geom_sf(data = df1, aes(fill = temp_gradient.area), colour = NA) +\n  geom_sf(data = world_sfRob, size = 0.05, fill = \"grey20\") +\n  theme_bw() +\n  theme(legend.title = element_text(angle = 0, size = rel(0.7)),\n        plot.title = element_text(face = \"plain\", size = 22, hjust = 0.5),\n        axis.text.x = element_text(size = rel(1), angle = 0),\n        axis.text.y = element_text(size = rel(1), angle = 0),\n        axis.title = element_blank()) +\n  scale_fill_distiller(palette = \"Spectral\",\n                       limits = c(min(df1$temp_gradient.area), max(df1$temp_gradient.area)),\n                       direction = -1,\n                       oob = scales::squish,\n                       guide = guide_colourbar(title.position = \"top\", title = \"thermal gradient fronts\"))"
+  }
+]

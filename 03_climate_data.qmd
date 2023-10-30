@@ -1,0 +1,81 @@
+# Getting Started with Front/Climate Data
+
+The intention with this information and scripts is to provide a basic understanding of how you can use **CDO** to speed-up your **netCDF** file data manipulation. [More info go directly to the Max Planck Institute CDO website](https://code.mpimet.mpg.de/projects/cdo/)
+
+## Installation Process
+
+### **MacOS**
+
+Follow the instruction and downloaded **MacPorts**. **MacPorts** is an open-source community initiative to design an easy-to-use system for compiling, installing, and upgrading the command-line on the Mac operating system.
+
+[MacPorts website](https://www.macports.org/index.php) [MacPorts download](https://www.macports.org/install.php)
+
+After the installation (if you have admin rights) open the terminal and type:
+
+`port install cdo`
+
+If you don't have admin rights, open the terminal and type:
+
+`sudo port install cdo` and write your password
+
+### **Windows 10**
+
+In the current windows 10 version(s) Microsoft includes an Ubuntu 16.04 LTS embedded Linux. This environment offers a clean integration with the windows file systems and and the opportunity to install CDO via the native package manager of Ubuntu.
+
+Install the Ubuntu app from the Microsoft Store application. Then open the Ubuntu terminal and type:
+
+`sudo apt-get install cdo` and write your password
+
+### **Linux**
+
+For Linux go to: [Linux](https://code.mpimet.mpg.de/projects/cdo/wiki/Linux_Platform)
+
+## Ncview: a netCDF visual browser
+
+Ncview is quick visual browser that allows you to explore **netCDF** files very easily: `ncview`. `ncview` is an easy to use netCDF file viewer for **linux** and **OS X**. It can read any netCDF file.
+
+To install **ncview**, open the terminal and type:
+
+-   **OS X**: `port install ncview`
+-   **Linux**: `sudo apt-get install ncview`
+
+## Working with CDO and ncview
+
+To work with **CDO** and **ncview** you will need to use the terminal command line. Open the **Ubuntu app** in Windows and the **Terminal** on OS X. Let's check a folder in your desktop:
+
+In your command line type:
+
+-   `cd OceanFrontsChange_Workshop2023/data/` (this will establish *data* as your primary directory)
+
+If your are using Windows your desktop path should be located at `/mnt/c/`.
+
+Because you have setting `OceanFrontsChange_Workshop2023/data/` as your directory in the terminal, we can use *ncview* to get a quick view of the front data
+
+-   type `ls -l` to see if the front data is in your directory.
+-   to view the model with ncview, in the terminal type `ncview BOAonMUR_SWIO_Y2003-M1-D1.nc`.
+
+We can check the file details using cdo. In the terminal type:
+
+-   `cdo -sinfov BOAonMUR_SWIO_Y2003-M1-D1.nc`
+
+The model details are:
+
+-   Variable: temp_gradient
+-   Horizontal component: resolution 5001x3001
+-   Vertical component: 1 level (i.e., depth)
+-   Time component: 1 steps
+
+## CDO extra functions
+
+There are several things that you can explore. Some interesting functions that I've used a lot are:
+
+-   `cdo -yearmean` calculates the *annual mean* of a monthly data input **netCDF** file
+-   `cdo -yearmin` calculates the *annual min* of a monthly data input **netCDF** file
+-   `cdo -yearmax` calculates the *annual max* of a monthly data input **netCDF** file
+-   `cdo -ensmean` calculates the *ensemble mean* of several **netCDF** files. If your input files are different models, this function will estimate a mean of all those models
+-   `cdo -vertmean` calculates the vertical mean for **netCDF** with olevel (i.e., depth)
+-   `cdo -mergetime` merge all the **netCDF** files in your directory
+
+To use those argument remember just type in the terminal:
+
+-   cdo **-\[function\]** *input_file* *output_file*

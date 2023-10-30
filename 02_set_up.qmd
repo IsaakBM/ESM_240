@@ -1,0 +1,36 @@
+# Setting up your computer {#setup}
+
+You will need to have both R and RStudio installed on your computer to complete this workshop. Although it is not imperative that you have the latest version of RStudio installed, **you will need to have at least version 4.0 of R installed** . Please note that you might need administrative permissions to install these programs. After installing them, you will also need to install some R packages too. Finally, you will also need to download the data for this workshop.
+
+## R {#r}
+
+The [R statistical computing environment](https://www.r-project.org) can be downloaded from the Comprehensive R Archive Network (CRAN). Specifically, you can download the latest version of R (version `r as.character(getRversion())`) from here: https://cloud.r-project.org. Please note that you will need to download the correct file for your operating system (i.e. Linux, Mac OSX, Windows).
+
+## RStudio {#rstudio}
+
+[RStudio](https://www.rstudio.com) is an integrated development environment (IDE). In other words, it is a program that is designed to make your R programming experience more enjoyable. During this workshop, you will interact with R through RStudio---meaning that you will open RStudio to code in R. You can download the latest version of RStudio here: http://www.rstudio.com/download. When you start RStudio, you will see two main parts of the interface:
+
+```{r, out.width = "100%", echo = FALSE}
+  knitr::include_graphics("images/rstudio-console.png")
+```
+
+You can type R code into the *Console* and press the enter key to run code.
+
+## R packages {#r-packages}
+
+An R package is a collection of R code and documentation that can be installed to enhance the standard R environment with additional functionality. Currently, there are over fifteen thousand R packages available on CRAN. Each of these R packages are developed to perform a specific task, such as [reading Excel spreadsheets](https://cran.r-project.org/web/packages/readxl/index.html), [downloading satellite imagery data](https://cran.r-project.org/web/packages/MODIStsp/index.html), [downloading and cleaning protected area data](https://cran.r-project.org/web/packages/wdpar/index.html), or [fitting environmental niche models](https://cran.r-project.org/web/packages/ENMeval/index.html). In fact, R has such a diverse ecosystem of R packages, that the question is almost always not "can I use R to ...?" but "what R package can I use to ...?". During this workshop, we will use several R packages. To install these R packages, please enter the code below in the *Console* part of the RStudio interface and press enter. Note that you will require an Internet connection and the installation process may take some time to complete.
+
+```{r, eval = FALSE}
+install.packages(c("sf", "terra", "dplyr", "sp", "rgeos", "rgdal", "raster",
+                   "units", "tidyr", "stringr", "readr", "transformr", "data.table",
+                   "ggplot2", "RColorBrewer", "rnaturalearth", "rnaturalearthdata",
+                   "ggtext", "lwgeom", "patchwork", "gganimate", "animation"))
+
+# Optional packages
+  # library(ncdf4)
+  # library(ncdf4.helpers)
+  # library(PCICt)
+  # library(magrittr)
+  # library(exactextractr)
+  # library(nngeo)
+```

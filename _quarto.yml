@@ -1,0 +1,28 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "ESM_240"
+  author: "Isaac Brito-Morales"
+  date: "10/30/2023"
+  chapters:
+    - index.qmd
+    - 01_preparation.qmd
+    - 02_set_up.qmd
+    - 03_climate_data.qmd
+    - 04_ncRaster.qmd
+    - 05_equalGrid.qmd
+    - 06_climatePUs.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

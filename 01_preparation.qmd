@@ -1,0 +1,17 @@
+# Welcome!
+
+Welcome to the Ocean Fronts Change Megafauna Workshop! This workshop is specifically designed to assist you in getting started with ocean fronts and megafauna data analysis using R.
+
+Please note that the objective of this workshop is not to provide a comprehensive overview that would make you an expert in this field. Rather, our goal is to help you grasp the core principles underlying the relationships between ocean fronts and megafauna, and to guide you through some of the common tasks involved in analyzing and interpreting such data.
+
+The workshop will run 9-3 pm (South African Time) on Tuesday 25th, Wednesday 26th and Thursday 27 July 2023.
+
+```{r, out.width = "100%", echo = FALSE}
+  knitr::include_graphics("images/NMz_weighted_100km2_v02_Intbugfx.png")
+```
+
+## Open Science: [NCEAS](https://www.nceas.ucsb.edu/our-approach)
+
+With this material, we are following the [NCEAS](https://www.nceas.ucsb.edu/our-approach) data approach to make research more transparent and reproducible, which enhances the credibility, utility, and accuracy of the science used to solve global challenges.
+
+Open science is the philosophy and practice of making data and methods accessible, replicable, and free to use, typically through computer programming tools and techniques. It helps researchers compile and analyze data more efficiently and identify solutions more quickly.

@@ -1,0 +1,88 @@
+# netCDF files in R: Raster, Spatial objects
+
+The aim of this tutorial is to provide a worked example (i.e., a function) of how to transform a regridded **netCDF** into a Raster object using R.
+
+## Data import
+
+Load the required packages.
+
+```{r, message = FALSE, warning = FALSE, out.width = "40%", eval = FALSE}
+
+install.packages(c("terra", "ncdf4", "ncdf4.helpers", "PCICt", 
+                   "dplyr", "magrittr"))
+
+# load packages
+library(terra)
+library(ncdf4)
+library(ncdf4.helpers)
+library(PCICt)
+library(dplyr)
+library(magrittr)
+
+# # List of pacakges that we will use
+#   list.of.packages <- c("raster", "data.table", "dplyr", "foreach", "doParallel", "ggplot2", "magrittr", "sf", "tidyselect")
+# # If is not installed, install the pacakge
+#   new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+#       if(length(new.packages)) install.packages(new.packages)
+# # Load packages
+#   lapply(list.of.packages, require, character.only = TRUE)
+
+```
+
+## Function to transform netCDF files into Raster objects
+
+You can read netCDF using `raster::stack` or the `terra::rast` functions from the `raster` and `terra` packages. However, this code allows more control over the outputs.
+
+```{r, eval = FALSE, out.width = "40%", eval = FALSE}
+# NO GUARANTEES THAT CODE IS CORRECT
+# Caveat Emptor! (Latin for "Let the buyer beware")
+  
+# Define generalities 
+  nc = "data/BOAonMUR_SWIO_Y2003-M1-D1.nc"
+  v = "temp_gradient" 
+  x = "lon"
+  y = "lat"
+
+  nc <- ncdf4::nc_open(nc)
+  dat <- ncdf4::ncvar_get(nc, v) # x, y, year
+  dat[] <- dat
+  rlon <- ncdf4::ncvar_get(nc, varid = x) %>% 
+    range()
+  rlat <- ncdf4::ncvar_get(nc, varid = y) %>% 
+    range()
+  X <- dim(dat)[1] # nolint
+  Y <- dim(dat)[2] # nolint
+  tt <- ncdf4.helpers::nc.get.time.series(nc,
+                                          v = "time",
+                                          time.dim.name = "time")
+  tt <- as.POSIXct(tt)
+  tt <- as.Date(tt)
+  ncdf4::nc_close(nc)
+# Make a raster with the right dims to fill with lat&lon
+  rs <- terra::rast(nrow = Y, ncol = X, extent = terra::ext(c(rlon, rlat)))
+  # Fix orientation of original data
+  # [and then create a raster with this fix orientation]
+    drs <- terra::xyFromCell(rs, 1:terra::ncell(rs)) %>%
+      as_tibble()
+  # Create raster stacks of depths for every month
+    rs_list <- list() # to allocate results # nolint
+    st <- terra::rast()
+    for (i in 1:length(tt)) { # nolint
+      dt1 <- dplyr::bind_cols(drs,
+                              as.vector(dat[])) %>% # actually no need to loop but if you have more than just one year would be dat[, , i] , which is == X, Y, TIME
+        magrittr::set_colnames(c("x", "y", v))
+      dt1 <- terra::rast(dt1, type = "xyz")
+      names(dt1) <- tt[i]
+      st <- c(st, terra::flip(dt1))
+      print(paste0(tt[i], " of ", length(tt)))
+    }
+    
+```
+
+Crop/Manipulate and project
+
+```{r, eval = FALSE, out.width = "40%", eval = FALSE}
+# The Mozambique Channel
+  st <- terra::crop(st, terra::ext(c(30, 75, -35, -7)))
+  terra::crs(st) <- "+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0"
+```
