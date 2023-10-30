@@ -1,9 +1,27 @@
 # Preface {.unnumbered}
 
-This is a Quarto book.
+All the code was written by Isaac Brito-Morales (ibrito\@conservation.org)
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+Please do not distribute this code without permission
 
-```{r}
-1 + 1
+NO GUARANTEES THAT CODE IS CORRECT
+
+Caveat Emptor!
+
+# Acknowledgements
+
+Big shoutout and a massive high-five to my mentors (and collaborators) – you've been the real MVPs, guiding me through the wild maze of science with a flashlight and some hilarious jokes! And here they are:
+
+- Anthony Richardson
+- David Schoeman
+- Michael Burrows
+- Jorge García Molinos
+- Carissa Klein
+- Daniel Dunn
+- Jason Everett
+- Hugh Possingham
+- Lee Hannah
+
+```{r, out.width = "100%", echo = FALSE}
+  knitr::include_graphics("images/NCC_cover.JPG")
 ```

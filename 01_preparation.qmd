@@ -1,13 +1,11 @@
 # Welcome!
 
-Welcome to the Ocean Fronts Change Megafauna Workshop! This workshop is specifically designed to assist you in getting started with ocean fronts and megafauna data analysis using R.
+Welcome to week 4 of ESM240! This eBook is crafted to help you dive into climate-smart marine conservation (and climate models) using R.
 
-Please note that the objective of this workshop is not to provide a comprehensive overview that would make you an expert in this field. Rather, our goal is to help you grasp the core principles underlying the relationships between ocean fronts and megafauna, and to guide you through some of the common tasks involved in analyzing and interpreting such data.
-
-The workshop will run 9-3 pm (South African Time) on Tuesday 25th, Wednesday 26th and Thursday 27 July 2023.
+It's important to note that this eBook doesn't aim to offer a comprehensive overview that would transform you into an expert in this field. Instead, our objective is to ensure you understand the fundamental principles and assist you in navigating the common tasks associated with analyzing and interpreting this kind of data.
 
 ```{r, out.width = "100%", echo = FALSE}
-  knitr::include_graphics("images/NMz_weighted_100km2_v02_Intbugfx.png")
+  knitr::include_graphics("images/41893_2020_513_Fig4_HTML.jpg")
 ```
 
 ## Open Science: [NCEAS](https://www.nceas.ucsb.edu/our-approach)

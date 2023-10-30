@@ -1,4 +1,4 @@
-# Getting Started with Front/Climate Data
+# Getting Started with Climate Data
 
 The intention with this information and scripts is to provide a basic understanding of how you can use **CDO** to speed-up your **netCDF** file data manipulation. [More info go directly to the Max Planck Institute CDO website](https://code.mpimet.mpg.de/projects/cdo/)
 
