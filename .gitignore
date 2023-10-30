@@ -1,0 +1,13 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+_site
+_site-ja
+working
+*_cache
+locale
+_locale
+
+**/.DS_Store
+/.quarto/
