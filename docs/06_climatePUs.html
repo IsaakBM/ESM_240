@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ESM240 Week 4: Climate-smart marine conservation - 6&nbsp; Fronts (or any variable) by equal-size grid</title>
+<title>ESM240 Week 4: Climate-smart marine conservation - 6&nbsp; Variable by equal-size grid</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06_climatePUs.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Fronts (or any variable) by equal-size grid</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06_climatePUs.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Variable by equal-size grid</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -187,13 +187,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05_equalGrid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Equal-area grid for your area of interest.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Equal-area grid for your area of interest</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06_climatePUs.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Fronts (or any variable) by equal-size grid</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Variable by equal-size grid</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -231,7 +231,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Fronts (or any variable) by equal-size grid</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Variable by equal-size grid</span></h1>
 </div>
 
 
@@ -295,20 +295,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  shp_file <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"data/PUs_MZ_100km2.shp"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">st_transform</span>(<span class="at">crs =</span> terra<span class="sc">::</span><span class="fu">crs</span>(proj.geo))</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Read raster object</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  rs_file <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"data/BOAonMUR_SWIO_Y2003-M1-D1.nc"</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">crs</span>(rs_file) <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">crs</span>(<span class="st">"+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0"</span>)</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  weight_rs <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">cellSize</span>(rs_file)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  rs_file <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">project</span>(rs_file, <span class="at">y =</span> terra<span class="sc">::</span><span class="fu">crs</span>(proj.geo), <span class="at">method =</span> <span class="st">"near"</span>)</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  weight_rs <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">project</span>(weight_rs, <span class="at">y =</span> terra<span class="sc">::</span><span class="fu">crs</span>(proj.geo), <span class="at">method =</span> <span class="st">"near"</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting value by polygon</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  rs_bypu <span class="ot">&lt;-</span> <span class="fu">exact_extract</span>(rs_file, </span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                           shp_file, </span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"weighted_mean"</span>, </span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>                           <span class="at">weights =</span> weight_rs, </span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>                           <span class="at">append_cols =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>                           <span class="at">full_colnames =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  rs_shp <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">right_join</span>(shp_file, rs_bypu, <span class="st">"FID"</span>)</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(rs_shp) <span class="ot">&lt;-</span> <span class="fu">c</span>(stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(<span class="at">string =</span> <span class="fu">names</span>(rs_shp), <span class="at">pattern =</span> <span class="st">"weighted_mean."</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  rs_file <span class="ot">&lt;-</span> <span class="fu">rast</span>(<span class="st">"data/tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.tif"</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  rs_file <span class="ot">&lt;-</span> <span class="fu">subset</span>(rs_file, <span class="dv">1</span>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">crs</span>(rs_file) <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">crs</span>(<span class="st">"+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0"</span>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  weight_rs <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">cellSize</span>(rs_file)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  rs_file <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">project</span>(rs_file, <span class="at">y =</span> terra<span class="sc">::</span><span class="fu">crs</span>(proj.geo), <span class="at">method =</span> <span class="st">"near"</span>)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  weight_rs <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">project</span>(weight_rs, <span class="at">y =</span> terra<span class="sc">::</span><span class="fu">crs</span>(proj.geo), <span class="at">method =</span> <span class="st">"near"</span>)</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Getting value by polygon</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  rs_bypu <span class="ot">&lt;-</span> <span class="fu">exact_extract</span>(rs_file, </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>                           shp_file, </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"weighted_mean"</span>, </span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>                           <span class="at">weights =</span> weight_rs, </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>                           <span class="at">append_cols =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>                           <span class="at">full_colnames =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  rs_shp <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">right_join</span>(shp_file, rs_bypu, <span class="st">"FID"</span>)</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">colnames</span>(rs_shp) <span class="ot">&lt;-</span> <span class="fu">c</span>(stringr<span class="sc">::</span><span class="fu">str_remove_all</span>(<span class="at">string =</span> <span class="fu">names</span>(rs_shp), <span class="at">pattern =</span> <span class="st">"weighted_mean."</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="run-replace-nas-with-nearest-neighbor." class="level2" data-number="6.4">
@@ -324,7 +325,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">arrange</span>(FID) <span class="sc">%&gt;%</span></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>FID, <span class="sc">-</span>geometry, <span class="sc">-</span>isna)</span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(rs_sfInt, <span class="st">"data/BOAonMUR_SWIO_Y2003-M1-D1.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(rs_sfInt, <span class="st">"data/tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.rds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="plot-the-output" class="level2" data-number="6.5">
@@ -592,7 +593,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./05_equalGrid.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Equal-area grid for your area of interest.</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Equal-area grid for your area of interest</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
