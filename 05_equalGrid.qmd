@@ -1,4 +1,4 @@
-# Equal-area grid for your area of interest.
+# Equal-area grid for your area of interest
 
 ## Data import
 
