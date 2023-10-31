@@ -187,13 +187,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05_equalGrid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Equal-area grid for your area of interest.</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Equal-area grid for your area of interest</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./06_climatePUs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Fronts (or any variable) by equal-size grid</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Variable by equal-size grid</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -220,6 +220,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#data-import" id="toc-data-import" class="nav-link active" data-scroll-target="#data-import"><span class="header-section-number">4.1</span> Data import</a></li>
   <li><a href="#function-to-transform-netcdf-files-into-raster-objects" id="toc-function-to-transform-netcdf-files-into-raster-objects" class="nav-link" data-scroll-target="#function-to-transform-netcdf-files-into-raster-objects"><span class="header-section-number">4.2</span> Function to transform netCDF files into Raster objects</a></li>
+  <li><a href="#cropmanipulate-and-project" id="toc-cropmanipulate-and-project" class="nav-link" data-scroll-target="#cropmanipulate-and-project"><span class="header-section-number">4.3</span> Crop/Manipulate and project</a></li>
+  <li><a href="#save-the-raster-file" id="toc-save-the-raster-file" class="nav-link" data-scroll-target="#save-the-raster-file"><span class="header-section-number">4.4</span> Save the Raster file</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/IsaakBM/ESM_240/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -315,13 +317,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(<span class="fu">paste0</span>(tt[i], <span class="st">" of "</span>, <span class="fu">length</span>(tt)))</span>
 <span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Crop/Manipulate and project</p>
+</section>
+<section id="cropmanipulate-and-project" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="cropmanipulate-and-project"><span class="header-section-number">4.3</span> Crop/Manipulate and project</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The Mozambique Channel</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  st <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">crop</span>(st, terra<span class="sc">::</span><span class="fu">ext</span>(<span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">75</span>, <span class="sc">-</span><span class="dv">35</span>, <span class="sc">-</span><span class="dv">7</span>)))</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  terra<span class="sc">::</span><span class="fu">crs</span>(st) <span class="ot">&lt;-</span> <span class="st">"+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0"</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># One plot to check</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(st, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="save-the-raster-file" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="save-the-raster-file"><span class="header-section-number">4.4</span> Save the Raster file</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Writing Raster</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  terra<span class="sc">::</span><span class="fu">writeRaster</span>(st,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.tif"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">overwrite =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">filetype =</span> <span class="st">"GTiff"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
@@ -569,7 +583,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./05_equalGrid.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Equal-area grid for your area of interest.</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Equal-area grid for your area of interest</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
