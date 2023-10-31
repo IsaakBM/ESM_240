@@ -23,6 +23,7 @@ book:
     - 05_ncRaster.qmd
     - 06_equalGrid.qmd
     - 07_climatePUs.qmd
+    - 08_CCMetrics.qmd
     - references.qmd
 
 bibliography: references.bib

@@ -98,4 +98,3 @@ You can read netCDF using `raster::stack` or the `terra::rast` functions from th
                      overwrite = TRUE,
                      filetype = "GTiff")
 ```
-

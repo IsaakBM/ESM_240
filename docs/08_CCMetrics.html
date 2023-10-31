@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ESM240 Week 4: Climate-smart marine conservation - 5&nbsp; netCDF files in R: Raster, Spatial objects</title>
+<title>ESM240 Week 4: Climate-smart marine conservation - 8&nbsp; Climate Change Metrics</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,7 +54,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -64,8 +83,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./06_equalGrid.html" rel="next">
-<link href="./04_climate_data.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./07_climatePUs.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -108,7 +127,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05_ncRaster.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">netCDF files in R: Raster, Spatial objects</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08_CCMetrics.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Climate Change Metrics</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -186,7 +205,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05_ncRaster.html" class="sidebar-item-text sidebar-link active">
+  <a href="./05_ncRaster.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">netCDF files in R: Raster, Spatial objects</span></span></a>
   </div>
 </li>
@@ -204,7 +223,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08_CCMetrics.html" class="sidebar-item-text sidebar-link">
+  <a href="./08_CCMetrics.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Climate Change Metrics</span></span></a>
   </div>
 </li>
@@ -224,10 +243,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#data-import" id="toc-data-import" class="nav-link active" data-scroll-target="#data-import"><span class="header-section-number">5.1</span> Data import</a></li>
-  <li><a href="#function-to-transform-netcdf-files-into-raster-objects" id="toc-function-to-transform-netcdf-files-into-raster-objects" class="nav-link" data-scroll-target="#function-to-transform-netcdf-files-into-raster-objects"><span class="header-section-number">5.2</span> Function to transform netCDF files into Raster objects</a></li>
-  <li><a href="#cropmanipulate-and-project" id="toc-cropmanipulate-and-project" class="nav-link" data-scroll-target="#cropmanipulate-and-project"><span class="header-section-number">5.3</span> Crop/Manipulate and project</a></li>
-  <li><a href="#save-the-raster-file" id="toc-save-the-raster-file" class="nav-link" data-scroll-target="#save-the-raster-file"><span class="header-section-number">5.4</span> Save the Raster file</a></li>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">8.1</span> Introduction</a></li>
+  <li><a href="#data-import" id="toc-data-import" class="nav-link" data-scroll-target="#data-import"><span class="header-section-number">8.2</span> Data import</a></li>
+  <li><a href="#climate-velocity-vocc" id="toc-climate-velocity-vocc" class="nav-link" data-scroll-target="#climate-velocity-vocc"><span class="header-section-number">8.3</span> Climate Velocity (VoCC)</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/IsaakBM/ESM_240/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -236,7 +254,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">netCDF files in R: Raster, Spatial objects</span></h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Climate Change Metrics</span></h1>
 </div>
 
 
@@ -251,100 +269,69 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>The aim of this tutorial is to provide a worked example (i.e., a function) of how to transform a regridded <strong>netCDF</strong> into a Raster object using R.</p>
-<section id="data-import" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="data-import"><span class="header-section-number">5.1</span> Data import</h2>
-<p>Load the required packages.</p>
+<section id="introduction" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">8.1</span> Introduction</h2>
+<p>The aim of this tutorial is to provide a worked example of how to calculate climate change metrics using CMIP6 models. The climate-change metrics used in this example are <strong>Climate Velocity</strong> <span class="citation" data-cites="burrows2011">(<a href="references.html#ref-burrows2011" role="doc-biblioref">Burrows et al. 2011</a>)</span> and a <strong>Relative Climate Exposure</strong> index <span class="citation" data-cites="brito-morales2022">(<a href="references.html#ref-brito-morales2022" role="doc-biblioref">Brito-Morales et al. 2022</a>)</span>.</p>
+<p>This dataset contains a raster-stack file in format <strong>.tif</strong> of monthly sea surface temperature (tos) for the GFDL-CM4 model under a SSP5-5.8 emission scenario. The model goes from 2015 until 2100.</p>
+</section>
+<section id="data-import" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="data-import"><span class="header-section-number">8.2</span> Data import</h2>
+<p>Load the required packages and the data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"terra"</span>, <span class="st">"ncdf4"</span>, <span class="st">"ncdf4.helpers"</span>, <span class="st">"PCICt"</span>, </span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                   <span class="st">"dplyr"</span>, <span class="st">"magrittr"</span>))</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(terra)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ncdf4)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ncdf4.helpers)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(PCICt)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(dplyr)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(magrittr)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># List of pacakges that we will use</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  list.of.packages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"terra"</span>, <span class="st">"ncdf4"</span>, <span class="st">"ncdf4.helpers"</span>, <span class="st">"PCICt"</span>, <span class="st">"dplyr"</span>, <span class="st">"magrittr"</span>)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># If is not installed, install the pacakge</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  new.packages <span class="ot">&lt;-</span> list.of.packages[<span class="sc">!</span>(list.of.packages <span class="sc">%in%</span> <span class="fu">installed.packages</span>()[,<span class="st">"Package"</span>])]</span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span>(<span class="fu">length</span>(new.packages)) <span class="fu">install.packages</span>(new.packages)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lapply</span>(list.of.packages, require, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(raster)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(VoCC)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(stringr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="function-to-transform-netcdf-files-into-raster-objects" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="function-to-transform-netcdf-files-into-raster-objects"><span class="header-section-number">5.2</span> Function to transform netCDF files into Raster objects</h2>
-<p>You can read netCDF using <code>raster::stack</code> or the <code>terra::rast</code> functions from the <code>raster</code> and <code>terra</code> packages. However, this code allows more control over the outputs.</p>
+<section id="climate-velocity-vocc" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="climate-velocity-vocc"><span class="header-section-number">8.3</span> Climate Velocity (VoCC)</h2>
+<p><em>Climate velocity</em> is a vector that describes the speed and direction that a point on a gridded map would need to move to remain static in climate space (e.g., to maintain an isoline of a given variable in a univariate environment) under climate change. From an ecological perspective, <em>climate velocity</em> can be conceptualized as the speed and direction in which a species would need to move to maintain its current climate conditions under climate change. For this reason, <em>climate velocity</em> can be considered to represent the potential exposure to climate change faced by a species if the climate moves beyond the physiological tolerance of a local population. See<span class="citation" data-cites="brito-morales2018">(<a href="references.html#ref-brito-morales2018" role="doc-biblioref">Brito-Morales et al. 2018</a>)</span>.</p>
+<p><a href="https://github.com/JorGarMol/VoCC">Install the R package: GitHub Repo</a></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># NO GUARANTEES THAT CODE IS CORRECT</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Caveat Emptor! (Latin for "Let the buyer beware")</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Define generalities </span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  nc <span class="ot">=</span> <span class="st">"data/tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.nc"</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  v <span class="ot">=</span> <span class="st">"tos"</span> </span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">=</span> <span class="st">"lon"</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">=</span> <span class="st">"lat"</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Working with netCDF file</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  nc <span class="ot">&lt;-</span> ncdf4<span class="sc">::</span><span class="fu">nc_open</span>(nc)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  dat <span class="ot">&lt;-</span> ncdf4<span class="sc">::</span><span class="fu">ncvar_get</span>(nc, v) <span class="co"># x, y, year</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  dat[] <span class="ot">&lt;-</span> dat</span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  rlon <span class="ot">&lt;-</span> ncdf4<span class="sc">::</span><span class="fu">ncvar_get</span>(nc, <span class="at">varid =</span> x) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">range</span>()</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  rlat <span class="ot">&lt;-</span> ncdf4<span class="sc">::</span><span class="fu">ncvar_get</span>(nc, <span class="at">varid =</span> y) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">range</span>()</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  X <span class="ot">&lt;-</span> <span class="fu">dim</span>(dat)[<span class="dv">1</span>] <span class="co"># nolint</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  Y <span class="ot">&lt;-</span> <span class="fu">dim</span>(dat)[<span class="dv">2</span>] <span class="co"># nolint</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  tt <span class="ot">&lt;-</span> ncdf4.helpers<span class="sc">::</span><span class="fu">nc.get.time.series</span>(nc,</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">v =</span> <span class="st">"time"</span>,</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">time.dim.name =</span> <span class="st">"time"</span>)</span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  tt <span class="ot">&lt;-</span> <span class="fu">as.POSIXct</span>(tt)</span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  tt <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(tt)</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  ncdf4<span class="sc">::</span><span class="fu">nc_close</span>(nc)</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a raster with the right dims to fill with lat&amp;lon</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  rs <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">rast</span>(<span class="at">nrow =</span> Y, <span class="at">ncol =</span> X, <span class="at">extent =</span> terra<span class="sc">::</span><span class="fu">ext</span>(<span class="fu">c</span>(rlon, rlat)))</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Fix orientation of original data</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="co"># [and then create a raster with this fix orientation]</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    drs <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">xyFromCell</span>(rs, <span class="dv">1</span><span class="sc">:</span>terra<span class="sc">::</span><span class="fu">ncell</span>(rs)) <span class="sc">%&gt;%</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as_tibble</span>()</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create raster stacks of depths for every month</span></span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    rs_list <span class="ot">&lt;-</span> <span class="fu">list</span>() <span class="co"># to allocate results # nolint</span></span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    st <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">rast</span>()</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(tt)) { <span class="co"># nolint</span></span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>      dt1 <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">bind_cols</span>(drs,</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>                              <span class="fu">as.vector</span>(dat[, , i])) <span class="sc">%&gt;%</span></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>        magrittr<span class="sc">::</span><span class="fu">set_colnames</span>(<span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>, v))</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>      dt1 <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">rast</span>(dt1, <span class="at">type =</span> <span class="st">"xyz"</span>)</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>      <span class="fu">names</span>(dt1) <span class="ot">&lt;-</span> tt[i]</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>      st <span class="ot">&lt;-</span> <span class="fu">c</span>(st, terra<span class="sc">::</span><span class="fu">flip</span>(dt1))</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>      <span class="fu">print</span>(<span class="fu">paste0</span>(tt[i], <span class="st">" of "</span>, <span class="fu">length</span>(tt)))</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    }</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="images/VoCC_01.png" class="img-fluid" style="width:100.0%"></p>
 </div>
-</section>
-<section id="cropmanipulate-and-project" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="cropmanipulate-and-project"><span class="header-section-number">5.3</span> Crop/Manipulate and project</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The Mozambique Channel</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  st <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">crop</span>(st, terra<span class="sc">::</span><span class="fu">ext</span>(<span class="fu">c</span>(<span class="dv">30</span>, <span class="dv">75</span>, <span class="sc">-</span><span class="dv">35</span>, <span class="sc">-</span><span class="dv">7</span>)))</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  terra<span class="sc">::</span><span class="fu">crs</span>(st) <span class="ot">&lt;-</span> <span class="st">"+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0"</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># One plot to check</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>(st, <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="save-the-raster-file" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="save-the-raster-file"><span class="header-section-number">5.4</span> Save the Raster file</h2>
+<p>To calculate <em>climate velocity</em> the R package <code>VoCC</code> provides a comprehensive collection of functions that calculate climate velocity and related metrics from their initial formulation to the latest developments. See <a href="https://besjournals.onlinelibrary.wiley.com/doi/full/10.1111/2041-210X.13295">Garcia Molinos et al.&nbsp;2019</a>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Writing Raster</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  terra<span class="sc">::</span><span class="fu">writeRaster</span>(st,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                     <span class="st">"tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.tif"</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">overwrite =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">filetype =</span> <span class="st">"GTiff"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="images/VoCC_02.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the monthly raster object</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  rs <span class="ot">&lt;-</span> terra<span class="sc">::</span><span class="fu">rast</span>(<span class="st">"data/tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.tif"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Establish the time period of interest (if applicable)</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  from <span class="ot">=</span> <span class="dv">2015</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  to <span class="ot">=</span> <span class="dv">2034</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># If Raster is monthly, get annual mean</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  index <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nlyr</span>(rs), <span class="at">each =</span> <span class="dv">12</span>, <span class="at">length.out =</span> <span class="fu">nlyr</span>(rs))</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  rs <span class="ot">&lt;-</span> raster<span class="sc">::</span><span class="fu">stackApply</span>(<span class="at">x =</span> raster<span class="sc">::</span><span class="fu">stack</span>(rs), <span class="at">indices =</span> index, <span class="at">fun =</span> mean)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate VoCC</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Temporal trend (slope)</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    slp <span class="ot">&lt;-</span> <span class="fu">tempTrend</span>(rs, <span class="at">th =</span> <span class="dv">10</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Spatial gradient (gradient)</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    grad <span class="ot">&lt;-</span> <span class="fu">spatGrad</span>(rs, <span class="at">th =</span> <span class="fl">0.0001</span>, <span class="at">projected =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># VoCC local gradient</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  vocc <span class="ot">&lt;-</span> <span class="fu">gVoCC</span>(slp, grad)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  vocc<span class="sc">$</span>voccMag[] <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(<span class="fu">is.infinite</span>(vocc<span class="sc">$</span>voccMag[]), <span class="cn">NA</span>, vocc<span class="sc">$</span>voccMag[]) <span class="co"># replace inf with NAs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-brito-morales2018" class="csl-entry" role="listitem">
+Brito-Morales, Isaac, Jorge García Molinos, David S. Schoeman, Michael T. Burrows, Elvira S. Poloczanska, Christopher J. Brown, Simon Ferrier, et al. 2018. <span>“Climate Velocity Can Inform Conservation in a Warming World.”</span> <em>Trends in Ecology &amp; Evolution</em> 33 (6): 441–57. <a href="https://doi.org/10.1016/j.tree.2018.03.009">https://doi.org/10.1016/j.tree.2018.03.009</a>.
+</div>
+<div id="ref-brito-morales2022" class="csl-entry" role="listitem">
+Brito-Morales, Isaac, David S. Schoeman, Jason D. Everett, Carissa J. Klein, Daniel C. Dunn, Jorge García Molinos, Michael T. Burrows, et al. 2022. <span>“Towards Climate-Smart, Three-Dimensional Protected Areas for Biodiversity Conservation in the High Seas.”</span> <em>Nature Climate Change</em>, April, 1–6. <a href="https://doi.org/10.1038/s41558-022-01323-7">https://doi.org/10.1038/s41558-022-01323-7</a>.
+</div>
+<div id="ref-burrows2011" class="csl-entry" role="listitem">
+Burrows, Michael T., David S. Schoeman, Lauren B. Buckley, Pippa Moore, Elvira S. Poloczanska, Keith M. Brander, Chris Brown, et al. 2011. <span>“The Pace of Shifting Climate in Marine and Terrestrial Ecosystems.”</span> <em>Science</em> 334 (6056): 652–55. <a href="https://doi.org/10.1126/science.1210288">https://doi.org/10.1126/science.1210288</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
@@ -583,13 +570,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./04_climate_data.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Started with Climate Data</span></span>
+      <a href="./07_climatePUs.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Variable by equal-size grid</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./06_equalGrid.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Equal-area grid for your area of interest</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
