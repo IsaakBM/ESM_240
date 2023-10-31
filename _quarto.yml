@@ -6,6 +6,14 @@ book:
   title: "ESM240 Week 4: Climate-smart marine conservation"
   author: "Isaac Brito-Morales"
   date: "10/30/2023"
+  sidebar:
+    style: docked
+    background: light
+  search: true
+  repo-url: https://github.com/IsaakBM/ESM_240
+  repo-actions: [issue]
+  downloads: [pdf]
+  sharing: [twitter, facebook]
   chapters:
     - index.qmd
     - 01_preparation.qmd
@@ -19,6 +27,9 @@ book:
 
 bibliography: references.bib
 
+comments:
+  hypothesis: true
+  
 format:
   html:
     theme: cosmo
@@ -26,4 +37,3 @@ format:
     documentclass: scrreprt
 
 editor: visual
-
