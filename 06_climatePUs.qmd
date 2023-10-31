@@ -1,4 +1,4 @@
-# Fronts (or any variable) by equal-size grid
+# Variable by equal-size grid
 
 ## Data import
 
@@ -53,7 +53,8 @@ This is just a generic function that uses `nngeo` R package. Feel free to used a
   shp_file <- st_read("data/PUs_MZ_100km2.shp") %>% 
     st_transform(crs = terra::crs(proj.geo))
 # Read raster object
-  rs_file <- rast("data/BOAonMUR_SWIO_Y2003-M1-D1.nc")
+  rs_file <- rast("data/tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.tif")
+  rs_file <- subset(rs_file, 1)
   crs(rs_file) <- terra::crs("+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0")
   weight_rs <- terra::cellSize(rs_file)
   rs_file <- terra::project(rs_file, y = terra::crs(proj.geo), method = "near")
@@ -82,7 +83,7 @@ rs_sfInt <- fCheckNAs(df = single, vari = names(single)[2]) %>%
   dplyr::arrange(FID) %>%
   dplyr::select(-FID, -geometry, -isna)
 
-saveRDS(rs_sfInt, "data/BOAonMUR_SWIO_Y2003-M1-D1.rds")
+saveRDS(rs_sfInt, "data/tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.rds")
 ```
 
 ## Plot the output
@@ -90,12 +91,12 @@ saveRDS(rs_sfInt, "data/BOAonMUR_SWIO_Y2003-M1-D1.rds")
 ```{r, eval = FALSE, out.width = "40%", eval = FALSE}
 pus <- st_read("data/PUs_MZ_100km2.shp") %>%
   st_transform(crs = robin)
-sf1 <- readRDS("data/BOAonMUR_SWIO_Y2003-M1-D1.rds")
+sf1 <- readRDS("data/tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.rds")
 df1 <- cbind(pus, sf1) %>% 
   st_transform(crs = robin)
 
 p1 <- ggplot() +
-  geom_sf(data = df1, aes(fill = temp_gradient.area), colour = NA) +
+  geom_sf(data = df1, aes(fill = X2015.01.16.area), colour = NA) +
   geom_sf(data = world_sfRob, size = 0.05, fill = "grey20") +
   theme_bw() +
   theme(legend.title = element_text(angle = 0, size = rel(0.7)),
@@ -104,8 +105,8 @@ p1 <- ggplot() +
         axis.text.y = element_text(size = rel(1), angle = 0),
         axis.title = element_blank()) +
   scale_fill_distiller(palette = "Spectral",
-                       limits = c(min(df1$temp_gradient.area), max(df1$temp_gradient.area)),
+                       limits = c(min(df1$X2015.01.16.area), max(df1$X2015.01.16.area)),
                        direction = -1,
                        oob = scales::squish,
-                       guide = guide_colourbar(title.position = "top", title = "thermal gradient fronts"))
+                       guide = guide_colourbar(title.position = "top", title = "Sea Surface\nTemperature"))
 ```
