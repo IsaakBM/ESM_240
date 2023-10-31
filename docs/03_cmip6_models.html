@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ESM240 Week 4: Climate-smart marine conservation - 1&nbsp; Welcome!</title>
+<title>ESM240 Week 4: Climate-smart marine conservation - 3&nbsp; CMIP6 models</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./02_set_up.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./04_climate_data.html" rel="next">
+<link href="./02_set_up.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_preparation.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Welcome!</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_cmip6_models.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">CMIP6 models</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -128,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_preparation.html" class="sidebar-item-text sidebar-link active">
+  <a href="./01_preparation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Welcome!</span></span></a>
   </div>
 </li>
@@ -140,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03_cmip6_models.html" class="sidebar-item-text sidebar-link">
+  <a href="./03_cmip6_models.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">CMIP6 models</span></span></a>
   </div>
 </li>
@@ -184,7 +184,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#open-science-nceas" id="toc-open-science-nceas" class="nav-link active" data-scroll-target="#open-science-nceas"><span class="header-section-number">1.1</span> Open Science: NCEAS</a></li>
+  <li><a href="#schematic-of-the-cmipcmip6-experimental-design" id="toc-schematic-of-the-cmipcmip6-experimental-design" class="nav-link active" data-scroll-target="#schematic-of-the-cmipcmip6-experimental-design"><span class="header-section-number">3.1</span> Schematic of the CMIP/CMIP6 experimental design</a>
+  <ul class="collapse">
+  <li><a href="#most-common-climate-scenarios" id="toc-most-common-climate-scenarios" class="nav-link" data-scroll-target="#most-common-climate-scenarios"><span class="header-section-number">3.1.1</span> Most common climate scenarios</a></li>
+  </ul></li>
+  <li><a href="#overview-of-ssps" id="toc-overview-of-ssps" class="nav-link" data-scroll-target="#overview-of-ssps"><span class="header-section-number">3.2</span> Overview of SSPs</a>
+  <ul class="collapse">
+  <li><a href="#how-to-download-cmip6-models" id="toc-how-to-download-cmip6-models" class="nav-link" data-scroll-target="#how-to-download-cmip6-models"><span class="header-section-number">3.2.1</span> How to download CMIP6 models</a></li>
+  </ul></li>
+  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables"><span class="header-section-number">3.3</span> Variables</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/IsaakBM/ESM_240/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -193,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Welcome!</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">CMIP6 models</span></h1>
 </div>
 
 
@@ -208,17 +216,67 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Welcome to week 4 of ESM240! This eBook is crafted to help you dive into climate-smart marine conservation (and climate models) using R.</p>
-<p>It’s important to note that this eBook doesn’t aim to offer a comprehensive overview that would transform you into an expert in this field. Instead, our objective is to ensure you understand the fundamental principles and assist you in navigating the common tasks associated with analyzing and interpreting this kind of data.</p>
+<p><strong>CMIP6</strong> stands for Coupled Model Intercomparison Project (CMIP). These are climate models that simulate the physics, chemistry and biology of the atmosphere in detail (some of them!). The 2013 IPCC fifth assessment report (AR5) featured climate models from CMIP5, while the upcoming 2021 IPCC sixth assessment report (AR6) will feature new state-of-the-art CMIP6 models (<a href="https://www.carbonbrief.org/cmip6-the-next-generation-of-climate-models-explained">more info in Carbon Brief website.</a>)</p>
+<p>The main goal is to set future climate scenarios based on <em>future</em> concentrations of <strong>greenhouse gases</strong>, <strong>aerosols</strong> and other <a href="https://www.carbonbrief.org/qa-how-do-climate-models-work#inout"><strong>climate forcings</strong></a> to project what might happen in the future.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="images/41893_2020_513_Fig4_HTML.jpg" class="img-fluid" style="width:100.0%"></p>
+<p><img src="images/cmip6_mips.jpg" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
-<section id="open-science-nceas" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="open-science-nceas"><span class="header-section-number">1.1</span> Open Science: <a href="https://www.nceas.ucsb.edu/our-approach">NCEAS</a></h2>
-<p>With this material, we are following the <a href="https://www.nceas.ucsb.edu/our-approach">NCEAS</a> data approach to make research more transparent and reproducible, which enhances the credibility, utility, and accuracy of the science used to solve global challenges.</p>
-<p>Open science is the philosophy and practice of making data and methods accessible, replicable, and free to use, typically through computer programming tools and techniques. It helps researchers compile and analyze data more efficiently and identify solutions more quickly.</p>
+<section id="schematic-of-the-cmipcmip6-experimental-design" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="schematic-of-the-cmipcmip6-experimental-design"><span class="header-section-number">3.1</span> Schematic of the CMIP/CMIP6 experimental design</h2>
+<section id="most-common-climate-scenarios" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="most-common-climate-scenarios"><span class="header-section-number">3.1.1</span> Most common climate scenarios</h3>
+<p>From CMIP5 version you will find those as RCPs (Representative Concentration Pathways) but for the new CMIP6 version they are called SSPs (Shared Socio‐Economic Pathways).</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="images/ssps.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="overview-of-ssps" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="overview-of-ssps"><span class="header-section-number">3.2</span> Overview of SSPs</h2>
+<p><strong>Most commonly SSPs used</strong>:</p>
+<ul>
+<li>SSP1-2.6: An optimistic scenario, characterised by a shift to a more sustainable economy and reduction in inequality resulting in a peak in radiative forcing of ~3 W m-2 before 2100</li>
+<li>SSP2-4.5: An intermediate scenario, with a stabilisation of radiative forcing levels at ~4.5 W m-2 by 2100</li>
+<li>SSP5-8.5: Characterised by a continued increase of greenhouse gas emissions resulting from a fossil-fuel-based economy and increased energy demand, with a radiative forcing &gt;8.5 W m-2 by 2100</li>
+</ul>
+<section id="how-to-download-cmip6-models" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="how-to-download-cmip6-models"><span class="header-section-number">3.2.1</span> How to download CMIP6 models</h3>
+<p>CMIP6 models are free available at the <a href="https://esgf.llnl.gov/"><strong>Earth System Grid Federation</strong></a> website. You will need an account to download models. <a href="https://esgf.github.io/esgf-user-support/user_guide.html"><strong>Check this tutorial</strong></a> of how to create an account.</p>
+<p>Through the website:</p>
+<ul>
+<li>Click <a href="https://esgf.llnl.gov/">here</a> to open the ESGF website</li>
+<li>Go to the <em>Nodes</em> tab to explore the different ESGF-CoG nodes</li>
+<li>Click the <a href="https://esgf.nci.org.au/projects/esgf-nci/">NCI</a> link, the Australia National Computational Infrastructure node</li>
+</ul>
+<p>Select a <a href="https://esgf.nci.org.au/projects/esgf-nci/">NCI</a> node, go to collection and then <a href="https://esgf.nci.org.au/search/cmip6-nci/">CMIP6</a> link. This is the main website to download CMIP6 models. At your left you have several filters that you can play with, my advice is filter first for variable.</p>
+</section>
+</section>
+<section id="variables" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="variables"><span class="header-section-number">3.3</span> Variables</h2>
+<p>There are a range of variables available from the GCM (General Circulation Model) outputs. Each tab has different model variable on different time scales. The tabs are in alphabetical order. The ones starting with “O” are for Ocean, and then followed by the timescale (clim = climatology, day, dec = decade, mon = month, yr) (source: <a href="https://mathmarecol.github.io/Welcome/">Mathematical Marine Ecology Welcome Book Chapter 9</a>).</p>
+<p>From the left tab:</p>
+<ul>
+<li>click the <strong>+</strong> in the <strong>variable</strong> option. Select <strong>tos</strong> (ocean temperature on surface). Then click <strong>Search</strong></li>
+<li>click the <strong>+</strong> in the <strong>Realm</strong> option. Select <strong>ocean</strong> and <strong>ocnBgChem</strong>. Then click <strong>Search</strong></li>
+<li>click the <strong>+</strong> in the <strong>Frequency</strong> option. Select <strong>mon</strong>. Then click <strong>Search</strong></li>
+<li>click the <strong>+</strong> in the <strong>Variant Label</strong> option. Select <strong>r1i1p1f1</strong> (this is the most common ensemble). Then click <strong>Search</strong></li>
+</ul>
+<p>The ensemble names “r1i1p1”, “r2i1p1”, etc. in <strong>Variant Label</strong> indicate that the ensemble members differ only in their initial conditions (the model physics are the same for all ensemble members, but the members were initialized from different initial conditions out of the control simulation). Hence, the differences between the ensemble members represent internal variability.</p>
+<ul>
+<li>click the <strong>+</strong> in the <strong>Experiment ID</strong> option. In this option you will see every single <em>Experiment/Simulation</em>. For example, <strong>G1/G6/G7</strong> are the geoengineering climate scenarios. Go to the bottom of the <strong>Experiment ID</strong> tab and click <strong>ssp126</strong>. Then click <strong>Search</strong></li>
+<li>click the <strong>+</strong> in the <strong>Source ID</strong> option for the full model list and their Institution ID. Let’s click on <strong>ACCESS-CM2</strong> model from the CSIRO. Then click <strong>Search</strong></li>
+</ul>
+<p>If you have follow the previous steps you should get a tab result similar to this:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="images/model_example_tab.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+<p>To download the model, just click on the <strong>List Files</strong> tab and then select <strong>HTTP Download</strong></p>
 
 
 </section>
@@ -459,13 +517,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="./02_set_up.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setting up your computer</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02_set_up.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setting up your computer</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./04_climate_data.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Started with Climate Data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

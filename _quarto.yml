@@ -18,11 +18,11 @@ book:
     - index.qmd
     - 01_preparation.qmd
     - 02_set_up.qmd
-    - 03_climate_data.qmd
-    - 04_ncRaster.qmd
-    - 05_equalGrid.qmd
-    - 06_climatePUs.qmd
-    - 07_cmip6_models.qmd
+    - 03_cmip6_models.qmd
+    - 04_climate_data.qmd
+    - 05_ncRaster.qmd
+    - 06_equalGrid.qmd
+    - 07_climatePUs.qmd
     - references.qmd
 
 bibliography: references.bib

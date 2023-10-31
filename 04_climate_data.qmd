@@ -45,25 +45,25 @@ To work with **CDO** and **ncview** you will need to use the terminal command li
 
 In your command line type:
 
--   `cd OceanFrontsChange_Workshop2023/data/` (this will establish *data* as your primary directory)
+-   `cd ESM_240/data/` (this will establish *data* as your primary directory)
 
 If your are using Windows your desktop path should be located at `/mnt/c/`.
 
-Because you have setting `OceanFrontsChange_Workshop2023/data/` as your directory in the terminal, we can use *ncview* to get a quick view of the front data
+Because you have setting `ESM_240/data/` as your directory in the terminal, we can use *ncview* to get a quick view of the front data
 
 -   type `ls -l` to see if the front data is in your directory.
--   to view the model with ncview, in the terminal type `ncview BOAonMUR_SWIO_Y2003-M1-D1.nc`.
+-   to view the model with ncview, in the terminal type `ncview tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.nc`.
 
 We can check the file details using cdo. In the terminal type:
 
--   `cdo -sinfov BOAonMUR_SWIO_Y2003-M1-D1.nc`
+-   `cdo -sinfov tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.nc`
 
 The model details are:
 
--   Variable: temp_gradient
--   Horizontal component: resolution 5001x3001
--   Vertical component: 1 level (i.e., depth)
--   Time component: 1 steps
+-   Variable: tos (sea surface temperature)
+-   Horizontal component: resolution 360x180
+-   Vertical component: 1 level (i.e., surface)
+-   Time component: 240 steps
 
 ## CDO extra functions
 

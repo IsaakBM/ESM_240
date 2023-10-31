@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>ESM240 Week 4: Climate-smart marine conservation - 1&nbsp; Welcome!</title>
+<title>ESM240 Week 4: Climate-smart marine conservation - 4&nbsp; Getting Started with Climate Data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./02_set_up.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./05_ncRaster.html" rel="next">
+<link href="./03_cmip6_models.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01_preparation.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Welcome!</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04_climate_data.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Started with Climate Data</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -128,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01_preparation.html" class="sidebar-item-text sidebar-link active">
+  <a href="./01_preparation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Welcome!</span></span></a>
   </div>
 </li>
@@ -146,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04_climate_data.html" class="sidebar-item-text sidebar-link">
+  <a href="./04_climate_data.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Started with Climate Data</span></span></a>
   </div>
 </li>
@@ -184,7 +184,15 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#open-science-nceas" id="toc-open-science-nceas" class="nav-link active" data-scroll-target="#open-science-nceas"><span class="header-section-number">1.1</span> Open Science: NCEAS</a></li>
+  <li><a href="#installation-process" id="toc-installation-process" class="nav-link active" data-scroll-target="#installation-process"><span class="header-section-number">4.1</span> Installation Process</a>
+  <ul class="collapse">
+  <li><a href="#macos" id="toc-macos" class="nav-link" data-scroll-target="#macos"><span class="header-section-number">4.1.1</span> <strong>MacOS</strong></a></li>
+  <li><a href="#windows-10" id="toc-windows-10" class="nav-link" data-scroll-target="#windows-10"><span class="header-section-number">4.1.2</span> <strong>Windows 10</strong></a></li>
+  <li><a href="#linux" id="toc-linux" class="nav-link" data-scroll-target="#linux"><span class="header-section-number">4.1.3</span> <strong>Linux</strong></a></li>
+  </ul></li>
+  <li><a href="#ncview-a-netcdf-visual-browser" id="toc-ncview-a-netcdf-visual-browser" class="nav-link" data-scroll-target="#ncview-a-netcdf-visual-browser"><span class="header-section-number">4.2</span> Ncview: a netCDF visual browser</a></li>
+  <li><a href="#working-with-cdo-and-ncview" id="toc-working-with-cdo-and-ncview" class="nav-link" data-scroll-target="#working-with-cdo-and-ncview"><span class="header-section-number">4.3</span> Working with CDO and ncview</a></li>
+  <li><a href="#cdo-extra-functions" id="toc-cdo-extra-functions" class="nav-link" data-scroll-target="#cdo-extra-functions"><span class="header-section-number">4.4</span> CDO extra functions</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/IsaakBM/ESM_240/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -193,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Welcome!</span></h1>
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Started with Climate Data</span></h1>
 </div>
 
 
@@ -208,17 +216,78 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Welcome to week 4 of ESM240! This eBook is crafted to help you dive into climate-smart marine conservation (and climate models) using R.</p>
-<p>It’s important to note that this eBook doesn’t aim to offer a comprehensive overview that would transform you into an expert in this field. Instead, our objective is to ensure you understand the fundamental principles and assist you in navigating the common tasks associated with analyzing and interpreting this kind of data.</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="images/41893_2020_513_Fig4_HTML.jpg" class="img-fluid" style="width:100.0%"></p>
-</div>
-</div>
-<section id="open-science-nceas" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="open-science-nceas"><span class="header-section-number">1.1</span> Open Science: <a href="https://www.nceas.ucsb.edu/our-approach">NCEAS</a></h2>
-<p>With this material, we are following the <a href="https://www.nceas.ucsb.edu/our-approach">NCEAS</a> data approach to make research more transparent and reproducible, which enhances the credibility, utility, and accuracy of the science used to solve global challenges.</p>
-<p>Open science is the philosophy and practice of making data and methods accessible, replicable, and free to use, typically through computer programming tools and techniques. It helps researchers compile and analyze data more efficiently and identify solutions more quickly.</p>
+<p>The intention with this information and scripts is to provide a basic understanding of how you can use <strong>CDO</strong> to speed-up your <strong>netCDF</strong> file data manipulation. <a href="https://code.mpimet.mpg.de/projects/cdo/">More info go directly to the Max Planck Institute CDO website</a></p>
+<section id="installation-process" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="installation-process"><span class="header-section-number">4.1</span> Installation Process</h2>
+<section id="macos" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="macos"><span class="header-section-number">4.1.1</span> <strong>MacOS</strong></h3>
+<p>Follow the instruction and downloaded <strong>MacPorts</strong>. <strong>MacPorts</strong> is an open-source community initiative to design an easy-to-use system for compiling, installing, and upgrading the command-line on the Mac operating system.</p>
+<p><a href="https://www.macports.org/index.php">MacPorts website</a> <a href="https://www.macports.org/install.php">MacPorts download</a></p>
+<p>After the installation (if you have admin rights) open the terminal and type:</p>
+<p><code>port install cdo</code></p>
+<p>If you don’t have admin rights, open the terminal and type:</p>
+<p><code>sudo port install cdo</code> and write your password</p>
+</section>
+<section id="windows-10" class="level3" data-number="4.1.2">
+<h3 data-number="4.1.2" class="anchored" data-anchor-id="windows-10"><span class="header-section-number">4.1.2</span> <strong>Windows 10</strong></h3>
+<p>In the current windows 10 version(s) Microsoft includes an Ubuntu 16.04 LTS embedded Linux. This environment offers a clean integration with the windows file systems and and the opportunity to install CDO via the native package manager of Ubuntu.</p>
+<p>Install the Ubuntu app from the Microsoft Store application. Then open the Ubuntu terminal and type:</p>
+<p><code>sudo apt-get install cdo</code> and write your password</p>
+</section>
+<section id="linux" class="level3" data-number="4.1.3">
+<h3 data-number="4.1.3" class="anchored" data-anchor-id="linux"><span class="header-section-number">4.1.3</span> <strong>Linux</strong></h3>
+<p>For Linux go to: <a href="https://code.mpimet.mpg.de/projects/cdo/wiki/Linux_Platform">Linux</a></p>
+</section>
+</section>
+<section id="ncview-a-netcdf-visual-browser" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="ncview-a-netcdf-visual-browser"><span class="header-section-number">4.2</span> Ncview: a netCDF visual browser</h2>
+<p>Ncview is quick visual browser that allows you to explore <strong>netCDF</strong> files very easily: <code>ncview</code>. <code>ncview</code> is an easy to use netCDF file viewer for <strong>linux</strong> and <strong>OS X</strong>. It can read any netCDF file.</p>
+<p>To install <strong>ncview</strong>, open the terminal and type:</p>
+<ul>
+<li><strong>OS X</strong>: <code>port install ncview</code></li>
+<li><strong>Linux</strong>: <code>sudo apt-get install ncview</code></li>
+</ul>
+</section>
+<section id="working-with-cdo-and-ncview" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="working-with-cdo-and-ncview"><span class="header-section-number">4.3</span> Working with CDO and ncview</h2>
+<p>To work with <strong>CDO</strong> and <strong>ncview</strong> you will need to use the terminal command line. Open the <strong>Ubuntu app</strong> in Windows and the <strong>Terminal</strong> on OS X. Let’s check a folder in your desktop:</p>
+<p>In your command line type:</p>
+<ul>
+<li><code>cd ESM_240/data/</code> (this will establish <em>data</em> as your primary directory)</li>
+</ul>
+<p>If your are using Windows your desktop path should be located at <code>/mnt/c/</code>.</p>
+<p>Because you have setting <code>ESM_240/data/</code> as your directory in the terminal, we can use <em>ncview</em> to get a quick view of the front data</p>
+<ul>
+<li>type <code>ls -l</code> to see if the front data is in your directory.</li>
+<li>to view the model with ncview, in the terminal type <code>ncview tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.nc</code>.</li>
+</ul>
+<p>We can check the file details using cdo. In the terminal type:</p>
+<ul>
+<li><code>cdo -sinfov tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.nc</code></li>
+</ul>
+<p>The model details are:</p>
+<ul>
+<li>Variable: tos (sea surface temperature)</li>
+<li>Horizontal component: resolution 360x180</li>
+<li>Vertical component: 1 level (i.e., surface)</li>
+<li>Time component: 240 steps</li>
+</ul>
+</section>
+<section id="cdo-extra-functions" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="cdo-extra-functions"><span class="header-section-number">4.4</span> CDO extra functions</h2>
+<p>There are several things that you can explore. Some interesting functions that I’ve used a lot are:</p>
+<ul>
+<li><code>cdo -yearmean</code> calculates the <em>annual mean</em> of a monthly data input <strong>netCDF</strong> file</li>
+<li><code>cdo -yearmin</code> calculates the <em>annual min</em> of a monthly data input <strong>netCDF</strong> file</li>
+<li><code>cdo -yearmax</code> calculates the <em>annual max</em> of a monthly data input <strong>netCDF</strong> file</li>
+<li><code>cdo -ensmean</code> calculates the <em>ensemble mean</em> of several <strong>netCDF</strong> files. If your input files are different models, this function will estimate a mean of all those models</li>
+<li><code>cdo -vertmean</code> calculates the vertical mean for <strong>netCDF</strong> with olevel (i.e., depth)</li>
+<li><code>cdo -mergetime</code> merge all the <strong>netCDF</strong> files in your directory</li>
+</ul>
+<p>To use those argument remember just type in the terminal:</p>
+<ul>
+<li>cdo <strong>-[function]</strong> <em>input_file</em> <em>output_file</em></li>
+</ul>
 
 
 </section>
@@ -459,13 +528,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      <a href="./03_cmip6_models.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">CMIP6 models</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./02_set_up.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setting up your computer</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./05_ncRaster.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">netCDF files in R: Raster, Spatial objects</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
