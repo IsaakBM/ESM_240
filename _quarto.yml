@@ -36,7 +36,7 @@ format:
     grid:
       sidebar-width: 400px
       body-width: 700px
-      margin-width: 200px
+      margin-width: 500px
       gutter-width: 1.5rem
   pdf:
     documentclass: scrreprt
