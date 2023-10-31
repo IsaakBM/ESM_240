@@ -1,6 +1,6 @@
 # CMIP6 models
 
-**CMIP6** stands for Coupled Model Intercomparison Project (CMIP). These are climate models that simulate the physics, chemistry and biology of the atmosphere in detail (some of them!). The 2013 IPCC fifth assessment report (AR5) featured climate models from CMIP5, while the upcoming 2021 IPCC sixth assessment report (AR6) will feature new state-of-the-art CMIP6 models ([more info in Carbon Brief website.](https://www.carbonbrief.org/cmip6-the-next-generation-of-climate-models-explained))
+**CMIP6** stands for Coupled Model Intercomparison Project (CMIP). These are climate models that simulate the physics, chemistry and biology of the atmosphere in detail (some of them!). The 2013 IPCC fifth assessment report (AR5) featured climate models from CMIP5, while the upcoming 2021 IPCC sixth assessment report (AR6) will feature new state-of-the-art CMIP6 models [@schoeman2023].
 
 The main goal is to set future climate scenarios based on *future* concentrations of **greenhouse gases**, **aerosols** and other [**climate forcings**](https://www.carbonbrief.org/qa-how-do-climate-models-work#inout) to project what might happen in the future.
 
@@ -16,6 +16,10 @@ From CMIP5 version you will find those as RCPs (Representative Concentration Pat
 
 ```{r, out.width = "100%", echo = FALSE}
   knitr::include_graphics("images/ssps.png")
+```
+
+```{r, out.width = "100%", echo = FALSE}
+  knitr::include_graphics("images/cmip6_models.png")
 ```
 
 ## Overview of SSPs

@@ -79,3 +79,11 @@ There are several things that you can explore. Some interesting functions that I
 To use those argument remember just type in the terminal:
 
 -   cdo **-\[function\]** *input_file* *output_file*
+
+## Workflow for using climate model outputs
+
+For those seeking to incorporate climate models into their professional work to address climate change, understanding the starting point can be challenging. Here is a framework, detailed in our recently published paper online [@schoeman2023].
+
+```{r, out.width = "100%", echo = FALSE}
+  knitr::include_graphics("images/Fv4WPG-aEAEsdPf.jpg")
+```

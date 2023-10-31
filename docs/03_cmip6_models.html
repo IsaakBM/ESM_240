@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -222,7 +241,7 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p><strong>CMIP6</strong> stands for Coupled Model Intercomparison Project (CMIP). These are climate models that simulate the physics, chemistry and biology of the atmosphere in detail (some of them!). The 2013 IPCC fifth assessment report (AR5) featured climate models from CMIP5, while the upcoming 2021 IPCC sixth assessment report (AR6) will feature new state-of-the-art CMIP6 models (<a href="https://www.carbonbrief.org/cmip6-the-next-generation-of-climate-models-explained">more info in Carbon Brief website.</a>)</p>
+<p><strong>CMIP6</strong> stands for Coupled Model Intercomparison Project (CMIP). These are climate models that simulate the physics, chemistry and biology of the atmosphere in detail (some of them!). The 2013 IPCC fifth assessment report (AR5) featured climate models from CMIP5, while the upcoming 2021 IPCC sixth assessment report (AR6) will feature new state-of-the-art CMIP6 models <span class="citation" data-cites="schoeman2023">(<a href="references.html#ref-schoeman2023" role="doc-biblioref">Schoeman et al. 2023</a>)</span>.</p>
 <p>The main goal is to set future climate scenarios based on <em>future</em> concentrations of <strong>greenhouse gases</strong>, <strong>aerosols</strong> and other <a href="https://www.carbonbrief.org/qa-how-do-climate-models-work#inout"><strong>climate forcings</strong></a> to project what might happen in the future.</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -237,6 +256,11 @@ ul.task-list li input[type="checkbox"] {
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="images/ssps.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="images/cmip6_models.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 </section>
@@ -285,6 +309,11 @@ ul.task-list li input[type="checkbox"] {
 <p>To download the model, just click on the <strong>List Files</strong> tab and then select <strong>HTTP Download</strong></p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-schoeman2023" class="csl-entry" role="listitem">
+Schoeman, David S., Alex Sen Gupta, Cheryl S. Harrison, Jason D. Everett, Isaac Brito-Morales, Lee Hannah, Laurent Bopp, Patrick R. Roehrdanz, and Anthony J. Richardson. 2023. <span>“Demystifying Global Climate Models for Use in the Life Sciences.”</span> <em>Trends in Ecology &amp; Evolution</em>, May. <a href="https://doi.org/10.1016/j.tree.2023.04.005">https://doi.org/10.1016/j.tree.2023.04.005</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

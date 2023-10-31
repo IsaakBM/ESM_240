@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -170,6 +189,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./08_CCMetrics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Climate Change Metrics</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -193,6 +218,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#ncview-a-netcdf-visual-browser" id="toc-ncview-a-netcdf-visual-browser" class="nav-link" data-scroll-target="#ncview-a-netcdf-visual-browser"><span class="header-section-number">4.2</span> Ncview: a netCDF visual browser</a></li>
   <li><a href="#working-with-cdo-and-ncview" id="toc-working-with-cdo-and-ncview" class="nav-link" data-scroll-target="#working-with-cdo-and-ncview"><span class="header-section-number">4.3</span> Working with CDO and ncview</a></li>
   <li><a href="#cdo-extra-functions" id="toc-cdo-extra-functions" class="nav-link" data-scroll-target="#cdo-extra-functions"><span class="header-section-number">4.4</span> CDO extra functions</a></li>
+  <li><a href="#workflow-for-using-climate-model-outputs" id="toc-workflow-for-using-climate-model-outputs" class="nav-link" data-scroll-target="#workflow-for-using-climate-model-outputs"><span class="header-section-number">4.5</span> Workflow for using climate model outputs</a></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/IsaakBM/ESM_240/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
@@ -288,8 +314,22 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>cdo <strong>-[function]</strong> <em>input_file</em> <em>output_file</em></li>
 </ul>
+</section>
+<section id="workflow-for-using-climate-model-outputs" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="workflow-for-using-climate-model-outputs"><span class="header-section-number">4.5</span> Workflow for using climate model outputs</h2>
+<p>For those seeking to incorporate climate models into their professional work to address climate change, understanding the starting point can be challenging. Here is a framework, detailed in our recently published paper online <span class="citation" data-cites="schoeman2023">(<a href="references.html#ref-schoeman2023" role="doc-biblioref">Schoeman et al. 2023</a>)</span>.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="images/Fv4WPG-aEAEsdPf.jpg" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-schoeman2023" class="csl-entry" role="listitem">
+Schoeman, David S., Alex Sen Gupta, Cheryl S. Harrison, Jason D. Everett, Isaac Brito-Morales, Lee Hannah, Laurent Bopp, Patrick R. Roehrdanz, and Anthony J. Richardson. 2023. <span>“Demystifying Global Climate Models for Use in the Life Sciences.”</span> <em>Trends in Ecology &amp; Evolution</em>, May. <a href="https://doi.org/10.1016/j.tree.2023.04.005">https://doi.org/10.1016/j.tree.2023.04.005</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
