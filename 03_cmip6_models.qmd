@@ -38,13 +38,17 @@ Through the website:
 
 -   Click [here](https://esgf.llnl.gov/) to open the ESGF website
 -   Go to the *Nodes* tab to explore the different ESGF-CoG nodes
--   Click the [NCI](https://esgf.nci.org.au/projects/esgf-nci/) link, the Australia National Computational Infrastructure node
+-   Click the [Metagrid UI](https://aims2.llnl.gov/) link, for the Metagrid new version
 
-Select a [NCI](https://esgf.nci.org.au/projects/esgf-nci/) node, go to collection and then [CMIP6](https://esgf.nci.org.au/search/cmip6-nci/) link. This is the main website to download CMIP6 models. At your left you have several filters that you can play with, my advice is filter first for variable.
+Select a [Metagrid UI](https://aims2.llnl.gov/) node, go to collection and then [CMIP6](https://aims2.llnl.gov/) link. This is the main website to download CMIP6 models. At your left you have several filters that you can play with, my advice is filter first for variable.
 
 ## Variables
 
-There are a range of variables available from the GCM (General Circulation Model) outputs. Each tab has different model variable on different time scales. The tabs are in alphabetical order. The ones starting with "O" are for Ocean, and then followed by the timescale (clim = climatology, day, dec = decade, mon = month, yr) (source: [Mathematical Marine Ecology Welcome Book Chapter 9](https://mathmarecol.github.io/Welcome/)).
+There are a range of variables available from the GCM (General Circulation Model) outputs. Each tab has different model variable on different time scales. The tabs are in alphabetical order. The ones starting with "O" are for Ocean, and then followed by the timescale (clim = climatology, day, dec = decade, mon = month, yr) (source: [@schoeman2023]).
+
+```{r, out.width = "100%", echo = FALSE}
+  knitr::include_graphics("images/cmip601.png")
+```
 
 From the left tab:
 
@@ -53,15 +57,23 @@ From the left tab:
 -   click the **+** in the **Frequency** option. Select **mon**. Then click **Search**
 -   click the **+** in the **Variant Label** option. Select **r1i1p1f1** (this is the most common ensemble). Then click **Search**
 
+```{r, out.width = "100%", echo = FALSE}
+  knitr::include_graphics("images/cmip602.png")
+```
+
+```{r, out.width = "100%", echo = FALSE}
+  knitr::include_graphics("images/cmip603.png")
+```
+
 The ensemble names "r1i1p1", "r2i1p1", etc. in **Variant Label** indicate that the ensemble members differ only in their initial conditions (the model physics are the same for all ensemble members, but the members were initialized from different initial conditions out of the control simulation). Hence, the differences between the ensemble members represent internal variability.
 
--   click the **+** in the **Experiment ID** option. In this option you will see every single *Experiment/Simulation*. For example, **G1/G6/G7** are the geoengineering climate scenarios. Go to the bottom of the **Experiment ID** tab and click **ssp126**. Then click **Search**
--   click the **+** in the **Source ID** option for the full model list and their Institution ID. Let's click on **ACCESS-CM2** model from the CSIRO. Then click **Search**
+-   click the **+** in the **Experiment ID** option. In this option you will see every single *Experiment/Simulation*. For example, **G1/G6/G7** are the geoengineering climate scenarios. Go to the bottom of the **Experiment ID** tab and click **ssp585**. Then click **Search**
+-   click the **+** in the **Source ID** option for the full model list and their Institution ID. Let's click on **GFDL-CM4** model from GFDL/NOAA lab. Then click **Search**
 
 If you have follow the previous steps you should get a tab result similar to this:
 
 ```{r, out.width = "100%", echo = FALSE}
-  knitr::include_graphics("images/model_example_tab.png")
+  knitr::include_graphics("images/cmip603.png")
 ```
 
 To download the model, just click on the **List Files** tab and then select **HTTP Download**

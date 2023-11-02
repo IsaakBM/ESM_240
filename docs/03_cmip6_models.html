@@ -280,14 +280,19 @@ div.csl-indent {
 <ul>
 <li>Click <a href="https://esgf.llnl.gov/">here</a> to open the ESGF website</li>
 <li>Go to the <em>Nodes</em> tab to explore the different ESGF-CoG nodes</li>
-<li>Click the <a href="https://esgf.nci.org.au/projects/esgf-nci/">NCI</a> link, the Australia National Computational Infrastructure node</li>
+<li>Click the <a href="https://aims2.llnl.gov/">Metagrid UI</a> link, for the Metagrid new version</li>
 </ul>
-<p>Select a <a href="https://esgf.nci.org.au/projects/esgf-nci/">NCI</a> node, go to collection and then <a href="https://esgf.nci.org.au/search/cmip6-nci/">CMIP6</a> link. This is the main website to download CMIP6 models. At your left you have several filters that you can play with, my advice is filter first for variable.</p>
+<p>Select a <a href="https://aims2.llnl.gov/">Metagrid UI</a> node, go to collection and then <a href="https://aims2.llnl.gov/">CMIP6</a> link. This is the main website to download CMIP6 models. At your left you have several filters that you can play with, my advice is filter first for variable.</p>
 </section>
 </section>
 <section id="variables" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="variables"><span class="header-section-number">3.3</span> Variables</h2>
-<p>There are a range of variables available from the GCM (General Circulation Model) outputs. Each tab has different model variable on different time scales. The tabs are in alphabetical order. The ones starting with “O” are for Ocean, and then followed by the timescale (clim = climatology, day, dec = decade, mon = month, yr) (source: <a href="https://mathmarecol.github.io/Welcome/">Mathematical Marine Ecology Welcome Book Chapter 9</a>).</p>
+<p>There are a range of variables available from the GCM (General Circulation Model) outputs. Each tab has different model variable on different time scales. The tabs are in alphabetical order. The ones starting with “O” are for Ocean, and then followed by the timescale (clim = climatology, day, dec = decade, mon = month, yr) (source: <span class="citation" data-cites="schoeman2023">(<a href="references.html#ref-schoeman2023" role="doc-biblioref">Schoeman et al. 2023</a>)</span>).</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="images/cmip601.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
 <p>From the left tab:</p>
 <ul>
 <li>click the <strong>+</strong> in the <strong>variable</strong> option. Select <strong>tos</strong> (ocean temperature on surface). Then click <strong>Search</strong></li>
@@ -295,15 +300,25 @@ div.csl-indent {
 <li>click the <strong>+</strong> in the <strong>Frequency</strong> option. Select <strong>mon</strong>. Then click <strong>Search</strong></li>
 <li>click the <strong>+</strong> in the <strong>Variant Label</strong> option. Select <strong>r1i1p1f1</strong> (this is the most common ensemble). Then click <strong>Search</strong></li>
 </ul>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="images/cmip602.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="images/cmip603.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+</div>
 <p>The ensemble names “r1i1p1”, “r2i1p1”, etc. in <strong>Variant Label</strong> indicate that the ensemble members differ only in their initial conditions (the model physics are the same for all ensemble members, but the members were initialized from different initial conditions out of the control simulation). Hence, the differences between the ensemble members represent internal variability.</p>
 <ul>
-<li>click the <strong>+</strong> in the <strong>Experiment ID</strong> option. In this option you will see every single <em>Experiment/Simulation</em>. For example, <strong>G1/G6/G7</strong> are the geoengineering climate scenarios. Go to the bottom of the <strong>Experiment ID</strong> tab and click <strong>ssp126</strong>. Then click <strong>Search</strong></li>
-<li>click the <strong>+</strong> in the <strong>Source ID</strong> option for the full model list and their Institution ID. Let’s click on <strong>ACCESS-CM2</strong> model from the CSIRO. Then click <strong>Search</strong></li>
+<li>click the <strong>+</strong> in the <strong>Experiment ID</strong> option. In this option you will see every single <em>Experiment/Simulation</em>. For example, <strong>G1/G6/G7</strong> are the geoengineering climate scenarios. Go to the bottom of the <strong>Experiment ID</strong> tab and click <strong>ssp585</strong>. Then click <strong>Search</strong></li>
+<li>click the <strong>+</strong> in the <strong>Source ID</strong> option for the full model list and their Institution ID. Let’s click on <strong>GFDL-CM4</strong> model from GFDL/NOAA lab. Then click <strong>Search</strong></li>
 </ul>
 <p>If you have follow the previous steps you should get a tab result similar to this:</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="images/model_example_tab.png" class="img-fluid" style="width:100.0%"></p>
+<p><img src="images/cmip603.png" class="img-fluid" style="width:100.0%"></p>
 </div>
 </div>
 <p>To download the model, just click on the <strong>List Files</strong> tab and then select <strong>HTTP Download</strong></p>
