@@ -108,7 +108,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_cmip6_models.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Understanding Climate Models: The CMIP Framework</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_cmip6_models.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Understanding <code>Climate Models</code>: The <code>CMIP</code> Framework</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -175,7 +175,7 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_cmip6_models.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Understanding Climate Models: The CMIP Framework</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Understanding <code>Climate Models</code>: The <code>CMIP</code> Framework</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -200,16 +200,17 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-the-hell-are-cmip6" id="toc-what-the-hell-are-cmip6" class="nav-link active" data-scroll-target="#what-the-hell-are-cmip6"><span class="header-section-number">3.1</span> What the hell are CMIP6?</a></li>
-  <li><a href="#cmip6-experimental-design-climate-scenarios" id="toc-cmip6-experimental-design-climate-scenarios" class="nav-link" data-scroll-target="#cmip6-experimental-design-climate-scenarios"><span class="header-section-number">3.2</span> CMIP6 Experimental Design: Climate Scenarios</a></li>
-  <li><a href="#downloading-cmip6-model-data" id="toc-downloading-cmip6-model-data" class="nav-link" data-scroll-target="#downloading-cmip6-model-data"><span class="header-section-number">3.3</span> Downloading CMIP6 Model Data</a>
+  <li><a href="#what-is-a-climate-model-in-one-picture" id="toc-what-is-a-climate-model-in-one-picture" class="nav-link active" data-scroll-target="#what-is-a-climate-model-in-one-picture"><span class="header-section-number">3.1</span> What is a climate model? (in one picture)</a></li>
+  <li><a href="#what-the-hell-are-cmip6" id="toc-what-the-hell-are-cmip6" class="nav-link" data-scroll-target="#what-the-hell-are-cmip6"><span class="header-section-number">3.2</span> What the hell are CMIP6?</a></li>
+  <li><a href="#cmip6-experimental-design-climate-scenarios" id="toc-cmip6-experimental-design-climate-scenarios" class="nav-link" data-scroll-target="#cmip6-experimental-design-climate-scenarios"><span class="header-section-number">3.3</span> CMIP6 Experimental Design: Climate Scenarios</a></li>
+  <li><a href="#downloading-cmip6-model-data" id="toc-downloading-cmip6-model-data" class="nav-link" data-scroll-target="#downloading-cmip6-model-data"><span class="header-section-number">3.4</span> Downloading CMIP6 Model Data</a>
   <ul class="collapse">
-  <li><a href="#create-an-esgf-account" id="toc-create-an-esgf-account" class="nav-link" data-scroll-target="#create-an-esgf-account"><span class="header-section-number">3.3.1</span> 1. Create an ESGF Account</a></li>
-  <li><a href="#navigating-the-metagrid-interface" id="toc-navigating-the-metagrid-interface" class="nav-link" data-scroll-target="#navigating-the-metagrid-interface"><span class="header-section-number">3.3.2</span> 2. Navigating the Metagrid Interface</a></li>
-  <li><a href="#navigating-the-metagrid-interface-1" id="toc-navigating-the-metagrid-interface-1" class="nav-link" data-scroll-target="#navigating-the-metagrid-interface-1"><span class="header-section-number">3.3.3</span> 3. Navigating the Metagrid Interface</a></li>
-  <li><a href="#navigating-the-metagrid-interface-2" id="toc-navigating-the-metagrid-interface-2" class="nav-link" data-scroll-target="#navigating-the-metagrid-interface-2"><span class="header-section-number">3.3.4</span> 4. Navigating the Metagrid Interface</a></li>
-  <li><a href="#understanding-file-names" id="toc-understanding-file-names" class="nav-link" data-scroll-target="#understanding-file-names"><span class="header-section-number">3.3.5</span> 5. Understanding File Names</a></li>
-  <li><a href="#downloading-the-file" id="toc-downloading-the-file" class="nav-link" data-scroll-target="#downloading-the-file"><span class="header-section-number">3.3.6</span> 6. Downloading the File</a></li>
+  <li><a href="#create-an-esgf-account" id="toc-create-an-esgf-account" class="nav-link" data-scroll-target="#create-an-esgf-account"><span class="header-section-number">3.4.1</span> 1. Create an ESGF Account</a></li>
+  <li><a href="#navigating-the-metagrid-interface" id="toc-navigating-the-metagrid-interface" class="nav-link" data-scroll-target="#navigating-the-metagrid-interface"><span class="header-section-number">3.4.2</span> 2. Navigating the Metagrid Interface</a></li>
+  <li><a href="#navigating-the-metagrid-interface-1" id="toc-navigating-the-metagrid-interface-1" class="nav-link" data-scroll-target="#navigating-the-metagrid-interface-1"><span class="header-section-number">3.4.3</span> 3. Navigating the Metagrid Interface</a></li>
+  <li><a href="#navigating-the-metagrid-interface-2" id="toc-navigating-the-metagrid-interface-2" class="nav-link" data-scroll-target="#navigating-the-metagrid-interface-2"><span class="header-section-number">3.4.4</span> 4. Navigating the Metagrid Interface</a></li>
+  <li><a href="#understanding-file-names" id="toc-understanding-file-names" class="nav-link" data-scroll-target="#understanding-file-names"><span class="header-section-number">3.4.5</span> 5. Understanding File Names</a></li>
+  <li><a href="#downloading-the-file" id="toc-downloading-the-file" class="nav-link" data-scroll-target="#downloading-the-file"><span class="header-section-number">3.4.6</span> 6. Downloading the File</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/IsaakBM/ESM_240/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
@@ -219,7 +220,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Understanding Climate Models: The CMIP Framework</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Understanding <code>Climate Models</code>: The <code>CMIP</code> Framework</span></h1>
 </div>
 
 
@@ -236,8 +237,40 @@ div.csl-indent {
 </header>
 
 
-<section id="what-the-hell-are-cmip6" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="what-the-hell-are-cmip6"><span class="header-section-number">3.1</span> What the hell are CMIP6?</h2>
+<section id="what-is-a-climate-model-in-one-picture" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="what-is-a-climate-model-in-one-picture"><span class="header-section-number">3.1</span> What is a climate model? (in one picture)</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/cmip6_mips.jpg" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>At its core, a climate model divides the Earth into a 3-D grid (latitude–longitude horizontally, levels vertically) and steps forward in time. In each grid cell the model tracks key state variables (e.g., temperature, humidity, winds, ocean currents, salinity, sea ice, carbon), and exchanges fluxes (heat, water, carbon) between neighboring cells and across components (atmosphere ↔︎ ocean ↔︎ land ↔︎ ice).</p>
+<ul>
+<li>Resolution: Typical global models use ~1° (~100 km) horizontal grids with tens of vertical levels</li>
+<li>Components: Many models are full Earth System Models (<code>ESMs</code>) that include biogeochemistry (e.g., carbon cycle), not just physics</li>
+<li>Outputs: Results are multi-dimensional arrays saved as <code>NetCDF</code> files (variable × lon × lat × depth × time)</li>
+</ul>
+<p>Why many models? Different groups make different (reasonable) choices in numerics and physics, so we compare them within the CMIP framework <span class="citation" data-cites="schoeman2023">(<a href="references.html#ref-schoeman2023" role="doc-biblioref">Schoeman et al. 2023</a>)</span>.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Projection</strong>, not <em>prediction</em>: Models run “what-if” scenarios (e.g., different emissions pathways). They tell us about plausible futures, not a single forecast for an exact day.</p>
+</div>
+</div>
+</section>
+<section id="what-the-hell-are-cmip6" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="what-the-hell-are-cmip6"><span class="header-section-number">3.2</span> What the hell are CMIP6?</h2>
 <p><strong>CMIP6</strong> stands for <em>Coupled Model Intercomparison Project – Phase 6</em>.<br>
 These are large-scale simulations of the Earth system that bring together dozens of research centers around the world. Each model represents the physical, chemical, and, in some cases, biological processes of our planet’s atmosphere, oceans, land, and cryosphere — the “big four” of climate <span class="citation" data-cites="schoeman2023">(<a href="references.html#ref-schoeman2023" role="doc-biblioref">Schoeman et al. 2023</a>)</span></p>
 <p>The <strong>IPCC Fifth Assessment Report (AR5, 2013)</strong> was based on CMIP5, while the <strong>Sixth Assessment Report (AR6, 2021)</strong> uses CMIP6, which offers improved spatial resolution, new biogeochemical modules, and more realistic feedbacks among Earth-system components.</p>
@@ -285,8 +318,8 @@ The CMIP6 “MIPs Wheel”
 </div>
 </div>
 </section>
-<section id="cmip6-experimental-design-climate-scenarios" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="cmip6-experimental-design-climate-scenarios"><span class="header-section-number">3.2</span> CMIP6 Experimental Design: Climate Scenarios</h2>
+<section id="cmip6-experimental-design-climate-scenarios" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="cmip6-experimental-design-climate-scenarios"><span class="header-section-number">3.3</span> CMIP6 Experimental Design: Climate Scenarios</h2>
 <p>Climate models explore <em>possible futures</em> — not predictions, but <strong>scenarios</strong> that describe how society might develop and how that would influence greenhouse gas emissions.</p>
 <p>In CMIP5, these were called <strong>RCPs</strong> (Representative Concentration Pathways)<br>
 In CMIP6, they evolved into <strong>SSPs</strong> — <em>Shared Socioeconomic Pathways</em> — which combine both human and physical dimensions of climate change</p>
@@ -320,20 +353,20 @@ In CMIP6, they evolved into <strong>SSPs</strong> — <em>Shared Socioeconomic P
 <p>As shown above, temperature projections under the SSPs diverge sharply by mid-century.</p>
 <p>For example, SSP1-2.6 keeps warming below 2 °C, while SSP5-8.5 exceeds 4 °C by 2100 — a reminder that the choices societies make now shape the climate future we’ll experience.</p>
 </section>
-<section id="downloading-cmip6-model-data" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="downloading-cmip6-model-data"><span class="header-section-number">3.3</span> Downloading CMIP6 Model Data</h2>
+<section id="downloading-cmip6-model-data" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="downloading-cmip6-model-data"><span class="header-section-number">3.4</span> Downloading CMIP6 Model Data</h2>
 <p>In this section, you’ll learn how to find and download real climate model outputs from <strong>CMIP6</strong> — the same datasets used by the IPCC in its latest assessment reports.<br>
 These files will form the foundation for your assignment, where you’ll visualize and analyze global sea surface temperature (<em>tos</em>) under a future climate scenario.</p>
 <hr>
-<section id="create-an-esgf-account" class="level3" data-number="3.3.1">
-<h3 data-number="3.3.1" class="anchored" data-anchor-id="create-an-esgf-account"><span class="header-section-number">3.3.1</span> 1. Create an ESGF Account</h3>
+<section id="create-an-esgf-account" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="create-an-esgf-account"><span class="header-section-number">3.4.1</span> 1. Create an ESGF Account</h3>
 <p>CMIP6 data are freely available through the <strong>Earth System Grid Federation (ESGF)</strong> — a global network of data centers that archive Earth System Model outputs.<br>
 To download data, create an account following the official guide: <a href="https://esgf.github.io/esgf-user-support/user_guide.html" class="uri">https://esgf.github.io/esgf-user-support/user_guide.html</a>.<br>
 (You can browse without logging in, but you’ll need an account to download)</p>
 <hr>
 </section>
-<section id="navigating-the-metagrid-interface" class="level3" data-number="3.3.2">
-<h3 data-number="3.3.2" class="anchored" data-anchor-id="navigating-the-metagrid-interface"><span class="header-section-number">3.3.2</span> 2. Navigating the Metagrid Interface</h3>
+<section id="navigating-the-metagrid-interface" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="navigating-the-metagrid-interface"><span class="header-section-number">3.4.2</span> 2. Navigating the Metagrid Interface</h3>
 <p>Open the <strong>Metagrid UI</strong>: <a href="https://aims2.llnl.gov/" class="uri">https://aims2.llnl.gov/</a>.<br>
 This is a modern, user-friendly front end to ESGF that lets you browse CMIP6 data using filters.</p>
 <div class="cell">
@@ -347,8 +380,8 @@ This is a modern, user-friendly front end to ESGF that lets you browse CMIP6 dat
 </div>
 <p><strong>Metagrid UI</strong>: <a href="https://aims2.llnl.gov/" class="uri">https://aims2.llnl.gov/</a> organizes CMIP6 data into facets (filters) such as model name, variable, frequency, and scenario.</p>
 </section>
-<section id="navigating-the-metagrid-interface-1" class="level3" data-number="3.3.3">
-<h3 data-number="3.3.3" class="anchored" data-anchor-id="navigating-the-metagrid-interface-1"><span class="header-section-number">3.3.3</span> 3. Navigating the Metagrid Interface</h3>
+<section id="navigating-the-metagrid-interface-1" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="navigating-the-metagrid-interface-1"><span class="header-section-number">3.4.3</span> 3. Navigating the Metagrid Interface</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 24%">
@@ -396,8 +429,8 @@ This is a modern, user-friendly front end to ESGF that lets you browse CMIP6 dat
 </tbody>
 </table>
 </section>
-<section id="navigating-the-metagrid-interface-2" class="level3" data-number="3.3.4">
-<h3 data-number="3.3.4" class="anchored" data-anchor-id="navigating-the-metagrid-interface-2"><span class="header-section-number">3.3.4</span> 4. Navigating the Metagrid Interface</h3>
+<section id="navigating-the-metagrid-interface-2" class="level3" data-number="3.4.4">
+<h3 data-number="3.4.4" class="anchored" data-anchor-id="navigating-the-metagrid-interface-2"><span class="header-section-number">3.4.4</span> 4. Navigating the Metagrid Interface</h3>
 <p>Use the filters in the left panel. For this exercise, select:</p>
 <ul>
 <li><code>Variable ID</code>: tos (sea surface temperature)</li>
@@ -419,8 +452,8 @@ This is a modern, user-friendly front end to ESGF that lets you browse CMIP6 dat
 </div>
 <p>You should now see a list of model outputs matching your filters. Each row corresponds to one model run for a specific scenario and variable.</p>
 </section>
-<section id="understanding-file-names" class="level3" data-number="3.3.5">
-<h3 data-number="3.3.5" class="anchored" data-anchor-id="understanding-file-names"><span class="header-section-number">3.3.5</span> 5. Understanding File Names</h3>
+<section id="understanding-file-names" class="level3" data-number="3.4.5">
+<h3 data-number="3.4.5" class="anchored" data-anchor-id="understanding-file-names"><span class="header-section-number">3.4.5</span> 5. Understanding File Names</h3>
 <p>CMIP6 files follow a standard naming convention, e.g.: <code>tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.nc</code></p>
 <table class="caption-top table">
 <thead>
@@ -461,8 +494,8 @@ This is a modern, user-friendly front end to ESGF that lets you browse CMIP6 dat
 </tbody>
 </table>
 </section>
-<section id="downloading-the-file" class="level3" data-number="3.3.6">
-<h3 data-number="3.3.6" class="anchored" data-anchor-id="downloading-the-file"><span class="header-section-number">3.3.6</span> 6. Downloading the File</h3>
+<section id="downloading-the-file" class="level3" data-number="3.4.6">
+<h3 data-number="3.4.6" class="anchored" data-anchor-id="downloading-the-file"><span class="header-section-number">3.4.6</span> 6. Downloading the File</h3>
 <ol type="a">
 <li>Click List Files next to your chosen model entry.</li>
 <li>A table will list several .nc files, each covering ~20 years.</li>
@@ -492,7 +525,7 @@ Assignment Hint
 </div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -501,7 +534,7 @@ Assignment Hint
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>No downloads? Make sure you’re logged into <code>ESGF</code>.</p>
 <p>Empty results? Clear filters and re-apply <code>Variable</code> → <code>tos</code> first.</p>

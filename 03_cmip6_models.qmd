@@ -1,4 +1,23 @@
-# Understanding Climate Models: The CMIP Framework
+# Understanding `Climate Models`: The `CMIP` Framework
+
+## What is a climate model? (in one picture)
+
+```{r, out.width = "50%", echo = FALSE}
+  knitr::include_graphics("images/cmip6_mips.jpg")
+```
+
+At its core, a climate model divides the Earth into a 3-D grid (latitude–longitude horizontally, levels vertically) and steps forward in time.
+In each grid cell the model tracks key state variables (e.g., temperature, humidity, winds, ocean currents, salinity, sea ice, carbon), and exchanges fluxes (heat, water, carbon) between neighboring cells and across components (atmosphere ↔ ocean ↔ land ↔ ice).
+
+- Resolution: Typical global models use ~1° (~100 km) horizontal grids with tens of vertical levels
+- Components: Many models are full Earth System Models (`ESMs`) that include biogeochemistry (e.g., carbon cycle), not just physics
+- Outputs: Results are multi-dimensional arrays saved as `NetCDF` files (variable × lon × lat × depth × time)
+
+Why many models? Different groups make different (reasonable) choices in numerics and physics, so we compare them within the CMIP framework [@schoeman2023].
+
+::: callout-note
+**Projection**, not *prediction*: Models run “what-if” scenarios (e.g., different emissions pathways). They tell us about plausible futures, not a single forecast for an exact day.
+:::
 
 ## What the hell are CMIP6?
 
