@@ -7,7 +7,11 @@ The goal is simple: to help students and early-career scientists navigate the wo
 All code and examples are provided for educational purposes.  
 Please don’t distribute or reuse them without permission.  
 
-⚠️ **Disclaimer:** No guarantees that every line of code will run perfectly — as one of my mentors used to say, *“that’s what learning (and debugging) is for.”*
+::: {.callout-caution collapse="false"}
+## ⚠ Disclaimer
+
+No guarantees that every line of code will run perfectly — as one of my mentors used to say, *“that’s what learning (and debugging) is for.”*
+:::
 
 ---
 
