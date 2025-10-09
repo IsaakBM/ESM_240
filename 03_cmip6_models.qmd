@@ -1,79 +1,170 @@
-# CMIP6 models
+# Understanding Climate Models: The CMIP Framework
 
-**CMIP6** stands for Coupled Model Intercomparison Project (CMIP). These are climate models that simulate the physics, chemistry and biology of the atmosphere in detail (some of them!). The 2013 IPCC fifth assessment report (AR5) featured climate models from CMIP5, while the upcoming 2021 IPCC sixth assessment report (AR6) will feature new state-of-the-art CMIP6 models [@schoeman2023].
+## What the hell are CMIP6?
 
-The main goal is to set future climate scenarios based on *future* concentrations of **greenhouse gases**, **aerosols** and other [**climate forcings**](https://www.carbonbrief.org/qa-how-do-climate-models-work#inout) to project what might happen in the future.
+**CMIP6** stands for *Coupled Model Intercomparison Project – Phase 6*.\
+These are large-scale simulations of the Earth system that bring together dozens of research centers around the world. Each model represents the physical, chemical, and, in some cases, biological processes of our planet’s atmosphere, oceans, land, and cryosphere — the “big four” of climate [@schoeman2023]
+
+The **IPCC Fifth Assessment Report (AR5, 2013)** was based on CMIP5, while the **Sixth Assessment Report (AR6, 2021)** uses CMIP6, which offers improved spatial resolution, new biogeochemical modules, and more realistic feedbacks among Earth-system components.
+
+The main goal of CMIP is to explore plausible futures of the climate system under different greenhouse-gas and aerosol trajectories. Each model run represents a “what-if” experiment — what if emissions rise, stabilize, or decline?
+
+::: callout-note
+## Why CMIP matters (and why we spent a year writing about it)
+
+CMIP models underpin nearly every modern climate projection — from future sea-surface warming to biodiversity redistribution.\
+If you’ve ever used temperature or oxygen projections in ecology, you’ve indirectly used CMIP data.\
+(And yes — this section owes more than a little to that friendly review *“Demystifying global climate models for use in the life sciences”* – which some of us may have helped write)
+:::
+
+The CMIP framework is not a single model, but a **community experiment** that standardizes how models are run and shared, ensuring that scientists can compare results across modeling centers. These datasets are freely distributed through the [Earth System Grid Federation (ESGF)](https://esgf-node.llnl.gov/projects/cmip6/), which makes them available for research and teaching.
+
+::: callout-note
+## The CMIP6 “MIPs Wheel”
+
+CMIP6 isn’t a single climate model — it’s a huge international collaboration that brings together more than 100 models from research centers around the world. These models are grouped into **Model Intercomparison Projects (MIPs)**, each focused on a big scientific question — for example:\
+*How do aerosols affect clouds? How does the ocean store heat and carbon? What happens under different future scenarios?*
+
+At the center of the diagram below are a few **core experiments** that all models run to make results comparable. The outer circles show the different MIPs, each exploring a specific part of the Earth system.
 
 ```{r, out.width = "100%", echo = FALSE}
   knitr::include_graphics("images/cmip6_mips.jpg")
 ```
 
-## Schematic of the CMIP/CMIP6 experimental design
+CMIP6 is what makes global climate projections possible — it provides a common framework so that results can be compared, validated, and used confidently in applied fields like ecology and conservation.
 
-### Most common climate scenarios
+As we explain in [@schoeman2023], the system might look complicated, but it’s what lets us link global climate science to questions about where and how species — and ecosystems — will respond to change.
+:::
 
-From CMIP5 version you will find those as RCPs (Representative Concentration Pathways) but for the new CMIP6 version they are called SSPs (Shared Socio‐Economic Pathways).
+## CMIP6 Experimental Design: Climate Scenarios
+
+Climate models explore *possible futures* — not predictions, but **scenarios** that describe how society might develop and how that would influence greenhouse gas emissions.
+
+In CMIP5, these were called **RCPs** (Representative Concentration Pathways)\
+In CMIP6, they evolved into **SSPs** — *Shared Socioeconomic Pathways* — which combine both human and physical dimensions of climate change
 
 ```{r, out.width = "100%", echo = FALSE}
-  knitr::include_graphics("images/ssps.png")
+  knitr::include_graphics("images/ssp-graphics-01-1-e1721152243844.png")
 ```
+
+Each SSP represents a different world:
+
+-   SSP1 – **Sustainability**: a “green road” with strong climate action
+-   SSP2 – **Middle of the Road**: current trends continue
+-   SSP3 – **Regional Rivalry**: fragmented world, high emissions
+-   SSP4 – **Inequality**: growing divide between rich and poor regions
+-   SSP5 – **Fossil-fueled Development**: rapid economic growth, very high emissions
+
+When these socioeconomic pathways are combined with different levels of radiative forcing (how much energy the atmosphere traps), we can simulate a wide range of future climates.
 
 ```{r, out.width = "100%", echo = FALSE}
   knitr::include_graphics("images/cmip6_models.png")
 ```
 
-## Overview of SSPs
+As shown above, temperature projections under the SSPs diverge sharply by mid-century.
 
-**Most commonly SSPs used**:
+For example, SSP1-2.6 keeps warming below 2 °C, while SSP5-8.5 exceeds 4 °C by 2100 — a reminder that the choices societies make now shape the climate future we’ll experience.
 
--   SSP1-2.6: An optimistic scenario, characterised by a shift to a more sustainable economy and reduction in inequality resulting in a peak in radiative forcing of \~3 W m-2 before 2100
--   SSP2-4.5: An intermediate scenario, with a stabilisation of radiative forcing levels at \~4.5 W m-2 by 2100
--   SSP5-8.5: Characterised by a continued increase of greenhouse gas emissions resulting from a fossil-fuel-based economy and increased energy demand, with a radiative forcing \>8.5 W m-2 by 2100
 
-### How to download CMIP6 models
 
-CMIP6 models are free available at the [**Earth System Grid Federation**](https://esgf.llnl.gov/) website. You will need an account to download models. [**Check this tutorial**](https://esgf.github.io/esgf-user-support/user_guide.html) of how to create an account.
+## Downloading CMIP6 Model Data
 
-Through the website:
+In this section, you’ll learn how to find and download real climate model outputs from **CMIP6** — the same datasets used by the IPCC in its latest assessment reports.  
+These files will form the foundation for your assignment, where you’ll visualize and analyze global sea surface temperature (*tos*) under a future climate scenario.
 
--   Click [here](https://esgf.llnl.gov/) to open the ESGF website
--   Go to the *Nodes* tab to explore the different ESGF-CoG nodes
--   Click the [Metagrid UI](https://aims2.llnl.gov/) link, for the Metagrid new version
+---
 
-Select a [Metagrid UI](https://aims2.llnl.gov/) node, go to collection and then [CMIP6](https://aims2.llnl.gov/) link. This is the main website to download CMIP6 models. At your left you have several filters that you can play with, my advice is filter first for variable.
+### 1. Create an ESGF Account
+CMIP6 data are freely available through the **Earth System Grid Federation (ESGF)** — a global network of data centers that archive Earth System Model outputs.  
+To download data, create an account following the official guide: <https://esgf.github.io/esgf-user-support/user_guide.html>.  
+(You can browse without logging in, but you’ll need an account to download)
 
-## Variables
+---
 
-There are a range of variables available from the GCM (General Circulation Model) outputs. Each tab has different model variable on different time scales. The tabs are in alphabetical order. The ones starting with "O" are for Ocean, and then followed by the timescale (clim = climatology, day, dec = decade, mon = month, yr) (source: [@schoeman2023]).
+### 2. Navigating the Metagrid Interface
+Open the **Metagrid UI**: <https://aims2.llnl.gov/>.  
+This is a modern, user-friendly front end to ESGF that lets you browse CMIP6 data using filters.
 
 ```{r, out.width = "100%", echo = FALSE}
-  knitr::include_graphics("images/cmip601.png")
+knitr::include_graphics("images/cmip601.png")
 ```
 
-From the left tab:
+**Metagrid UI**: <https://aims2.llnl.gov/> organizes CMIP6 data into facets (filters) such as model name, variable, frequency, and scenario.
 
--   click the **+** in the **variable** option. Select **tos** (ocean temperature on surface). Then click **Search**
--   click the **+** in the **Realm** option. Select **ocean** and **ocnBgChem**. Then click **Search**
--   click the **+** in the **Frequency** option. Select **mon**. Then click **Search**
--   click the **+** in the **Variant Label** option. Select **r1i1p1f1** (this is the most common ensemble). Then click **Search**
+### 3. Navigating the Metagrid Interface
+
+| **Component**     | **What it means**                        | **Example**   |
+| ----------------- | ---------------------------------------- | ------------- |
+| **Activity ID**   | The experiment group (e.g., ScenarioMIP) | `ScenarioMIP` |
+| **Source ID**     | The model/institution                    | `GFDL-ESM4`   |
+| **Experiment ID** | The scenario (historical, ssp585, etc.)  | `ssp585`      |
+| **Variant Label** | The ensemble member (run configuration)  | `r1i1p1f1`    |
+| **Frequency**     | Time resolution                          | `mon`         |
+| **Realm**         | Earth-system component                   | `ocean`       |
+
+### 4. Navigating the Metagrid Interface
+
+Use the filters in the left panel. For this exercise, select:
+
+- `Variable ID`: tos (sea surface temperature)
+- `Realm`: ocean
+- `Table ID`: Omon (monthly ocean outputs)
+- `Frequency`: mon 
+- `Experiment ID`: ssp585 (future high-emission scenario)
+- `Variant Label`: r1i1p1f1 (standard ensemble run)
+- `Source ID`: GFDL-ESM4 (NOAA model)
 
 ```{r, out.width = "100%", echo = FALSE}
   knitr::include_graphics("images/cmip602.png")
 ```
 
+You should now see a list of model outputs matching your filters. Each row corresponds to one model run for a specific scenario and variable.
+
+### 5. Understanding File Names
+
+CMIP6 files follow a standard naming convention, e.g.: `tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.nc`
+
+| **Part**        | **Meaning**                                 |
+| --------------- | ------------------------------------------- |
+| `tos`           | Sea surface temperature                     |
+| `Omon`          | Monthly ocean output                        |
+| `GFDL-ESM4`     | Model name                                  |
+| `ssp585`        | Future scenario (high emissions)            |
+| `r1i1p1f1`      | Ensemble member (run/physics/forcing setup) |
+| `gr`            | Grid label (regridded)                      |
+| `201501–203412` | Time period covered                         |
+
+
+### 6. Downloading the File
+
+a. Click List Files next to your chosen model entry.
+b. A table will list several .nc files, each covering ~20 years.
+c. Click HTTP Download for one file (e.g., 2015–2034).
+
 ```{r, out.width = "100%", echo = FALSE}
   knitr::include_graphics("images/cmip603.png")
 ```
 
-The ensemble names "r1i1p1", "r2i1p1", etc. in **Variant Label** indicate that the ensemble members differ only in their initial conditions (the model physics are the same for all ensemble members, but the members were initialized from different initial conditions out of the control simulation). Hence, the differences between the ensemble members represent internal variability.
+Each file is ~130 MB. Do not download all time periods — one file is enough for this assignment.
 
--   click the **+** in the **Experiment ID** option. In this option you will see every single *Experiment/Simulation*. For example, **G1/G6/G7** are the geoengineering climate scenarios. Go to the bottom of the **Experiment ID** tab and click **ssp585**. Then click **Search**
--   click the **+** in the **Source ID** option for the full model list and their Institution ID. Let's click on **GFDL-CM4** model from GFDL/NOAA lab. Then click **Search**
+::: callout-tip
+## Assignment Hint
 
-If you have follow the previous steps you should get a tab result similar to this:
+Use this setup:
+- Model: GFDL-ESM4
+- Scenario: ssp585
+- Variable: tos (sea surface temperature)
+- Period: 2015–2034
+You’ll use this file in the next section to open, visualize, and analyze global SST in R.
+*Pro tip: Start filtering by variable — it’s the quickest way to narrow the search.*
+:::
 
-```{r, out.width = "100%", echo = FALSE}
-  knitr::include_graphics("images/cmip603.png")
-```
+::: {.callout-note collapse="true"}
+## Assignment Hint
 
-To download the model, just click on the **List Files** tab and then select **HTTP Download**
+No downloads? Make sure you’re logged into `ESGF`.
+
+Empty results? Clear filters and re-apply `Variable` → `tos` first.
+
+Slow/failed download? Try another `ESGF` node mirror listed under `“Download Options”`
+:::

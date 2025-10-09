@@ -1,36 +1,102 @@
 # Setting up your computer {#setup}
 
-You will need to have both R and RStudio installed on your computer to complete this workshop. Although it is not imperative that you have the latest version of RStudio installed, **you will need to have at least version 4.0 of R installed** . Please note that you might need administrative permissions to install these programs. After installing them, you will also need to install some R packages too. Finally, you will also need to download the data for this workshop.
+You will need to have both `R` and `RStudio` installed on your computer to complete this course. Although it’s not essential to have the newest version of `RStudio`, **you’ll need at least R version 4.0 or higher**. You might also need administrative permissions to install these programs on your machine.
 
-## R {#r}
+After setting up `R` and `RStudio`, you’ll install a few `R` packages to work with climate and environmental data. Finally, you’ll download one small dataset later in the module to practice running basic analyses — nothing too heavy or complicated.
 
-The [R statistical computing environment](https://www.r-project.org) can be downloaded from the Comprehensive R Archive Network (CRAN). Specifically, you can download the latest version of R (version `r as.character(getRversion())`) from here: https://cloud.r-project.org. Please note that you will need to download the correct file for your operating system (i.e. Linux, Mac OSX, Windows).
 
-## RStudio {#rstudio}
+## `R` {#r}
 
-[RStudio](https://www.rstudio.com) is an integrated development environment (IDE). In other words, it is a program that is designed to make your R programming experience more enjoyable. During this workshop, you will interact with R through RStudio---meaning that you will open RStudio to code in R. You can download the latest version of RStudio here: http://www.rstudio.com/download. When you start RStudio, you will see two main parts of the interface:
+The [R statistical computing environment](https://www.r-project.org) is the core tool we’ll use for data exploration and visualization in this course. You can download the latest version of `R` (version `r as.character(getRversion())`) from the [Comprehensive R Archive Network (CRAN)](https://cloud.r-project.org).  
+
+Make sure you download the correct installer for your operating system — `Windows`, `macOS`, or `Linux`. Once installed, you’ll be ready to connect it with `RStudio`, the interface we’ll use throughout the course.
+
+## `RStudio` {#rstudio}
+
+[RStudio](https://www.rstudio.com) is an integrated development environment (IDE) — essentially, the workspace where you’ll write and run your `R` code. It makes coding more organized and interactive, combining the console, scripts, plots, and files all in one place.  
+
+You can download the latest version of `RStudio` [here](https://www.rstudio.com/download). Once installed, open `RStudio` and explore its main interface — you’ll find a console to run commands, a panel for your scripts, and other tabs for plots, files, and packages.
 
 ```{r, out.width = "100%", echo = FALSE}
   knitr::include_graphics("images/rstudio-console.png")
 ```
 
-You can type R code into the *Console* and press the enter key to run code.
+You can type `R` code into the *Console* and press the enter key to run code.
 
-## R packages {#r-packages}
+## `R` packages {#r-packages}
 
-An R package is a collection of R code and documentation that can be installed to enhance the standard R environment with additional functionality. Currently, there are over fifteen thousand R packages available on CRAN. Each of these R packages are developed to perform a specific task, such as [reading Excel spreadsheets](https://cran.r-project.org/web/packages/readxl/index.html), [downloading satellite imagery data](https://cran.r-project.org/web/packages/MODIStsp/index.html), [downloading and cleaning protected area data](https://cran.r-project.org/web/packages/wdpar/index.html), or [fitting environmental niche models](https://cran.r-project.org/web/packages/ENMeval/index.html). In fact, R has such a diverse ecosystem of R packages, that the question is almost always not "can I use R to ...?" but "what R package can I use to ...?". During this workshop, we will use several R packages. To install these R packages, please enter the code below in the *Console* part of the RStudio interface and press enter. Note that you will require an Internet connection and the installation process may take some time to complete.
+An `R` package is a collection of code, data, and documentation that extends what `R` can do. There are now thousands of packages on CRAN, covering everything from basic statistics to machine learning and climate modeling.  
+
+In this course, we’ll only use a small handful — just enough to explore, visualize, and handle climate data efficiently. You’ll see that most R workflows build on the same few “core” packages, so getting comfortable with these will serve you well beyond this class.
+
+::: callout-note
+## Navigating `R`
+
+Because the `R` ecosystem is so extensive, the question is almost never *“can I do this in R?”* but rather *“which package should I use to do it?”*
+:::
+
+To install the required packages, copy and paste the code below into the *Console* in `RStudio`, then press **Enter**. You’ll need an internet connection, and the installation may take a few minutes.
 
 ```{r, eval = FALSE}
-install.packages(c("sf", "terra", "dplyr", "sp", "rgeos", "rgdal", "raster",
-                   "units", "tidyr", "stringr", "readr", "transformr", "data.table",
-                   "ggplot2", "RColorBrewer", "rnaturalearth", "rnaturalearthdata",
-                   "ggtext", "lwgeom", "patchwork", "gganimate", "animation"))
-
-# Optional packages
-  # library(ncdf4)
-  # library(ncdf4.helpers)
-  # library(PCICt)
-  # library(magrittr)
-  # library(exactextractr)
-  # library(nngeo)
+# Core packages for this course
+install.packages(c(
+  "terra",         # raster and vector data
+  "sf",            # spatial data manipulation
+  "dplyr",         # data wrangling
+  "ggplot2",       # plotting and visualization
+  "maps",          # quick "dirty" plot
+))
 ```
+
+:::{.callout-caution}
+If you already have some of these installed, R will skip them automatically. No need to reinstall everything from scratch.
+:::
+
+## (Optional) Create an `R Project`
+
+For those who want to stay extra organized, you can set up an **R Project**.  An R Project connects directly to a folder on your computer, keeping your scripts, data, and outputs neatly contained in one place.
+
+Using an R Project is a good habit for reproducible research — it keeps your workflow clean and avoids the classic *“where did I save that file?”* problem. Everything you do — data cleaning, analysis, and plotting — stays inside a single self-contained folder.
+
+::: callout-note
+## Example: Setting up an `R Project`
+
+1.  In the **File** menu, choose **New Project**  
+2.  Select **New Directory**  
+3.  Click **New Project**  
+4.  Under **Directory name**, type: `esm_240_{USERNAME}`  
+5.  Leave **Create Project as subdirectory of:** set to `~` (your home folder)  
+6.  Click **Create Project**
+:::
+
+::: callout-tip
+If you already have your own folder system that works for you — that’s fine too.  
+This step is optional, but it can make life easier, especially when you start juggling multiple datasets or assignments.
+:::
+
+### Paths 101: How R Knows Where to Look
+
+If you’re new to coding or file systems, this is worth a quick read — it’ll save you a lot of confusion later on!
+
+Every file on your computer has a **path**, which tells R where to find it.  
+
+There are two main types:
+
+- **Absolute path:** starts from the very top (root) of your computer’s file system.  
+  Example: `/Users/ibrito/Desktop/esm_240/`
+
+- **Relative path:** starts from your current working directory — basically, the folder R is “looking at” right now.  
+  Example: `data/my_file.csv` (relative to where your project lives)
+
+::: callout-important
+When you work inside an **R Project**, RStudio automatically sets your working directory to that project’s folder.  
+That means your relative paths will *just work* — no need to manually tell R where to look.
+:::
+
+::: {.callout-caution collapse="true"}
+## Ditch the `setwd()`
+
+Once you start using R Projects, you should almost never need to use `setwd()`.  
+If you find yourself typing it, pause and ask *why* — chances are, there’s a cleaner way to organize your files.  
+(Think of it as the “Ctrl + Z” of reproducibility — best avoided if you can.)
+:::

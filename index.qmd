@@ -1,27 +1,30 @@
 # Preface {.unnumbered}
 
-All the code was written by Isaac Brito-Morales (ibrito\@conservation.org)
+This eBook was written and compiled by **Isaac Brito-Morales** (*ibrito@conservation.org*) as part of the *Climate Change Biology* module within the ESM240 course.  
 
-Please do not distribute this code without permission
+The goal is simple: to help students and early-career scientists navigate the world of climate models — not to turn them into modelers, but to make sure they know where to find information, how to use it responsibly, and how to interpret it within an ecological and conservation context.  
 
-NO GUARANTEES THAT CODE IS CORRECT
+All code and examples are provided for educational purposes.  
+Please don’t distribute or reuse them without permission.  
 
-Caveat Emptor!
+⚠️ **Disclaimer:** No guarantees that every line of code will run perfectly — as one of my mentors used to say, *“that’s what learning (and debugging) is for.”*
+
+---
 
 # Acknowledgements
 
-Big shoutout and a massive high-five to my mentors (and collaborators) -- you've been the real MVPs, guiding me through the wild maze of science with a flashlight and some hilarious jokes! And here they are:
+A big shoutout and massive high-five to my mentors and collaborators — you’ve been the real MVPs, guiding me through the wild maze of science with a flashlight and a sense of humor.  
 
--   Anthony Richardson
--   David Schoeman
--   Michael Burrows
--   Jorge García Molinos
--   Carissa Klein
--   Daniel Dunn
--   Jason Everett
--   Hugh Possingham
--   Lee Hannah
+- Anthony Richardson  
+- David Schoeman  
+- Michael Burrows  
+- Jorge García Molinos  
+- Carissa Klein  
+- Daniel Dunn  
+- Jason Everett  
+- Hugh Possingham  
+- Lee Hannah  
 
-```{r, out.width = "100%", echo = FALSE}
+```{r, echo = FALSE, results = "asis"}
   knitr::include_graphics("images/NCC_cover.JPG")
 ```

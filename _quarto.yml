@@ -3,9 +3,11 @@ project:
   output-dir: docs
 
 book:
-  title: "ESM240 Week 4: Climate-smart marine conservation"
+  title: "ESM240 – Climate Change Biology: From Models to Applications"
+  subtitle: "From Models to Applications"
   author: "Isaac Brito-Morales"
-  date: "10/30/2023"
+  date: "2025"
+  description: "A professional-training eBook for master’s students to understand, locate, and use climate model data for marine conservation and applied research."
   sidebar:
     style: docked
     background: light
@@ -19,11 +21,7 @@ book:
     - 01_preparation.qmd
     - 02_set_up.qmd
     - 03_cmip6_models.qmd
-    - 04_climate_data.qmd
     - 05_ncRaster.qmd
-    - 06_equalGrid.qmd
-    - 07_climatePUs.qmd
-    - 08_CCMetrics.qmd
     - references.qmd
 
 bibliography: references.bib

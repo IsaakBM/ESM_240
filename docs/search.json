@@ -2,393 +2,141 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "ESM240 Week 4: Climate-smart marine conservation",
+    "title": "ESM240 – Climate Change Biology: From Models to Applications",
     "section": "",
-    "text": "Preface\nAll the code was written by Isaac Brito-Morales (ibrito@conservation.org)\nPlease do not distribute this code without permission\nNO GUARANTEES THAT CODE IS CORRECT\nCaveat Emptor!\n\n\nAcknowledgements\nBig shoutout and a massive high-five to my mentors (and collaborators) – you’ve been the real MVPs, guiding me through the wild maze of science with a flashlight and some hilarious jokes! And here they are:\n\nAnthony Richardson\nDavid Schoeman\nMichael Burrows\nJorge García Molinos\nCarissa Klein\nDaniel Dunn\nJason Everett\nHugh Possingham\nLee Hannah"
+    "text": "Preface\nThis eBook was written and compiled by Isaac Brito-Morales (ibrito@conservation.org) as part of the Climate Change Biology module within the ESM240 course.\nThe goal is simple: to help students and early-career scientists navigate the world of climate models — not to turn them into modelers, but to make sure they know where to find information, how to use it responsibly, and how to interpret it within an ecological and conservation context.\nAll code and examples are provided for educational purposes.\nPlease don’t distribute or reuse them without permission.\n⚠️ Disclaimer: No guarantees that every line of code will run perfectly — as one of my mentors used to say, “that’s what learning (and debugging) is for.”\n\n\n\nAcknowledgements\nA big shoutout and massive high-five to my mentors and collaborators — you’ve been the real MVPs, guiding me through the wild maze of science with a flashlight and a sense of humor.\n\nAnthony Richardson\n\nDavid Schoeman\n\nMichael Burrows\n\nJorge García Molinos\n\nCarissa Klein\n\nDaniel Dunn\n\nJason Everett\n\nHugh Possingham\n\nLee Hannah",
+    "crumbs": [
+      "Preface"
+    ]
   },
   {
-    "objectID": "01_preparation.html#open-science-nceas",
-    "href": "01_preparation.html#open-science-nceas",
+    "objectID": "01_preparation.html",
+    "href": "01_preparation.html",
     "title": "1  Welcome!",
-    "section": "1.1 Open Science: NCEAS",
-    "text": "1.1 Open Science: NCEAS\nWith this material, we are following the NCEAS data approach to make research more transparent and reproducible, which enhances the credibility, utility, and accuracy of the science used to solve global challenges.\nOpen science is the philosophy and practice of making data and methods accessible, replicable, and free to use, typically through computer programming tools and techniques. It helps researchers compile and analyze data more efficiently and identify solutions more quickly."
+    "section": "",
+    "text": "1.1 Open Science: NCEAS\nWith this material, we are following the NCEAS data approach to make research more transparent and reproducible, which enhances the credibility, utility, and accuracy of the science used to solve global challenges.\nOpen science is the philosophy and practice of making data and methods accessible, replicable, and free to use, typically through computer programming tools and techniques. It helps researchers compile and analyze data more efficiently and identify solutions more quickly.",
+    "crumbs": [
+      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Welcome!</span>"
+    ]
   },
   {
-    "objectID": "02_set_up.html#r",
-    "href": "02_set_up.html#r",
+    "objectID": "02_set_up.html",
+    "href": "02_set_up.html",
     "title": "2  Setting up your computer",
-    "section": "2.1 R",
-    "text": "2.1 R\nThe R statistical computing environment can be downloaded from the Comprehensive R Archive Network (CRAN). Specifically, you can download the latest version of R (version 4.2.3) from here: https://cloud.r-project.org. Please note that you will need to download the correct file for your operating system (i.e. Linux, Mac OSX, Windows)."
+    "section": "",
+    "text": "2.1 R\nThe R statistical computing environment is the core tool we’ll use for data exploration and visualization in this course. You can download the latest version of R (version 4.2.3) from the Comprehensive R Archive Network (CRAN).\nMake sure you download the correct installer for your operating system — Windows, macOS, or Linux. Once installed, you’ll be ready to connect it with RStudio, the interface we’ll use throughout the course.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Setting up your computer</span>"
+    ]
   },
   {
     "objectID": "02_set_up.html#rstudio",
     "href": "02_set_up.html#rstudio",
     "title": "2  Setting up your computer",
     "section": "2.2 RStudio",
-    "text": "2.2 RStudio\nRStudio is an integrated development environment (IDE). In other words, it is a program that is designed to make your R programming experience more enjoyable. During this workshop, you will interact with R through RStudio—meaning that you will open RStudio to code in R. You can download the latest version of RStudio here: http://www.rstudio.com/download. When you start RStudio, you will see two main parts of the interface:\n\n\n\n\n\nYou can type R code into the Console and press the enter key to run code."
+    "text": "2.2 RStudio\nRStudio is an integrated development environment (IDE) — essentially, the workspace where you’ll write and run your R code. It makes coding more organized and interactive, combining the console, scripts, plots, and files all in one place.\nYou can download the latest version of RStudio here. Once installed, open RStudio and explore its main interface — you’ll find a console to run commands, a panel for your scripts, and other tabs for plots, files, and packages.\n\n\n\n\n\n\n\n\n\nYou can type R code into the Console and press the enter key to run code.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Setting up your computer</span>"
+    ]
   },
   {
     "objectID": "02_set_up.html#r-packages",
     "href": "02_set_up.html#r-packages",
     "title": "2  Setting up your computer",
     "section": "2.3 R packages",
-    "text": "2.3 R packages\nAn R package is a collection of R code and documentation that can be installed to enhance the standard R environment with additional functionality. Currently, there are over fifteen thousand R packages available on CRAN. Each of these R packages are developed to perform a specific task, such as reading Excel spreadsheets, downloading satellite imagery data, downloading and cleaning protected area data, or fitting environmental niche models. In fact, R has such a diverse ecosystem of R packages, that the question is almost always not “can I use R to …?” but “what R package can I use to …?”. During this workshop, we will use several R packages. To install these R packages, please enter the code below in the Console part of the RStudio interface and press enter. Note that you will require an Internet connection and the installation process may take some time to complete.\n\ninstall.packages(c(\"sf\", \"terra\", \"dplyr\", \"sp\", \"rgeos\", \"rgdal\", \"raster\",\n                   \"units\", \"tidyr\", \"stringr\", \"readr\", \"transformr\", \"data.table\",\n                   \"ggplot2\", \"RColorBrewer\", \"rnaturalearth\", \"rnaturalearthdata\",\n                   \"ggtext\", \"lwgeom\", \"patchwork\", \"gganimate\", \"animation\"))\n\n# Optional packages\n  # library(ncdf4)\n  # library(ncdf4.helpers)\n  # library(PCICt)\n  # library(magrittr)\n  # library(exactextractr)\n  # library(nngeo)"
+    "text": "2.3 R packages\nAn R package is a collection of code, data, and documentation that extends what R can do. There are now thousands of packages on CRAN, covering everything from basic statistics to machine learning and climate modeling.\nIn this course, we’ll only use a small handful — just enough to explore, visualize, and handle climate data efficiently. You’ll see that most R workflows build on the same few “core” packages, so getting comfortable with these will serve you well beyond this class.\n\n\n\n\n\n\nNavigating R\n\n\n\nBecause the R ecosystem is so extensive, the question is almost never “can I do this in R?” but rather “which package should I use to do it?”\n\n\nTo install the required packages, copy and paste the code below into the Console in RStudio, then press Enter. You’ll need an internet connection, and the installation may take a few minutes.\n\n# Core packages for this course\ninstall.packages(c(\n  \"terra\",         # raster and vector data\n  \"sf\",            # spatial data manipulation\n  \"dplyr\",         # data wrangling\n  \"ggplot2\",       # plotting and visualization\n  \"maps\",          # quick \"dirty\" plot\n))\n\n\n\n\n\n\n\nCaution\n\n\n\nIf you already have some of these installed, R will skip them automatically. No need to reinstall everything from scratch.",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Setting up your computer</span>"
+    ]
   },
   {
-    "objectID": "03_climate_data.html#installation-process",
-    "href": "03_climate_data.html#installation-process",
-    "title": "3  Getting Started with Climate Data",
-    "section": "3.1 Installation Process",
-    "text": "3.1 Installation Process\n\n3.1.1 MacOS\nFollow the instruction and downloaded MacPorts. MacPorts is an open-source community initiative to design an easy-to-use system for compiling, installing, and upgrading the command-line on the Mac operating system.\nMacPorts website MacPorts download\nAfter the installation (if you have admin rights) open the terminal and type:\nport install cdo\nIf you don’t have admin rights, open the terminal and type:\nsudo port install cdo and write your password\n\n\n3.1.2 Windows 10\nIn the current windows 10 version(s) Microsoft includes an Ubuntu 16.04 LTS embedded Linux. This environment offers a clean integration with the windows file systems and and the opportunity to install CDO via the native package manager of Ubuntu.\nInstall the Ubuntu app from the Microsoft Store application. Then open the Ubuntu terminal and type:\nsudo apt-get install cdo and write your password\n\n\n3.1.3 Linux\nFor Linux go to: Linux"
+    "objectID": "02_set_up.html#optional-create-an-r-project",
+    "href": "02_set_up.html#optional-create-an-r-project",
+    "title": "2  Setting up your computer",
+    "section": "2.4 (Optional) Create an R Project",
+    "text": "2.4 (Optional) Create an R Project\nFor those who want to stay extra organized, you can set up an R Project. An R Project connects directly to a folder on your computer, keeping your scripts, data, and outputs neatly contained in one place.\nUsing an R Project is a good habit for reproducible research — it keeps your workflow clean and avoids the classic “where did I save that file?” problem. Everything you do — data cleaning, analysis, and plotting — stays inside a single self-contained folder.\n\n\n\n\n\n\nExample: Setting up an R Project\n\n\n\n\nIn the File menu, choose New Project\n\nSelect New Directory\n\nClick New Project\n\nUnder Directory name, type: esm_240_{USERNAME}\n\nLeave Create Project as subdirectory of: set to ~ (your home folder)\n\nClick Create Project\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nIf you already have your own folder system that works for you — that’s fine too.\nThis step is optional, but it can make life easier, especially when you start juggling multiple datasets or assignments.\n\n\n\n2.4.1 Paths 101: How R Knows Where to Look\nIf you’re new to coding or file systems, this is worth a quick read — it’ll save you a lot of confusion later on!\nEvery file on your computer has a path, which tells R where to find it.\nThere are two main types:\n\nAbsolute path: starts from the very top (root) of your computer’s file system.\nExample: /Users/ibrito/Desktop/esm_240/\nRelative path: starts from your current working directory — basically, the folder R is “looking at” right now.\nExample: data/my_file.csv (relative to where your project lives)\n\n\n\n\n\n\n\nImportant\n\n\n\nWhen you work inside an R Project, RStudio automatically sets your working directory to that project’s folder.\nThat means your relative paths will just work — no need to manually tell R where to look.\n\n\n\n\n\n\n\n\nDitch the setwd()\n\n\n\n\n\nOnce you start using R Projects, you should almost never need to use setwd().\nIf you find yourself typing it, pause and ask why — chances are, there’s a cleaner way to organize your files.\n(Think of it as the “Ctrl + Z” of reproducibility — best avoided if you can.)",
+    "crumbs": [
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Setting up your computer</span>"
+    ]
   },
   {
-    "objectID": "03_climate_data.html#ncview-a-netcdf-visual-browser",
-    "href": "03_climate_data.html#ncview-a-netcdf-visual-browser",
-    "title": "3  Getting Started with Climate Data",
-    "section": "3.2 Ncview: a netCDF visual browser",
-    "text": "3.2 Ncview: a netCDF visual browser\nNcview is quick visual browser that allows you to explore netCDF files very easily: ncview. ncview is an easy to use netCDF file viewer for linux and OS X. It can read any netCDF file.\nTo install ncview, open the terminal and type:\n\nOS X: port install ncview\nLinux: sudo apt-get install ncview"
-  },
-  {
-    "objectID": "03_climate_data.html#working-with-cdo-and-ncview",
-    "href": "03_climate_data.html#working-with-cdo-and-ncview",
-    "title": "3  Getting Started with Climate Data",
-    "section": "3.3 Working with CDO and ncview",
-    "text": "3.3 Working with CDO and ncview\nTo work with CDO and ncview you will need to use the terminal command line. Open the Ubuntu app in Windows and the Terminal on OS X. Let’s check a folder in your desktop:\nIn your command line type:\n\ncd OceanFrontsChange_Workshop2023/data/ (this will establish data as your primary directory)\n\nIf your are using Windows your desktop path should be located at /mnt/c/.\nBecause you have setting OceanFrontsChange_Workshop2023/data/ as your directory in the terminal, we can use ncview to get a quick view of the front data\n\ntype ls -l to see if the front data is in your directory.\nto view the model with ncview, in the terminal type ncview BOAonMUR_SWIO_Y2003-M1-D1.nc.\n\nWe can check the file details using cdo. In the terminal type:\n\ncdo -sinfov BOAonMUR_SWIO_Y2003-M1-D1.nc\n\nThe model details are:\n\nVariable: temp_gradient\nHorizontal component: resolution 5001x3001\nVertical component: 1 level (i.e., depth)\nTime component: 1 steps"
-  },
-  {
-    "objectID": "03_climate_data.html#cdo-extra-functions",
-    "href": "03_climate_data.html#cdo-extra-functions",
-    "title": "3  Getting Started with Climate Data",
-    "section": "3.4 CDO extra functions",
-    "text": "3.4 CDO extra functions\nThere are several things that you can explore. Some interesting functions that I’ve used a lot are:\n\ncdo -yearmean calculates the annual mean of a monthly data input netCDF file\ncdo -yearmin calculates the annual min of a monthly data input netCDF file\ncdo -yearmax calculates the annual max of a monthly data input netCDF file\ncdo -ensmean calculates the ensemble mean of several netCDF files. If your input files are different models, this function will estimate a mean of all those models\ncdo -vertmean calculates the vertical mean for netCDF with olevel (i.e., depth)\ncdo -mergetime merge all the netCDF files in your directory\n\nTo use those argument remember just type in the terminal:\n\ncdo -[function] input_file output_file"
-  },
-  {
-    "objectID": "04_ncRaster.html#data-import",
-    "href": "04_ncRaster.html#data-import",
-    "title": "4  netCDF files in R: Raster, Spatial objects",
-    "section": "4.1 Data import",
-    "text": "4.1 Data import\nLoad the required packages.\n\ninstall.packages(c(\"terra\", \"ncdf4\", \"ncdf4.helpers\", \"PCICt\", \n                   \"dplyr\", \"magrittr\"))\n\n# load packages\n  library(terra)\n  library(ncdf4)\n  library(ncdf4.helpers)\n  library(PCICt)\n  library(dplyr)\n  library(magrittr)\n\n# List of pacakges that we will use\n  list.of.packages &lt;- c(\"terra\", \"ncdf4\", \"ncdf4.helpers\", \"PCICt\", \"dplyr\", \"magrittr\")\n# If is not installed, install the pacakge\n  new.packages &lt;- list.of.packages[!(list.of.packages %in% installed.packages()[,\"Package\"])]\n      if(length(new.packages)) install.packages(new.packages)\n# Load packages\n  lapply(list.of.packages, require, character.only = TRUE)"
-  },
-  {
-    "objectID": "04_ncRaster.html#function-to-transform-netcdf-files-into-raster-objects",
-    "href": "04_ncRaster.html#function-to-transform-netcdf-files-into-raster-objects",
-    "title": "4  netCDF files in R: Raster, Spatial objects",
-    "section": "4.2 Function to transform netCDF files into Raster objects",
-    "text": "4.2 Function to transform netCDF files into Raster objects\nYou can read netCDF using raster::stack or the terra::rast functions from the raster and terra packages. However, this code allows more control over the outputs.\n\n# NO GUARANTEES THAT CODE IS CORRECT\n# Caveat Emptor! (Latin for \"Let the buyer beware\")\n  \n# Define generalities \n  nc = \"data/tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.nc\"\n  v = \"tos\" \n  x = \"lon\"\n  y = \"lat\"\n# Working with netCDF file\n  nc &lt;- ncdf4::nc_open(nc)\n  dat &lt;- ncdf4::ncvar_get(nc, v) # x, y, year\n  dat[] &lt;- dat\n  rlon &lt;- ncdf4::ncvar_get(nc, varid = x) %&gt;% \n    range()\n  rlat &lt;- ncdf4::ncvar_get(nc, varid = y) %&gt;% \n    range()\n  X &lt;- dim(dat)[1] # nolint\n  Y &lt;- dim(dat)[2] # nolint\n  tt &lt;- ncdf4.helpers::nc.get.time.series(nc,\n                                          v = \"time\",\n                                          time.dim.name = \"time\")\n  tt &lt;- as.POSIXct(tt)\n  tt &lt;- as.Date(tt)\n  ncdf4::nc_close(nc)\n# Make a raster with the right dims to fill with lat&lon\n  rs &lt;- terra::rast(nrow = Y, ncol = X, extent = terra::ext(c(rlon, rlat)))\n  # Fix orientation of original data\n  # [and then create a raster with this fix orientation]\n    drs &lt;- terra::xyFromCell(rs, 1:terra::ncell(rs)) %&gt;%\n      as_tibble()\n  # Create raster stacks of depths for every month\n    rs_list &lt;- list() # to allocate results # nolint\n    st &lt;- terra::rast()\n    for (i in 1:length(tt)) { # nolint\n      dt1 &lt;- dplyr::bind_cols(drs,\n                              as.vector(dat[, , i])) %&gt;%\n        magrittr::set_colnames(c(\"x\", \"y\", v))\n      dt1 &lt;- terra::rast(dt1, type = \"xyz\")\n      names(dt1) &lt;- tt[i]\n      st &lt;- c(st, terra::flip(dt1))\n      print(paste0(tt[i], \" of \", length(tt)))\n    }"
-  },
-  {
-    "objectID": "05_equalGrid.html#data-import",
-    "href": "05_equalGrid.html#data-import",
-    "title": "5  Equal-area grid for your area of interest",
-    "section": "5.1 Data import",
-    "text": "5.1 Data import\nLoad the required packages.\n\nsource(\"zscripts/z_helpFX.R\")"
-  },
-  {
-    "objectID": "05_equalGrid.html#polygons-on-the-area-of-interest",
-    "href": "05_equalGrid.html#polygons-on-the-area-of-interest",
-    "title": "5  Equal-area grid for your area of interest",
-    "section": "5.2 Polygons on the area of interest",
-    "text": "5.2 Polygons on the area of interest\n\n# Creating the bounding box\n  bbox &lt;- st_bbox(c(xmin = 30, xmax = 60, ymax = -7, ymin = -35),\n                  crs = st_crs(\"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs\")) %&gt;% \n    st_as_sfc() %&gt;% \n    st_transform(crs = robin)\n  \n# Taking 0.1 from borders to avoid border effect\n  f_bbox &lt;- st_bbox(c(xmin = 30.1, xmax = 59.9, ymax = -7.1, ymin = -34.9),\n                    crs = st_crs(\"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs\")) %&gt;% \n    st_as_sfc() %&gt;% \n    st_transform(crs = robin)\n# Area\n  CellArea &lt;- 100 # in km2\n  h_diameter &lt;- 2 * sqrt((CellArea*1e6)/((3*sqrt(3)/2))) * sqrt(3)/2 # Diameter in m\n  s_diameter &lt;- sqrt(CellArea*1e6) # Diameter in m"
-  },
-  {
-    "objectID": "05_equalGrid.html#planning-units-for-the-whole-region",
-    "href": "05_equalGrid.html#planning-units-for-the-whole-region",
-    "title": "5  Equal-area grid for your area of interest",
-    "section": "5.3 Planning units for the whole region",
-    "text": "5.3 Planning units for the whole region\n\n# Creating an equal-area grid\n  PUs &lt;- st_make_grid(f_bbox,\n                      square = F,\n                      cellsize = c(h_diameter, h_diameter),\n                      what = \"polygons\",\n                      crs = st_crs(f_bbox)) %&gt;%\n    st_sf()\n\n# Check cell size worked OK.\n  print(paste0(\"Range of cellsize are \",\n               round(as.numeric(range(units::set_units(st_area(PUs), \"km^2\")))[1]),\" km2 to \",\n               round(as.numeric(range(units::set_units(st_area(PUs), \"km^2\")))[2]),\" km2\"))"
-  },
-  {
-    "objectID": "05_equalGrid.html#final-equal-area-grid",
-    "href": "05_equalGrid.html#final-equal-area-grid",
-    "title": "5  Equal-area grid for your area of interest",
-    "section": "5.4 Final equal-area grid",
-    "text": "5.4 Final equal-area grid\n\n# Get rid of \"land\" polygons\n  logi_PUs &lt;- st_centroid(PUs) %&gt;%\n    st_intersects(world_sfRob) %&gt;% \n    lengths &gt; 0 # Get logical vector instead of sparse geometry binary\n  PUs1 &lt;- PUs[logi_PUs == FALSE, ]\n  plot(st_geometry(PUs1))"
-  },
-  {
-    "objectID": "05_equalGrid.html#plot-the-output",
-    "href": "05_equalGrid.html#plot-the-output",
-    "title": "5  Equal-area grid for your area of interest",
-    "section": "5.5 Plot the output",
-    "text": "5.5 Plot the output\n\n  g1 &lt;- ggplot() +\n    geom_sf(data = PUs1, size = 0.05) +\n    geom_sf(data = world_sfRob, size = 0.05, fill = \"grey20\") +\n    theme_bw()\n  \n  print(g1)\n  \n  # ggsave(\"MYFILE.png\", plot = g1, width = 30, height = 30, dpi = 600, limitsize = FALSE)\n  # st_write(obj = PUs, dsn = \"MYDIRECTORY\", layer = \"MYFILE\", driver = \"ESRI Shapefile\")"
-  },
-  {
-    "objectID": "06_climatePUs.html#data-import",
-    "href": "06_climatePUs.html#data-import",
-    "title": "6  Variable by equal-size grid",
-    "section": "6.1 Data import",
-    "text": "6.1 Data import\nLoad the required packages.\n\nlibrary(terra)\nlibrary(sf)\nlibrary(exactextractr)\nlibrary(dplyr)\nlibrary(nngeo)\nlibrary(stringr)"
-  },
-  {
-    "objectID": "06_climatePUs.html#generic-function-to-replace-nas-with-nearest-neighbor.",
-    "href": "06_climatePUs.html#generic-function-to-replace-nas-with-nearest-neighbor.",
-    "title": "6  Variable by equal-size grid",
-    "section": "6.2 Generic Function to replace NAs with nearest neighbor.",
-    "text": "6.2 Generic Function to replace NAs with nearest neighbor.\nThis is just a generic function that uses nngeo R package. Feel free to used and adapt it to your needs.\n\n  fCheckNAs &lt;- function(df, vari) {\n    if (sum(is.na(pull(df, !!sym(vari))))&gt;0){ # Check if there are NAs\n        \n        gp &lt;- df %&gt;%\n          mutate(isna = is.finite(!!sym(vari))) %&gt;%\n          group_by(isna) %&gt;%\n          group_split()\n        \n        out_na &lt;- gp[[1]] # DF with NAs\n        out_finite &lt;- gp[[2]] # DF without NAs\n        \n        d &lt;- st_nn(out_na, out_finite) %&gt;% # Get nearest neighbour\n          unlist()\n        \n        out_na &lt;- out_na %&gt;%\n          mutate(!!sym(vari) := pull(out_finite, !!sym(vari))[d])\n        \n        df &lt;- rbind(out_finite, out_na)\n        \n      }\n      return(df)\n    }"
-  },
-  {
-    "objectID": "06_climatePUs.html#read-extract-and-weighted-mean-interpolation",
-    "href": "06_climatePUs.html#read-extract-and-weighted-mean-interpolation",
-    "title": "6  Variable by equal-size grid",
-    "section": "6.3 Read, Extract and weighted mean interpolation",
-    "text": "6.3 Read, Extract and weighted mean interpolation\n\n# Create the projection\n  proj.geo = \"+proj=robin +lon_0=0 +datum=WGS84 +units=m +no_defs\"\n# Reading equal grid file\n  shp_file &lt;- st_read(\"data/PUs_MZ_100km2.shp\") %&gt;% \n    st_transform(crs = terra::crs(proj.geo))\n# Read raster object\n  rs_file &lt;- rast(\"data/tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.tif\")\n  rs_file &lt;- subset(rs_file, 1)\n  crs(rs_file) &lt;- terra::crs(\"+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0\")\n  weight_rs &lt;- terra::cellSize(rs_file)\n  rs_file &lt;- terra::project(rs_file, y = terra::crs(proj.geo), method = \"near\")\n  weight_rs &lt;- terra::project(weight_rs, y = terra::crs(proj.geo), method = \"near\")\n# Getting value by polygon\n  rs_bypu &lt;- exact_extract(rs_file, \n                           shp_file, \n                           \"weighted_mean\", \n                           weights = weight_rs, \n                           append_cols = TRUE, \n                           full_colnames = TRUE)\n  rs_shp &lt;- dplyr::right_join(shp_file, rs_bypu, \"FID\")\n  colnames(rs_shp) &lt;- c(stringr::str_remove_all(string = names(rs_shp), pattern = \"weighted_mean.\"))"
-  },
-  {
-    "objectID": "06_climatePUs.html#run-replace-nas-with-nearest-neighbor.",
-    "href": "06_climatePUs.html#run-replace-nas-with-nearest-neighbor.",
-    "title": "6  Variable by equal-size grid",
-    "section": "6.4 RUN: replace NAs with nearest neighbor.",
-    "text": "6.4 RUN: replace NAs with nearest neighbor.\n\nnms &lt;- names(rs_shp)\nnms &lt;- nms[nms != \"geometry\" & nms != \"FID\"]\n\nsingle &lt;- rs_shp %&gt;% \n  dplyr::select(FID, nms[1])\nrs_sfInt &lt;- fCheckNAs(df = single, vari = names(single)[2]) %&gt;% \n  as_tibble() %&gt;%\n  dplyr::arrange(FID) %&gt;%\n  dplyr::select(-FID, -geometry, -isna)\n\nsaveRDS(rs_sfInt, \"data/tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.rds\")"
-  },
-  {
-    "objectID": "06_climatePUs.html#plot-the-output",
-    "href": "06_climatePUs.html#plot-the-output",
-    "title": "6  Variable by equal-size grid",
-    "section": "6.5 Plot the output",
-    "text": "6.5 Plot the output\n\npus &lt;- st_read(\"data/PUs_MZ_100km2.shp\") %&gt;%\n  st_transform(crs = robin)\nsf1 &lt;- readRDS(\"data/tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.rds\")\ndf1 &lt;- cbind(pus, sf1) %&gt;% \n  st_transform(crs = robin)\n\np1 &lt;- ggplot() +\n  geom_sf(data = df1, aes(fill = X2015.01.16.area), colour = NA) +\n  geom_sf(data = world_sfRob, size = 0.05, fill = \"grey20\") +\n  theme_bw() +\n  theme(legend.title = element_text(angle = 0, size = rel(0.7)),\n        plot.title = element_text(face = \"plain\", size = 22, hjust = 0.5),\n        axis.text.x = element_text(size = rel(1), angle = 0),\n        axis.text.y = element_text(size = rel(1), angle = 0),\n        axis.title = element_blank()) +\n  scale_fill_distiller(palette = \"Spectral\",\n                       limits = c(min(df1$X2015.01.16.area), max(df1$X2015.01.16.area)),\n                       direction = -1,\n                       oob = scales::squish,\n                       guide = guide_colourbar(title.position = \"top\", title = \"Sea Surface\\nTemperature\"))"
-  },
-  {
-    "objectID": "07_cmip6_models.html",
-    "href": "07_cmip6_models.html",
-    "title": "7  CMIP6 models",
+    "objectID": "03_cmip6_models.html",
+    "href": "03_cmip6_models.html",
+    "title": "3  Understanding Climate Models: The CMIP Framework",
     "section": "",
-    "text": "8 Variables\nThere are a range of variables available from the GCM (General Circulation Model) outputs. Each tab has different model variable on different time scales. The tabs are in alphabetical order. The ones starting with “O” are for Ocean, and then followed by the timescale (clim = climatology, day, dec = decade, mon = month, yr) (source: Mathematical Marine Ecology Welcome Book Chapter 9).\nFrom the left tab:\nThe ensemble names “r1i1p1”, “r2i1p1”, etc. in Variant Label indicate that the ensemble members differ only in their initial conditions (the model physics are the same for all ensemble members, but the members were initialized from different initial conditions out of the control simulation). Hence, the differences between the ensemble members represent internal variability.\nIf you have follow the previous steps you should get a tab result similar to this:\nTo download the model, just click on the List Files tab and then select HTTP Download"
+    "text": "3.1 What the hell are CMIP6?\nCMIP6 stands for Coupled Model Intercomparison Project – Phase 6.\nThese are large-scale simulations of the Earth system that bring together dozens of research centers around the world. Each model represents the physical, chemical, and, in some cases, biological processes of our planet’s atmosphere, oceans, land, and cryosphere — the “big four” of climate (Schoeman et al. 2023)\nThe IPCC Fifth Assessment Report (AR5, 2013) was based on CMIP5, while the Sixth Assessment Report (AR6, 2021) uses CMIP6, which offers improved spatial resolution, new biogeochemical modules, and more realistic feedbacks among Earth-system components.\nThe main goal of CMIP is to explore plausible futures of the climate system under different greenhouse-gas and aerosol trajectories. Each model run represents a “what-if” experiment — what if emissions rise, stabilize, or decline?\nThe CMIP framework is not a single model, but a community experiment that standardizes how models are run and shared, ensuring that scientists can compare results across modeling centers. These datasets are freely distributed through the Earth System Grid Federation (ESGF), which makes them available for research and teaching.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Climate Models: The CMIP Framework</span>"
+    ]
   },
   {
-    "objectID": "07_cmip6_models.html#most-common-climate-scenarios",
-    "href": "07_cmip6_models.html#most-common-climate-scenarios",
-    "title": "7  CMIP6 models",
-    "section": "8.1 Most common climate scenarios",
-    "text": "8.1 Most common climate scenarios\nFrom CMIP5 version you will find those as RCPs (Representative Concentration Pathways) but for the new CMIP6 version they are called SSPs (Shared Socio‐Economic Pathways)."
+    "objectID": "03_cmip6_models.html#what-the-hell-are-cmip6",
+    "href": "03_cmip6_models.html#what-the-hell-are-cmip6",
+    "title": "3  Understanding Climate Models: The CMIP Framework",
+    "section": "",
+    "text": "Why CMIP matters (and why we spent a year writing about it)\n\n\n\nCMIP models underpin nearly every modern climate projection — from future sea-surface warming to biodiversity redistribution.\nIf you’ve ever used temperature or oxygen projections in ecology, you’ve indirectly used CMIP data.\n(And yes — this section owes more than a little to that friendly review “Demystifying global climate models for use in the life sciences” – which some of us may have helped write)\n\n\n\n\n\n\n\n\n\nThe CMIP6 “MIPs Wheel”\n\n\n\nCMIP6 isn’t a single climate model — it’s a huge international collaboration that brings together more than 100 models from research centers around the world. These models are grouped into Model Intercomparison Projects (MIPs), each focused on a big scientific question — for example:\nHow do aerosols affect clouds? How does the ocean store heat and carbon? What happens under different future scenarios?\nAt the center of the diagram below are a few core experiments that all models run to make results comparable. The outer circles show the different MIPs, each exploring a specific part of the Earth system.\n\n\n\n\n\n\n\n\n\nCMIP6 is what makes global climate projections possible — it provides a common framework so that results can be compared, validated, and used confidently in applied fields like ecology and conservation.\nAs we explain in (Schoeman et al. 2023), the system might look complicated, but it’s what lets us link global climate science to questions about where and how species — and ecosystems — will respond to change.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Climate Models: The CMIP Framework</span>"
+    ]
   },
   {
-    "objectID": "07_cmip6_models.html#how-to-download-cmip6-models",
-    "href": "07_cmip6_models.html#how-to-download-cmip6-models",
-    "title": "7  CMIP6 models",
-    "section": "9.1 How to download CMIP6 models",
-    "text": "9.1 How to download CMIP6 models\nCMIP6 models are free available at the Earth System Grid Federation website. You will need an account to download models. Check this tutorial of how to create an account.\nThrough the website:\n\nClick here to open the ESGF website\nGo to the Nodes tab to explore the different ESGF-CoG nodes\nClick the NCI link, the Australia National Computational Infrastructure node\n\nSelect a NCI node, go to collection and then CMIP6 link. This is the main website to download CMIP6 models. At your left you have several filters that you can play with, my advice is filter first for variable.\n\n9.1.1 Variables\nThere are a range of variables available from the GCM (General Circulation Model) outputs. Each tab has different model variable on different time scales. The tabs are in alphabetical order. The ones starting with “O” are for Ocean, and then followed by the timescale (clim = climatology, day, dec = decade, mon = month, yr) (source: Mathematical Marine Ecology Welcome Book Chapter 9).\nFrom the left tab:\n\nclick the + in the variable option. Select tos (ocean temperature on surface). Then click Search\nclick the + in the Realm option. Select ocean and ocnBgChem. Then click Search\nclick the + in the Frequency option. Select mon. Then click Search\nclick the + in the Variant Label option. Select r1i1p1f1 (this is the most common ensemble). Then click Search\n\nThe ensemble names “r1i1p1”, “r2i1p1”, etc. in Variant Label indicate that the ensemble members differ only in their initial conditions (the model physics are the same for all ensemble members, but the members were initialized from different initial conditions out of the control simulation). Hence, the differences between the ensemble members represent internal variability.\n\nclick the + in the Experiment ID option. In this option you will see every single Experiment/Simulation. For example, G1/G6/G7 are the geoengineering climate scenarios. Go to the bottom of the Experiment ID tab and click ssp126. Then click Search\nclick the + in the Source ID option for the full model list and their Institution ID. Let’s click on ACCESS-CM2 model from the CSIRO. Then click Search\n\nIf you have follow the previous steps you should get a tab result similar to this:\n\n\n\n\n\nTo download the model, just click on the List Files tab and then select HTTP Download"
+    "objectID": "03_cmip6_models.html#cmip6-experimental-design-climate-scenarios",
+    "href": "03_cmip6_models.html#cmip6-experimental-design-climate-scenarios",
+    "title": "3  Understanding Climate Models: The CMIP Framework",
+    "section": "3.2 CMIP6 Experimental Design: Climate Scenarios",
+    "text": "3.2 CMIP6 Experimental Design: Climate Scenarios\nClimate models explore possible futures — not predictions, but scenarios that describe how society might develop and how that would influence greenhouse gas emissions.\nIn CMIP5, these were called RCPs (Representative Concentration Pathways)\nIn CMIP6, they evolved into SSPs — Shared Socioeconomic Pathways — which combine both human and physical dimensions of climate change\n\n\n\n\n\n\n\n\n\nEach SSP represents a different world:\n\nSSP1 – Sustainability: a “green road” with strong climate action\nSSP2 – Middle of the Road: current trends continue\nSSP3 – Regional Rivalry: fragmented world, high emissions\nSSP4 – Inequality: growing divide between rich and poor regions\nSSP5 – Fossil-fueled Development: rapid economic growth, very high emissions\n\nWhen these socioeconomic pathways are combined with different levels of radiative forcing (how much energy the atmosphere traps), we can simulate a wide range of future climates.\n\n\n\n\n\n\n\n\n\nAs shown above, temperature projections under the SSPs diverge sharply by mid-century.\nFor example, SSP1-2.6 keeps warming below 2 °C, while SSP5-8.5 exceeds 4 °C by 2100 — a reminder that the choices societies make now shape the climate future we’ll experience.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Climate Models: The CMIP Framework</span>"
+    ]
   },
   {
-    "objectID": "07_cmip6_models.html#schematic-of-the-cmipcmip6-experimental-design",
-    "href": "07_cmip6_models.html#schematic-of-the-cmipcmip6-experimental-design",
-    "title": "7  CMIP6 models",
-    "section": "7.1 Schematic of the CMIP/CMIP6 experimental design",
-    "text": "7.1 Schematic of the CMIP/CMIP6 experimental design\n\n7.1.1 Most common climate scenarios\nFrom CMIP5 version you will find those as RCPs (Representative Concentration Pathways) but for the new CMIP6 version they are called SSPs (Shared Socio‐Economic Pathways)."
+    "objectID": "03_cmip6_models.html#downloading-cmip6-model-data",
+    "href": "03_cmip6_models.html#downloading-cmip6-model-data",
+    "title": "3  Understanding Climate Models: The CMIP Framework",
+    "section": "3.3 Downloading CMIP6 Model Data",
+    "text": "3.3 Downloading CMIP6 Model Data\nIn this section, you’ll learn how to find and download real climate model outputs from CMIP6 — the same datasets used by the IPCC in its latest assessment reports.\nThese files will form the foundation for your assignment, where you’ll visualize and analyze global sea surface temperature (tos) under a future climate scenario.\n\n\n3.3.1 1. Create an ESGF Account\nCMIP6 data are freely available through the Earth System Grid Federation (ESGF) — a global network of data centers that archive Earth System Model outputs.\nTo download data, create an account following the official guide: https://esgf.github.io/esgf-user-support/user_guide.html.\n(You can browse without logging in, but you’ll need an account to download)\n\n\n\n3.3.2 2. Navigating the Metagrid Interface\nOpen the Metagrid UI: https://aims2.llnl.gov/.\nThis is a modern, user-friendly front end to ESGF that lets you browse CMIP6 data using filters.\n\n\n\n\n\n\n\n\n\nMetagrid UI: https://aims2.llnl.gov/ organizes CMIP6 data into facets (filters) such as model name, variable, frequency, and scenario.\n\n\n3.3.3 3. Navigating the Metagrid Interface\n\n\n\n\n\n\n\n\nComponent\nWhat it means\nExample\n\n\n\n\nActivity ID\nThe experiment group (e.g., ScenarioMIP)\nScenarioMIP\n\n\nSource ID\nThe model/institution\nGFDL-ESM4\n\n\nExperiment ID\nThe scenario (historical, ssp585, etc.)\nssp585\n\n\nVariant Label\nThe ensemble member (run configuration)\nr1i1p1f1\n\n\nFrequency\nTime resolution\nmon\n\n\nRealm\nEarth-system component\nocean\n\n\n\n\n\n3.3.4 4. Navigating the Metagrid Interface\nUse the filters in the left panel. For this exercise, select:\n\nVariable ID: tos (sea surface temperature)\nRealm: ocean\nTable ID: Omon (monthly ocean outputs)\nFrequency: mon\nExperiment ID: ssp585 (future high-emission scenario)\nVariant Label: r1i1p1f1 (standard ensemble run)\nSource ID: GFDL-ESM4 (NOAA model)\n\n\n\n\n\n\n\n\n\n\nYou should now see a list of model outputs matching your filters. Each row corresponds to one model run for a specific scenario and variable.\n\n\n3.3.5 5. Understanding File Names\nCMIP6 files follow a standard naming convention, e.g.: tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.nc\n\n\n\nPart\nMeaning\n\n\n\n\ntos\nSea surface temperature\n\n\nOmon\nMonthly ocean output\n\n\nGFDL-ESM4\nModel name\n\n\nssp585\nFuture scenario (high emissions)\n\n\nr1i1p1f1\nEnsemble member (run/physics/forcing setup)\n\n\ngr\nGrid label (regridded)\n\n\n201501–203412\nTime period covered\n\n\n\n\n\n3.3.6 6. Downloading the File\n\nClick List Files next to your chosen model entry.\nA table will list several .nc files, each covering ~20 years.\nClick HTTP Download for one file (e.g., 2015–2034).\n\n\n\n\n\n\n\n\n\n\nEach file is ~130 MB. Do not download all time periods — one file is enough for this assignment.\n\n\n\n\n\n\nAssignment Hint\n\n\n\nUse this setup: - Model: GFDL-ESM4 - Scenario: ssp585 - Variable: tos (sea surface temperature) - Period: 2015–2034 You’ll use this file in the next section to open, visualize, and analyze global SST in R. Pro tip: Start filtering by variable — it’s the quickest way to narrow the search.\n\n\n\n\n\n\n\n\nAssignment Hint\n\n\n\n\n\nNo downloads? Make sure you’re logged into ESGF.\nEmpty results? Clear filters and re-apply Variable → tos first.\nSlow/failed download? Try another ESGF node mirror listed under “Download Options”\n\n\n\n\n\n\n\nSchoeman, David S., Alex Sen Gupta, Cheryl S. Harrison, Jason D. Everett, Isaac Brito-Morales, Lee Hannah, Laurent Bopp, Patrick R. Roehrdanz, and Anthony J. Richardson. 2023. “Demystifying Global Climate Models for Use in the Life Sciences.” Trends in Ecology & Evolution, May. https://doi.org/10.1016/j.tree.2023.04.005.",
+    "crumbs": [
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Understanding Climate Models: The CMIP Framework</span>"
+    ]
   },
   {
-    "objectID": "07_cmip6_models.html#overview-of-ssps",
-    "href": "07_cmip6_models.html#overview-of-ssps",
-    "title": "7  CMIP6 models",
-    "section": "7.2 Overview of SSPs",
-    "text": "7.2 Overview of SSPs\nMost commonly SSPs used:\n\nSSP1-2.6: An optimistic scenario, characterised by a shift to a more sustainable economy and reduction in inequality resulting in a peak in radiative forcing of ~3 W m-2 before 2100\nSSP2-4.5: An intermediate scenario, with a stabilisation of radiative forcing levels at ~4.5 W m-2 by 2100\nSSP5-8.5: Characterised by a continued increase of greenhouse gas emissions resulting from a fossil-fuel-based economy and increased energy demand, with a radiative forcing &gt;8.5 W m-2 by 2100\n\n\n7.2.1 How to download CMIP6 models\nCMIP6 models are free available at the Earth System Grid Federation website. You will need an account to download models. Check this tutorial of how to create an account.\nThrough the website:\n\nClick here to open the ESGF website\nGo to the Nodes tab to explore the different ESGF-CoG nodes\nClick the NCI link, the Australia National Computational Infrastructure node\n\nSelect a NCI node, go to collection and then CMIP6 link. This is the main website to download CMIP6 models. At your left you have several filters that you can play with, my advice is filter first for variable."
+    "objectID": "05_ncRaster.html",
+    "href": "05_ncRaster.html",
+    "title": "4  From NetCDF to a Map in R",
+    "section": "",
+    "text": "4.1 CMIP6 data, explained in 10 minutes",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>From `NetCDF` to a Map in `R`</span>"
+    ]
   },
   {
-    "objectID": "04_ncRaster.html#cropmanipulate-and-project",
-    "href": "04_ncRaster.html#cropmanipulate-and-project",
-    "title": "4  netCDF files in R: Raster, Spatial objects",
-    "section": "4.3 Crop/Manipulate and project",
-    "text": "4.3 Crop/Manipulate and project\n\n# The Mozambique Channel\n  st &lt;- terra::crop(st, terra::ext(c(30, 75, -35, -7)))\n  terra::crs(st) &lt;- \"+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0\"\n# One plot to check\n  plot(st, 1)"
+    "objectID": "05_ncRaster.html#cmip6-data-explained-in-10-minutes",
+    "href": "05_ncRaster.html#cmip6-data-explained-in-10-minutes",
+    "title": "4  From NetCDF to a Map in R",
+    "section": "",
+    "text": "4.1.1 What is NetCDF (and why CMIP6 uses it)?\nNetCDF is a container for scientific arrays (e.g., temperature) plus dimensions (lon, lat, depth, time) and metadata (units, CF names).\nCMIP6 outputs are saved as NetCDF because it’s compact and self-describing. We won’t cover NetCDF internals here—think of it as the standard file you download and open.\n\n\n\n\n\n\n\n\n\n\n\n4.1.2 What is a raster (in R)?\nA raster is how gridded data are handled in R (via {terra}): it’s what you plot, crop, reproject, and compute on.\nIn one line: NetCDF is the storage format; a raster is how we work with it in R.",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>From `NetCDF` to a Map in `R`</span>"
+    ]
   },
   {
-    "objectID": "04_ncRaster.html#save-the-raster-file",
-    "href": "04_ncRaster.html#save-the-raster-file",
-    "title": "4  netCDF files in R: Raster, Spatial objects",
-    "section": "4.4 Save the Raster file",
-    "text": "4.4 Save the Raster file\n\n# Writing Raster\n  terra::writeRaster(st,\n                     \"tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.tif\",\n                     overwrite = TRUE,\n                     filetype = \"GTiff\")"
-  },
-  {
-    "objectID": "07_cmip6_models.html#variables",
-    "href": "07_cmip6_models.html#variables",
-    "title": "7  CMIP6 models",
-    "section": "7.3 Variables",
-    "text": "7.3 Variables\nThere are a range of variables available from the GCM (General Circulation Model) outputs. Each tab has different model variable on different time scales. The tabs are in alphabetical order. The ones starting with “O” are for Ocean, and then followed by the timescale (clim = climatology, day, dec = decade, mon = month, yr) (source: Mathematical Marine Ecology Welcome Book Chapter 9).\nFrom the left tab:\n\nclick the + in the variable option. Select tos (ocean temperature on surface). Then click Search\nclick the + in the Realm option. Select ocean and ocnBgChem. Then click Search\nclick the + in the Frequency option. Select mon. Then click Search\nclick the + in the Variant Label option. Select r1i1p1f1 (this is the most common ensemble). Then click Search\n\nThe ensemble names “r1i1p1”, “r2i1p1”, etc. in Variant Label indicate that the ensemble members differ only in their initial conditions (the model physics are the same for all ensemble members, but the members were initialized from different initial conditions out of the control simulation). Hence, the differences between the ensemble members represent internal variability.\n\nclick the + in the Experiment ID option. In this option you will see every single Experiment/Simulation. For example, G1/G6/G7 are the geoengineering climate scenarios. Go to the bottom of the Experiment ID tab and click ssp126. Then click Search\nclick the + in the Source ID option for the full model list and their Institution ID. Let’s click on ACCESS-CM2 model from the CSIRO. Then click Search\n\nIf you have follow the previous steps you should get a tab result similar to this:\n\n\n\n\n\nTo download the model, just click on the List Files tab and then select HTTP Download"
-  },
-  {
-    "objectID": "03_cmip6_models.html#schematic-of-the-cmipcmip6-experimental-design",
-    "href": "03_cmip6_models.html#schematic-of-the-cmipcmip6-experimental-design",
-    "title": "3  CMIP6 models",
-    "section": "3.1 Schematic of the CMIP/CMIP6 experimental design",
-    "text": "3.1 Schematic of the CMIP/CMIP6 experimental design\n\n3.1.1 Most common climate scenarios\nFrom CMIP5 version you will find those as RCPs (Representative Concentration Pathways) but for the new CMIP6 version they are called SSPs (Shared Socio‐Economic Pathways)."
-  },
-  {
-    "objectID": "03_cmip6_models.html#overview-of-ssps",
-    "href": "03_cmip6_models.html#overview-of-ssps",
-    "title": "3  CMIP6 models",
-    "section": "3.2 Overview of SSPs",
-    "text": "3.2 Overview of SSPs\nMost commonly SSPs used:\n\nSSP1-2.6: An optimistic scenario, characterised by a shift to a more sustainable economy and reduction in inequality resulting in a peak in radiative forcing of ~3 W m-2 before 2100\nSSP2-4.5: An intermediate scenario, with a stabilisation of radiative forcing levels at ~4.5 W m-2 by 2100\nSSP5-8.5: Characterised by a continued increase of greenhouse gas emissions resulting from a fossil-fuel-based economy and increased energy demand, with a radiative forcing &gt;8.5 W m-2 by 2100\n\n\n3.2.1 How to download CMIP6 models\nCMIP6 models are free available at the Earth System Grid Federation website. You will need an account to download models. Check this tutorial of how to create an account.\nThrough the website:\n\nClick here to open the ESGF website\nGo to the Nodes tab to explore the different ESGF-CoG nodes\nClick the Metagrid UI link, for the Metagrid new version\n\nSelect a Metagrid UI node, go to collection and then CMIP6 link. This is the main website to download CMIP6 models. At your left you have several filters that you can play with, my advice is filter first for variable."
-  },
-  {
-    "objectID": "03_cmip6_models.html#variables",
-    "href": "03_cmip6_models.html#variables",
-    "title": "3  CMIP6 models",
-    "section": "3.3 Variables",
-    "text": "3.3 Variables\nThere are a range of variables available from the GCM (General Circulation Model) outputs. Each tab has different model variable on different time scales. The tabs are in alphabetical order. The ones starting with “O” are for Ocean, and then followed by the timescale (clim = climatology, day, dec = decade, mon = month, yr) (source: (Schoeman et al. 2023)).\n\n\n\n\n\nFrom the left tab:\n\nclick the + in the variable option. Select tos (ocean temperature on surface). Then click Search\nclick the + in the Realm option. Select ocean and ocnBgChem. Then click Search\nclick the + in the Frequency option. Select mon. Then click Search\nclick the + in the Variant Label option. Select r1i1p1f1 (this is the most common ensemble). Then click Search\n\n\n\n\n\n\n\n\n\n\n\nThe ensemble names “r1i1p1”, “r2i1p1”, etc. in Variant Label indicate that the ensemble members differ only in their initial conditions (the model physics are the same for all ensemble members, but the members were initialized from different initial conditions out of the control simulation). Hence, the differences between the ensemble members represent internal variability.\n\nclick the + in the Experiment ID option. In this option you will see every single Experiment/Simulation. For example, G1/G6/G7 are the geoengineering climate scenarios. Go to the bottom of the Experiment ID tab and click ssp585. Then click Search\nclick the + in the Source ID option for the full model list and their Institution ID. Let’s click on GFDL-CM4 model from GFDL/NOAA lab. Then click Search\n\nIf you have follow the previous steps you should get a tab result similar to this:\n\n\n\n\n\nTo download the model, just click on the List Files tab and then select HTTP Download\n\n\n\n\nSchoeman, David S., Alex Sen Gupta, Cheryl S. Harrison, Jason D. Everett, Isaac Brito-Morales, Lee Hannah, Laurent Bopp, Patrick R. Roehrdanz, and Anthony J. Richardson. 2023. “Demystifying Global Climate Models for Use in the Life Sciences.” Trends in Ecology & Evolution, May. https://doi.org/10.1016/j.tree.2023.04.005."
-  },
-  {
-    "objectID": "04_climate_data.html#installation-process",
-    "href": "04_climate_data.html#installation-process",
-    "title": "4  Getting Started with Climate Data",
-    "section": "4.1 Installation Process",
-    "text": "4.1 Installation Process\n\n4.1.1 MacOS\nFollow the instruction and downloaded MacPorts. MacPorts is an open-source community initiative to design an easy-to-use system for compiling, installing, and upgrading the command-line on the Mac operating system.\nMacPorts website MacPorts download\nAfter the installation (if you have admin rights) open the terminal and type:\nport install cdo\nIf you don’t have admin rights, open the terminal and type:\nsudo port install cdo and write your password\n\n\n4.1.2 Windows 10\nIn the current windows 10 version(s) Microsoft includes an Ubuntu 16.04 LTS embedded Linux. This environment offers a clean integration with the windows file systems and and the opportunity to install CDO via the native package manager of Ubuntu.\nInstall the Ubuntu app from the Microsoft Store application. Then open the Ubuntu terminal and type:\nsudo apt-get install cdo and write your password\n\n\n4.1.3 Linux\nFor Linux go to: Linux"
-  },
-  {
-    "objectID": "04_climate_data.html#ncview-a-netcdf-visual-browser",
-    "href": "04_climate_data.html#ncview-a-netcdf-visual-browser",
-    "title": "4  Getting Started with Climate Data",
-    "section": "4.2 Ncview: a netCDF visual browser",
-    "text": "4.2 Ncview: a netCDF visual browser\nNcview is quick visual browser that allows you to explore netCDF files very easily: ncview. ncview is an easy to use netCDF file viewer for linux and OS X. It can read any netCDF file.\nTo install ncview, open the terminal and type:\n\nOS X: port install ncview\nLinux: sudo apt-get install ncview"
-  },
-  {
-    "objectID": "04_climate_data.html#working-with-cdo-and-ncview",
-    "href": "04_climate_data.html#working-with-cdo-and-ncview",
-    "title": "4  Getting Started with Climate Data",
-    "section": "4.3 Working with CDO and ncview",
-    "text": "4.3 Working with CDO and ncview\nTo work with CDO and ncview you will need to use the terminal command line. Open the Ubuntu app in Windows and the Terminal on OS X. Let’s check a folder in your desktop:\nIn your command line type:\n\ncd ESM_240/data/ (this will establish data as your primary directory)\n\nIf your are using Windows your desktop path should be located at /mnt/c/.\nBecause you have setting ESM_240/data/ as your directory in the terminal, we can use ncview to get a quick view of the front data\n\ntype ls -l to see if the front data is in your directory.\nto view the model with ncview, in the terminal type ncview tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.nc.\n\nWe can check the file details using cdo. In the terminal type:\n\ncdo -sinfov tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.nc\n\nThe model details are:\n\nVariable: tos (sea surface temperature)\nHorizontal component: resolution 360x180\nVertical component: 1 level (i.e., surface)\nTime component: 240 steps"
-  },
-  {
-    "objectID": "04_climate_data.html#cdo-extra-functions",
-    "href": "04_climate_data.html#cdo-extra-functions",
-    "title": "4  Getting Started with Climate Data",
-    "section": "4.4 CDO extra functions",
-    "text": "4.4 CDO extra functions\nThere are several things that you can explore. Some interesting functions that I’ve used a lot are:\n\ncdo -yearmean calculates the annual mean of a monthly data input netCDF file\ncdo -yearmin calculates the annual min of a monthly data input netCDF file\ncdo -yearmax calculates the annual max of a monthly data input netCDF file\ncdo -ensmean calculates the ensemble mean of several netCDF files. If your input files are different models, this function will estimate a mean of all those models\ncdo -vertmean calculates the vertical mean for netCDF with olevel (i.e., depth)\ncdo -mergetime merge all the netCDF files in your directory\n\nTo use those argument remember just type in the terminal:\n\ncdo -[function] input_file output_file"
-  },
-  {
-    "objectID": "05_ncRaster.html#data-import",
-    "href": "05_ncRaster.html#data-import",
-    "title": "5  netCDF files in R: Raster, Spatial objects",
-    "section": "5.1 Data import",
-    "text": "5.1 Data import\nLoad the required packages.\n\ninstall.packages(c(\"terra\", \"ncdf4\", \"ncdf4.helpers\", \"PCICt\", \n                   \"dplyr\", \"magrittr\"))\n\n# load packages\n  library(terra)\n  library(ncdf4)\n  library(ncdf4.helpers)\n  library(PCICt)\n  library(dplyr)\n  library(magrittr)\n\n# List of pacakges that we will use\n  list.of.packages &lt;- c(\"terra\", \"ncdf4\", \"ncdf4.helpers\", \"PCICt\", \"dplyr\", \"magrittr\")\n# If is not installed, install the pacakge\n  new.packages &lt;- list.of.packages[!(list.of.packages %in% installed.packages()[,\"Package\"])]\n      if(length(new.packages)) install.packages(new.packages)\n# Load packages\n  lapply(list.of.packages, require, character.only = TRUE)"
-  },
-  {
-    "objectID": "05_ncRaster.html#function-to-transform-netcdf-files-into-raster-objects",
-    "href": "05_ncRaster.html#function-to-transform-netcdf-files-into-raster-objects",
-    "title": "5  netCDF files in R: Raster, Spatial objects",
-    "section": "5.2 Function to transform netCDF files into Raster objects",
-    "text": "5.2 Function to transform netCDF files into Raster objects\nYou can read netCDF using raster::stack or the terra::rast functions from the raster and terra packages. However, this code allows more control over the outputs.\n\n# NO GUARANTEES THAT CODE IS CORRECT\n# Caveat Emptor! (Latin for \"Let the buyer beware\")\n  \n# Define generalities \n  nc = \"data/tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.nc\"\n  v = \"tos\" \n  x = \"lon\"\n  y = \"lat\"\n# Working with netCDF file\n  nc &lt;- ncdf4::nc_open(nc)\n  dat &lt;- ncdf4::ncvar_get(nc, v) # x, y, year\n  dat[] &lt;- dat\n  rlon &lt;- ncdf4::ncvar_get(nc, varid = x) %&gt;% \n    range()\n  rlat &lt;- ncdf4::ncvar_get(nc, varid = y) %&gt;% \n    range()\n  X &lt;- dim(dat)[1] # nolint\n  Y &lt;- dim(dat)[2] # nolint\n  tt &lt;- ncdf4.helpers::nc.get.time.series(nc,\n                                          v = \"time\",\n                                          time.dim.name = \"time\")\n  tt &lt;- as.POSIXct(tt)\n  tt &lt;- as.Date(tt)\n  ncdf4::nc_close(nc)\n# Make a raster with the right dims to fill with lat&lon\n  rs &lt;- terra::rast(nrow = Y, ncol = X, extent = terra::ext(c(rlon, rlat)))\n  # Fix orientation of original data\n  # [and then create a raster with this fix orientation]\n    drs &lt;- terra::xyFromCell(rs, 1:terra::ncell(rs)) %&gt;%\n      as_tibble()\n  # Create raster stacks of depths for every month\n    rs_list &lt;- list() # to allocate results # nolint\n    st &lt;- terra::rast()\n    for (i in 1:length(tt)) { # nolint\n      dt1 &lt;- dplyr::bind_cols(drs,\n                              as.vector(dat[, , i])) %&gt;%\n        magrittr::set_colnames(c(\"x\", \"y\", v))\n      dt1 &lt;- terra::rast(dt1, type = \"xyz\")\n      names(dt1) &lt;- tt[i]\n      st &lt;- c(st, terra::flip(dt1))\n      print(paste0(tt[i], \" of \", length(tt)))\n    }"
-  },
-  {
-    "objectID": "05_ncRaster.html#cropmanipulate-and-project",
-    "href": "05_ncRaster.html#cropmanipulate-and-project",
-    "title": "5  netCDF files in R: Raster, Spatial objects",
-    "section": "5.3 Crop/Manipulate and project",
-    "text": "5.3 Crop/Manipulate and project\n\n# The Mozambique Channel\n  st &lt;- terra::crop(st, terra::ext(c(30, 75, -35, -7)))\n  terra::crs(st) &lt;- \"+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0\"\n# One plot to check\n  plot(st, 1)"
-  },
-  {
-    "objectID": "05_ncRaster.html#save-the-raster-file",
-    "href": "05_ncRaster.html#save-the-raster-file",
-    "title": "5  netCDF files in R: Raster, Spatial objects",
-    "section": "5.4 Save the Raster file",
-    "text": "5.4 Save the Raster file\n\n# Writing Raster\n  terra::writeRaster(st,\n                     \"tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.tif\",\n                     overwrite = TRUE,\n                     filetype = \"GTiff\")"
-  },
-  {
-    "objectID": "06_equalGrid.html#data-import",
-    "href": "06_equalGrid.html#data-import",
-    "title": "6  Equal-area grid for your area of interest",
-    "section": "6.1 Data import",
-    "text": "6.1 Data import\nLoad the required packages.\n\nsource(\"zscripts/z_helpFX.R\")"
-  },
-  {
-    "objectID": "06_equalGrid.html#polygons-on-the-area-of-interest",
-    "href": "06_equalGrid.html#polygons-on-the-area-of-interest",
-    "title": "6  Equal-area grid for your area of interest",
-    "section": "6.2 Polygons on the area of interest",
-    "text": "6.2 Polygons on the area of interest\n\n# Creating the bounding box\n  bbox &lt;- st_bbox(c(xmin = 30, xmax = 60, ymax = -7, ymin = -35),\n                  crs = st_crs(\"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs\")) %&gt;% \n    st_as_sfc() %&gt;% \n    st_transform(crs = robin)\n  \n# Taking 0.1 from borders to avoid border effect\n  f_bbox &lt;- st_bbox(c(xmin = 30.1, xmax = 59.9, ymax = -7.1, ymin = -34.9),\n                    crs = st_crs(\"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs\")) %&gt;% \n    st_as_sfc() %&gt;% \n    st_transform(crs = robin)\n# Area\n  CellArea &lt;- 100 # in km2\n  h_diameter &lt;- 2 * sqrt((CellArea*1e6)/((3*sqrt(3)/2))) * sqrt(3)/2 # Diameter in m\n  s_diameter &lt;- sqrt(CellArea*1e6) # Diameter in m"
-  },
-  {
-    "objectID": "06_equalGrid.html#planning-units-for-the-whole-region",
-    "href": "06_equalGrid.html#planning-units-for-the-whole-region",
-    "title": "6  Equal-area grid for your area of interest",
-    "section": "6.3 Planning units for the whole region",
-    "text": "6.3 Planning units for the whole region\n\n# Creating an equal-area grid\n  PUs &lt;- st_make_grid(f_bbox,\n                      square = F,\n                      cellsize = c(h_diameter, h_diameter),\n                      what = \"polygons\",\n                      crs = st_crs(f_bbox)) %&gt;%\n    st_sf()\n\n# Check cell size worked OK.\n  print(paste0(\"Range of cellsize are \",\n               round(as.numeric(range(units::set_units(st_area(PUs), \"km^2\")))[1]),\" km2 to \",\n               round(as.numeric(range(units::set_units(st_area(PUs), \"km^2\")))[2]),\" km2\"))"
-  },
-  {
-    "objectID": "06_equalGrid.html#final-equal-area-grid",
-    "href": "06_equalGrid.html#final-equal-area-grid",
-    "title": "6  Equal-area grid for your area of interest",
-    "section": "6.4 Final equal-area grid",
-    "text": "6.4 Final equal-area grid\n\n# Get rid of \"land\" polygons\n  logi_PUs &lt;- st_centroid(PUs) %&gt;%\n    st_intersects(world_sfRob) %&gt;% \n    lengths &gt; 0 # Get logical vector instead of sparse geometry binary\n  PUs1 &lt;- PUs[logi_PUs == FALSE, ]\n  plot(st_geometry(PUs1))"
-  },
-  {
-    "objectID": "06_equalGrid.html#plot-the-output",
-    "href": "06_equalGrid.html#plot-the-output",
-    "title": "6  Equal-area grid for your area of interest",
-    "section": "6.5 Plot the output",
-    "text": "6.5 Plot the output\n\n  g1 &lt;- ggplot() +\n    geom_sf(data = PUs1, size = 0.05) +\n    geom_sf(data = world_sfRob, size = 0.05, fill = \"grey20\") +\n    theme_bw()\n  \n  print(g1)\n  \n  # ggsave(\"MYFILE.png\", plot = g1, width = 30, height = 30, dpi = 600, limitsize = FALSE)\n  # st_write(obj = PUs, dsn = \"MYDIRECTORY\", layer = \"MYFILE\", driver = \"ESRI Shapefile\")"
-  },
-  {
-    "objectID": "07_climatePUs.html#data-import",
-    "href": "07_climatePUs.html#data-import",
-    "title": "7  Variable by equal-size grid",
-    "section": "7.1 Data import",
-    "text": "7.1 Data import\nLoad the required packages.\n\nlibrary(terra)\nlibrary(sf)\nlibrary(exactextractr)\nlibrary(dplyr)\nlibrary(nngeo)\nlibrary(stringr)"
-  },
-  {
-    "objectID": "07_climatePUs.html#generic-function-to-replace-nas-with-nearest-neighbor.",
-    "href": "07_climatePUs.html#generic-function-to-replace-nas-with-nearest-neighbor.",
-    "title": "7  Variable by equal-size grid",
-    "section": "7.2 Generic Function to replace NAs with nearest neighbor.",
-    "text": "7.2 Generic Function to replace NAs with nearest neighbor.\nThis is just a generic function that uses nngeo R package. Feel free to used and adapt it to your needs.\n\n  fCheckNAs &lt;- function(df, vari) {\n    if (sum(is.na(pull(df, !!sym(vari))))&gt;0){ # Check if there are NAs\n        \n        gp &lt;- df %&gt;%\n          mutate(isna = is.finite(!!sym(vari))) %&gt;%\n          group_by(isna) %&gt;%\n          group_split()\n        \n        out_na &lt;- gp[[1]] # DF with NAs\n        out_finite &lt;- gp[[2]] # DF without NAs\n        \n        d &lt;- st_nn(out_na, out_finite) %&gt;% # Get nearest neighbour\n          unlist()\n        \n        out_na &lt;- out_na %&gt;%\n          mutate(!!sym(vari) := pull(out_finite, !!sym(vari))[d])\n        \n        df &lt;- rbind(out_finite, out_na)\n        \n      }\n      return(df)\n    }"
-  },
-  {
-    "objectID": "07_climatePUs.html#read-extract-and-weighted-mean-interpolation",
-    "href": "07_climatePUs.html#read-extract-and-weighted-mean-interpolation",
-    "title": "7  Variable by equal-size grid",
-    "section": "7.3 Read, Extract and weighted mean interpolation",
-    "text": "7.3 Read, Extract and weighted mean interpolation\n\n# Create the projection\n  proj.geo = \"+proj=robin +lon_0=0 +datum=WGS84 +units=m +no_defs\"\n# Reading equal grid file\n  shp_file &lt;- st_read(\"data/PUs_MZ_100km2.shp\") %&gt;% \n    st_transform(crs = terra::crs(proj.geo))\n# Read raster object\n  rs_file &lt;- rast(\"data/tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.tif\")\n  rs_file &lt;- subset(rs_file, 1)\n  crs(rs_file) &lt;- terra::crs(\"+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0\")\n  weight_rs &lt;- terra::cellSize(rs_file)\n  rs_file &lt;- terra::project(rs_file, y = terra::crs(proj.geo), method = \"near\")\n  weight_rs &lt;- terra::project(weight_rs, y = terra::crs(proj.geo), method = \"near\")\n# Getting value by polygon\n  rs_bypu &lt;- exact_extract(rs_file, \n                           shp_file, \n                           \"weighted_mean\", \n                           weights = weight_rs, \n                           append_cols = TRUE, \n                           full_colnames = TRUE)\n  rs_shp &lt;- dplyr::right_join(shp_file, rs_bypu, \"FID\")\n  colnames(rs_shp) &lt;- c(stringr::str_remove_all(string = names(rs_shp), pattern = \"weighted_mean.\"))"
-  },
-  {
-    "objectID": "07_climatePUs.html#run-replace-nas-with-nearest-neighbor.",
-    "href": "07_climatePUs.html#run-replace-nas-with-nearest-neighbor.",
-    "title": "7  Variable by equal-size grid",
-    "section": "7.4 RUN: replace NAs with nearest neighbor.",
-    "text": "7.4 RUN: replace NAs with nearest neighbor.\n\nnms &lt;- names(rs_shp)\nnms &lt;- nms[nms != \"geometry\" & nms != \"FID\"]\n\nsingle &lt;- rs_shp %&gt;% \n  dplyr::select(FID, nms[1])\nrs_sfInt &lt;- fCheckNAs(df = single, vari = names(single)[2]) %&gt;% \n  as_tibble() %&gt;%\n  dplyr::arrange(FID) %&gt;%\n  dplyr::select(-FID, -geometry, -isna)\n\nsaveRDS(rs_sfInt, \"data/tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.rds\")"
-  },
-  {
-    "objectID": "07_climatePUs.html#plot-the-output",
-    "href": "07_climatePUs.html#plot-the-output",
-    "title": "7  Variable by equal-size grid",
-    "section": "7.5 Plot the output",
-    "text": "7.5 Plot the output\n\npus &lt;- st_read(\"data/PUs_MZ_100km2.shp\") %&gt;%\n  st_transform(crs = robin)\nsf1 &lt;- readRDS(\"data/tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.rds\")\ndf1 &lt;- cbind(pus, sf1) %&gt;% \n  st_transform(crs = robin)\n\np1 &lt;- ggplot() +\n  geom_sf(data = df1, aes(fill = X2015.01.16.area), colour = NA) +\n  geom_sf(data = world_sfRob, size = 0.05, fill = \"grey20\") +\n  theme_bw() +\n  theme(legend.title = element_text(angle = 0, size = rel(0.7)),\n        plot.title = element_text(face = \"plain\", size = 22, hjust = 0.5),\n        axis.text.x = element_text(size = rel(1), angle = 0),\n        axis.text.y = element_text(size = rel(1), angle = 0),\n        axis.title = element_blank()) +\n  scale_fill_distiller(palette = \"Spectral\",\n                       limits = c(min(df1$X2015.01.16.area), max(df1$X2015.01.16.area)),\n                       direction = -1,\n                       oob = scales::squish,\n                       guide = guide_colourbar(title.position = \"top\", title = \"Sea Surface\\nTemperature\"))"
-  },
-  {
-    "objectID": "08_CCMetrics.html#introduction",
-    "href": "08_CCMetrics.html#introduction",
-    "title": "8  Climate Change Metrics",
-    "section": "8.1 Introduction",
-    "text": "8.1 Introduction\nThe aim of this tutorial is to provide a worked example of how to calculate climate change metrics using CMIP6 models. The climate-change metrics used in this example are Climate Velocity (Burrows et al. 2011) and a Relative Climate Exposure index (Brito-Morales et al. 2022).\nThis dataset contains a raster-stack file in format .tif of monthly sea surface temperature (tos) for the GFDL-CM4 model under a SSP5-5.8 emission scenario. The model goes from 2015 until 2100."
+    "objectID": "05_ncRaster.html#load-libraries",
+    "href": "05_ncRaster.html#load-libraries",
+    "title": "4  From NetCDF to a Map in R",
+    "section": "4.2 Load libraries",
+    "text": "4.2 Load libraries\n\nlibrary(terra)\nlibrary(maps)\n\n\nLoad the NetCDF file\n\n\n# Change this to YOUR downloaded file\nf &lt;- \"path/to/your/tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.nc\"\n\n# Lazy connection to the NetCDF file (does not load everything into memory)\nr &lt;- rast(f)\n\n\nDetect the variable\n\n\n# Short variable name(s) in the NetCDF (e.g., \"tos\", \"thetao\", etc.)\nvn &lt;- tryCatch(terra::varnames(r), error = function(e) NA_character_)\n# Use the first variable stack in the file (keeps this example generic)\nr_var &lt;- r[[1]]\n\n\nPrint key metadata (model, scenario, ensemble, units, resolution)\n\n\ncat(\"\\n================== METADATA ==================\\n\")\nprint(r)\n\n# Parse common CMIP6 filename parts\nfname   &lt;- basename(f)\nparts   &lt;- unlist(strsplit(fname, \"_\"))\n\nmodel    &lt;- if (length(parts) &gt;= 3) parts[3] else NA_character_\nscenario &lt;- if (length(parts) &gt;= 4) parts[4] else NA_character_\nensemble &lt;- if (length(parts) &gt;= 5) parts[5] else NA_character_\n\n# Units may not always be present—handle gracefully\nu &lt;- tryCatch(units(r_var)[1], error = function(e) \"unknown\")\n\ncat(\"\\nModel name:\", model,\n    \"\\nEnsemble member:\", ensemble,\n    \"\\nScenario:\", scenario,\n    \"\\nNative resolution (lon x lat, degrees):\", paste(terra::res(r_var), collapse = \" x \"),\n    \"\\nVariable name(s):\", if (is.null(vn)) \"unknown\" else paste(vn, collapse = \", \"),\n    \"\\nVariable units:\", u,\n    \"\\n=============================================\\n\\n\")\n\n\nPlot: first time slice (quick look)\n\n\n# If a time dimension exists, take the first layer\nif (nlyr(r_var) &gt; 1) r_var &lt;- r_var[[1]]\n\n# Rotate longitudes to [-180, 180] for a clean world map\nr_plot &lt;- terra::rotate(r_var)\n\n# Try to extract a timestamp (may be NULL depending on file)\ntstamp &lt;- tryCatch(as.character(terra::time(r_plot)[1]), error = function(e) \"\")\n\n# Save a quick PNG to your project folder\npng(\"quick_var.png\", width = 1000, height = 600, res = 120)\nplot(r_plot, main = paste(\"Quick Plot -\", ifelse(is.null(vn), \"variable\", vn[1]), tstamp))\nmaps::map(\"world\", add = TRUE)\ndev.off()\n\n\nCompute a global mean (first time slice)\n\n\nmean_val &lt;- terra::global(r_plot, \"mean\", na.rm = TRUE)[[1]]\n\ncat(\"Variable plotted:\", ifelse(is.null(vn), \"unknown\", vn[1]), \"\\n\")\ncat(\"Global mean value (first time step):\", round(mean_val, 3), u, \"\\n\")\ncat(\"PNG saved:\", normalizePath(\"quick_var.png\"), \"\\n\")",
+    "crumbs": [
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>From `NetCDF` to a Map in `R`</span>"
+    ]
   },
   {
     "objectID": "references.html",
     "href": "references.html",
     "title": "References",
     "section": "",
-    "text": "Brito-Morales, Isaac, Jorge García Molinos, David S. Schoeman, Michael\nT. Burrows, Elvira S. Poloczanska, Christopher J. Brown, Simon Ferrier,\net al. 2018. “Climate Velocity Can Inform Conservation in a\nWarming World.” Trends in Ecology & Evolution 33\n(6): 441–57. https://doi.org/10.1016/j.tree.2018.03.009.\n\n\nBrito-Morales, Isaac, David S. Schoeman, Jason D. Everett, Carissa J.\nKlein, Daniel C. Dunn, Jorge García Molinos, Michael T. Burrows, et al.\n2022. “Towards Climate-Smart, Three-Dimensional Protected Areas\nfor Biodiversity Conservation in the High Seas.” Nature\nClimate Change, April, 1–6. https://doi.org/10.1038/s41558-022-01323-7.\n\n\nBurrows, Michael T., David S. Schoeman, Lauren B. Buckley, Pippa Moore,\nElvira S. Poloczanska, Keith M. Brander, Chris Brown, et al. 2011.\n“The Pace of Shifting Climate in Marine and Terrestrial\nEcosystems.” Science 334 (6056): 652–55. https://doi.org/10.1126/science.1210288.\n\n\nSchoeman, David S., Alex Sen Gupta, Cheryl S. Harrison, Jason D.\nEverett, Isaac Brito-Morales, Lee Hannah, Laurent Bopp, Patrick R.\nRoehrdanz, and Anthony J. Richardson. 2023. “Demystifying Global\nClimate Models for Use in the Life Sciences.” Trends in\nEcology & Evolution, May. https://doi.org/10.1016/j.tree.2023.04.005."
-  },
-  {
-    "objectID": "08_CCMetrics.html#data-import",
-    "href": "08_CCMetrics.html#data-import",
-    "title": "8  Climate Change Metrics",
-    "section": "8.2 Data import",
-    "text": "8.2 Data import\nLoad the required packages and the data.\n\n# load packages\n  library(raster)\n  library(VoCC)\n  library(stringr)\n  library(dplyr)"
-  },
-  {
-    "objectID": "08_CCMetrics.html#climate-velocity-vocc",
-    "href": "08_CCMetrics.html#climate-velocity-vocc",
-    "title": "8  Climate Change Metrics",
-    "section": "8.3 Climate Velocity (VoCC)",
-    "text": "8.3 Climate Velocity (VoCC)\nClimate velocity is a vector that describes the speed and direction that a point on a gridded map would need to move to remain static in climate space (e.g., to maintain an isoline of a given variable in a univariate environment) under climate change. From an ecological perspective, climate velocity can be conceptualized as the speed and direction in which a species would need to move to maintain its current climate conditions under climate change. For this reason, climate velocity can be considered to represent the potential exposure to climate change faced by a species if the climate moves beyond the physiological tolerance of a local population. See(Brito-Morales et al. 2018).\nInstall the R package: GitHub Repo\n\n\n\n\n\nTo calculate climate velocity the R package VoCC provides a comprehensive collection of functions that calculate climate velocity and related metrics from their initial formulation to the latest developments. See Garcia Molinos et al. 2019.\n\n\n\n\n\n\n# Load the monthly raster object\n  rs &lt;- terra::rast(\"data/tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.tif\")\n# Establish the time period of interest (if applicable)\n  from = 2015\n  to = 2034\n# If Raster is monthly, get annual mean\n  index &lt;- rep(1:nlyr(rs), each = 12, length.out = nlyr(rs))\n  rs &lt;- raster::stackApply(x = raster::stack(rs), indices = index, fun = mean)\n\n# Calculate VoCC\n  # Temporal trend (slope)\n    slp &lt;- tempTrend(rs, th = 10)\n  # Spatial gradient (gradient)\n    grad &lt;- spatGrad(rs, th = 0.0001, projected = FALSE)\n# VoCC local gradient\n  vocc &lt;- gVoCC(slp, grad)\n  vocc$voccMag[] &lt;- ifelse(is.infinite(vocc$voccMag[]), NA, vocc$voccMag[]) # replace inf with NAs\n\n\n\n\n\nBrito-Morales, Isaac, Jorge García Molinos, David S. Schoeman, Michael T. Burrows, Elvira S. Poloczanska, Christopher J. Brown, Simon Ferrier, et al. 2018. “Climate Velocity Can Inform Conservation in a Warming World.” Trends in Ecology & Evolution 33 (6): 441–57. https://doi.org/10.1016/j.tree.2018.03.009.\n\n\nBrito-Morales, Isaac, David S. Schoeman, Jason D. Everett, Carissa J. Klein, Daniel C. Dunn, Jorge García Molinos, Michael T. Burrows, et al. 2022. “Towards Climate-Smart, Three-Dimensional Protected Areas for Biodiversity Conservation in the High Seas.” Nature Climate Change, April, 1–6. https://doi.org/10.1038/s41558-022-01323-7.\n\n\nBurrows, Michael T., David S. Schoeman, Lauren B. Buckley, Pippa Moore, Elvira S. Poloczanska, Keith M. Brander, Chris Brown, et al. 2011. “The Pace of Shifting Climate in Marine and Terrestrial Ecosystems.” Science 334 (6056): 652–55. https://doi.org/10.1126/science.1210288."
-  },
-  {
-    "objectID": "04_climate_data.html#schoeman2023workflow-for-using-climate-model-outputs",
-    "href": "04_climate_data.html#schoeman2023workflow-for-using-climate-model-outputs",
-    "title": "4  Getting Started with Climate Data",
-    "section": "4.5 (Schoeman et al. 2023)Workflow for using climate model outputs",
-    "text": "4.5 (Schoeman et al. 2023)Workflow for using climate model outputs\nFor those seeking to incorporate climate models into their professional work to address climate change, understanding the starting point can be challenging. Here is a framework, detailed in our recently published paper online .\n\n\n\n\n\n\n\n\n\nSchoeman, David S., Alex Sen Gupta, Cheryl S. Harrison, Jason D. Everett, Isaac Brito-Morales, Lee Hannah, Laurent Bopp, Patrick R. Roehrdanz, and Anthony J. Richardson. 2023. “Demystifying Global Climate Models for Use in the Life Sciences.” Trends in Ecology & Evolution, May. https://doi.org/10.1016/j.tree.2023.04.005."
-  },
-  {
-    "objectID": "04_climate_data.html#workflow-for-using-climate-model-outputs",
-    "href": "04_climate_data.html#workflow-for-using-climate-model-outputs",
-    "title": "4  Getting Started with Climate Data",
-    "section": "4.5 Workflow for using climate model outputs",
-    "text": "4.5 Workflow for using climate model outputs\nFor those seeking to incorporate climate models into their professional work to address climate change, understanding the starting point can be challenging. Here is a framework, detailed in our recently published paper online (Schoeman et al. 2023).\n\n\n\n\n\n\n\n\n\nSchoeman, David S., Alex Sen Gupta, Cheryl S. Harrison, Jason D. Everett, Isaac Brito-Morales, Lee Hannah, Laurent Bopp, Patrick R. Roehrdanz, and Anthony J. Richardson. 2023. “Demystifying Global Climate Models for Use in the Life Sciences.” Trends in Ecology & Evolution, May. https://doi.org/10.1016/j.tree.2023.04.005."
+    "text": "Schoeman, David S., Alex Sen Gupta, Cheryl S. Harrison, Jason D.\nEverett, Isaac Brito-Morales, Lee Hannah, Laurent Bopp, Patrick R.\nRoehrdanz, and Anthony J. Richardson. 2023. “Demystifying Global\nClimate Models for Use in the Life Sciences.” Trends in\nEcology & Evolution, May. https://doi.org/10.1016/j.tree.2023.04.005.",
+    "crumbs": [
+      "References"
+    ]
   }
 ]

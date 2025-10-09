@@ -1,0 +1,73 @@
+# Equal-area grid for your area of interest
+
+## Data import
+
+Load the required packages.
+
+```{r, message = FALSE, warning = FALSE, out.width = "40%", eval = FALSE}
+source("zscripts/z_helpFX.R")
+```
+
+## Polygons on the area of interest
+
+```{r, eval = FALSE, out.width = "40%", eval = FALSE}
+
+# Creating the bounding box
+  bbox <- st_bbox(c(xmin = 30, xmax = 60, ymax = -7, ymin = -35),
+                  crs = st_crs("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")) %>% 
+    st_as_sfc() %>% 
+    st_transform(crs = robin)
+  
+# Taking 0.1 from borders to avoid border effect
+  f_bbox <- st_bbox(c(xmin = 30.1, xmax = 59.9, ymax = -7.1, ymin = -34.9),
+                    crs = st_crs("+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs")) %>% 
+    st_as_sfc() %>% 
+    st_transform(crs = robin)
+# Area
+  CellArea <- 100 # in km2
+  h_diameter <- 2 * sqrt((CellArea*1e6)/((3*sqrt(3)/2))) * sqrt(3)/2 # Diameter in m
+  s_diameter <- sqrt(CellArea*1e6) # Diameter in m
+    
+```
+
+## Planning units for the whole region
+
+```{r, eval = FALSE, out.width = "40%", eval = FALSE}
+# Creating an equal-area grid
+  PUs <- st_make_grid(f_bbox,
+                      square = F,
+                      cellsize = c(h_diameter, h_diameter),
+                      what = "polygons",
+                      crs = st_crs(f_bbox)) %>%
+    st_sf()
+
+# Check cell size worked OK.
+  print(paste0("Range of cellsize are ",
+               round(as.numeric(range(units::set_units(st_area(PUs), "km^2")))[1])," km2 to ",
+               round(as.numeric(range(units::set_units(st_area(PUs), "km^2")))[2])," km2"))
+```
+
+## Final equal-area grid
+
+```{r, eval = FALSE, out.width = "40%", eval = FALSE}
+# Get rid of "land" polygons
+  logi_PUs <- st_centroid(PUs) %>%
+    st_intersects(world_sfRob) %>% 
+    lengths > 0 # Get logical vector instead of sparse geometry binary
+  PUs1 <- PUs[logi_PUs == FALSE, ]
+  plot(st_geometry(PUs1))
+```
+
+## Plot the output
+
+```{r, eval = FALSE, out.width = "40%", eval = FALSE}
+  g1 <- ggplot() +
+    geom_sf(data = PUs1, size = 0.05) +
+    geom_sf(data = world_sfRob, size = 0.05, fill = "grey20") +
+    theme_bw()
+  
+  print(g1)
+  
+  # ggsave("MYFILE.png", plot = g1, width = 30, height = 30, dpi = 600, limitsize = FALSE)
+  # st_write(obj = PUs, dsn = "MYDIRECTORY", layer = "MYFILE", driver = "ESRI Shapefile")
+```

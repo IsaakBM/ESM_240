@@ -2,12 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="A professional-training eBook for master’s students to understand, locate, and use climate model data for marine conservation and applied research.">
 
-<title>ESM240 Week 4: Climate-smart marine conservation - 3&nbsp; CMIP6 models</title>
+<title>3&nbsp; Understanding Climate Models: The CMIP Framework – ESM240 – Climate Change Biology: From Models to Applications</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,6 +25,7 @@ ul.task-list li input[type="checkbox"] {
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -49,7 +51,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./04_climate_data.html" rel="next">
+<link href="./05_ncRaster.html" rel="next">
 <link href="./02_set_up.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -66,7 +68,13 @@ div.csl-indent {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -75,11 +83,18 @@ div.csl-indent {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 <script async="" src="https://hypothes.is/embed.js"></script>
+<script>
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    document.body.classList.add('hypothesis-enabled');
+  });
+</script>
 
 
 </head>
@@ -90,12 +105,12 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_cmip6_models.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">CMIP6 models</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./03_cmip6_models.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Understanding Climate Models: The CMIP Framework</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
@@ -105,25 +120,25 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">ESM240 Week 4: Climate-smart marine conservation</a> 
+      <a href="./">ESM240 – Climate Change Biology: From Models to Applications</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/IsaakBM/ESM_240" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <a href="./ESM240-Week-4--Climate-smart-marine-conservation.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <a href="./ESM240-–-Climate-Change-Biology--From-Models-to-Applications.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
     <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-bi-twitter pe-1"></i>
+              <i class="bi bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
             <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-              <i class="bi bi-bi-facebook pe-1"></i>
+              <i class="bi bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
@@ -160,37 +175,13 @@ div.csl-indent {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03_cmip6_models.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">CMIP6 models</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./04_climate_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Started with Climate Data</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Understanding Climate Models: The CMIP Framework</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./05_ncRaster.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">netCDF files in R: Raster, Spatial objects</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./06_equalGrid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Equal-area grid for your area of interest</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./07_climatePUs.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Variable by equal-size grid</span></span></a>
-  </div>
-</li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./08_CCMetrics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Climate Change Metrics</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">From <code>NetCDF</code> to a Map in <code>R</code></span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -202,31 +193,33 @@ div.csl-indent {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#schematic-of-the-cmipcmip6-experimental-design" id="toc-schematic-of-the-cmipcmip6-experimental-design" class="nav-link active" data-scroll-target="#schematic-of-the-cmipcmip6-experimental-design"><span class="header-section-number">3.1</span> Schematic of the CMIP/CMIP6 experimental design</a>
+  <li><a href="#what-the-hell-are-cmip6" id="toc-what-the-hell-are-cmip6" class="nav-link active" data-scroll-target="#what-the-hell-are-cmip6"><span class="header-section-number">3.1</span> What the hell are CMIP6?</a></li>
+  <li><a href="#cmip6-experimental-design-climate-scenarios" id="toc-cmip6-experimental-design-climate-scenarios" class="nav-link" data-scroll-target="#cmip6-experimental-design-climate-scenarios"><span class="header-section-number">3.2</span> CMIP6 Experimental Design: Climate Scenarios</a></li>
+  <li><a href="#downloading-cmip6-model-data" id="toc-downloading-cmip6-model-data" class="nav-link" data-scroll-target="#downloading-cmip6-model-data"><span class="header-section-number">3.3</span> Downloading CMIP6 Model Data</a>
   <ul class="collapse">
-  <li><a href="#most-common-climate-scenarios" id="toc-most-common-climate-scenarios" class="nav-link" data-scroll-target="#most-common-climate-scenarios"><span class="header-section-number">3.1.1</span> Most common climate scenarios</a></li>
+  <li><a href="#create-an-esgf-account" id="toc-create-an-esgf-account" class="nav-link" data-scroll-target="#create-an-esgf-account"><span class="header-section-number">3.3.1</span> 1. Create an ESGF Account</a></li>
+  <li><a href="#navigating-the-metagrid-interface" id="toc-navigating-the-metagrid-interface" class="nav-link" data-scroll-target="#navigating-the-metagrid-interface"><span class="header-section-number">3.3.2</span> 2. Navigating the Metagrid Interface</a></li>
+  <li><a href="#navigating-the-metagrid-interface-1" id="toc-navigating-the-metagrid-interface-1" class="nav-link" data-scroll-target="#navigating-the-metagrid-interface-1"><span class="header-section-number">3.3.3</span> 3. Navigating the Metagrid Interface</a></li>
+  <li><a href="#navigating-the-metagrid-interface-2" id="toc-navigating-the-metagrid-interface-2" class="nav-link" data-scroll-target="#navigating-the-metagrid-interface-2"><span class="header-section-number">3.3.4</span> 4. Navigating the Metagrid Interface</a></li>
+  <li><a href="#understanding-file-names" id="toc-understanding-file-names" class="nav-link" data-scroll-target="#understanding-file-names"><span class="header-section-number">3.3.5</span> 5. Understanding File Names</a></li>
+  <li><a href="#downloading-the-file" id="toc-downloading-the-file" class="nav-link" data-scroll-target="#downloading-the-file"><span class="header-section-number">3.3.6</span> 6. Downloading the File</a></li>
   </ul></li>
-  <li><a href="#overview-of-ssps" id="toc-overview-of-ssps" class="nav-link" data-scroll-target="#overview-of-ssps"><span class="header-section-number">3.2</span> Overview of SSPs</a>
-  <ul class="collapse">
-  <li><a href="#how-to-download-cmip6-models" id="toc-how-to-download-cmip6-models" class="nav-link" data-scroll-target="#how-to-download-cmip6-models"><span class="header-section-number">3.2.1</span> How to download CMIP6 models</a></li>
-  </ul></li>
-  <li><a href="#variables" id="toc-variables" class="nav-link" data-scroll-target="#variables"><span class="header-section-number">3.3</span> Variables</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/IsaakBM/ESM_240/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/IsaakBM/ESM_240/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">CMIP6 models</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Understanding Climate Models: The CMIP Framework</span></h1>
 </div>
 
 
@@ -239,96 +232,291 @@ div.csl-indent {
   </div>
   
 
+
 </header>
 
-<p><strong>CMIP6</strong> stands for Coupled Model Intercomparison Project (CMIP). These are climate models that simulate the physics, chemistry and biology of the atmosphere in detail (some of them!). The 2013 IPCC fifth assessment report (AR5) featured climate models from CMIP5, while the upcoming 2021 IPCC sixth assessment report (AR6) will feature new state-of-the-art CMIP6 models <span class="citation" data-cites="schoeman2023">(<a href="references.html#ref-schoeman2023" role="doc-biblioref">Schoeman et al. 2023</a>)</span>.</p>
-<p>The main goal is to set future climate scenarios based on <em>future</em> concentrations of <strong>greenhouse gases</strong>, <strong>aerosols</strong> and other <a href="https://www.carbonbrief.org/qa-how-do-climate-models-work#inout"><strong>climate forcings</strong></a> to project what might happen in the future.</p>
+
+<section id="what-the-hell-are-cmip6" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="what-the-hell-are-cmip6"><span class="header-section-number">3.1</span> What the hell are CMIP6?</h2>
+<p><strong>CMIP6</strong> stands for <em>Coupled Model Intercomparison Project – Phase 6</em>.<br>
+These are large-scale simulations of the Earth system that bring together dozens of research centers around the world. Each model represents the physical, chemical, and, in some cases, biological processes of our planet’s atmosphere, oceans, land, and cryosphere — the “big four” of climate <span class="citation" data-cites="schoeman2023">(<a href="references.html#ref-schoeman2023" role="doc-biblioref">Schoeman et al. 2023</a>)</span></p>
+<p>The <strong>IPCC Fifth Assessment Report (AR5, 2013)</strong> was based on CMIP5, while the <strong>Sixth Assessment Report (AR6, 2021)</strong> uses CMIP6, which offers improved spatial resolution, new biogeochemical modules, and more realistic feedbacks among Earth-system components.</p>
+<p>The main goal of CMIP is to explore plausible futures of the climate system under different greenhouse-gas and aerosol trajectories. Each model run represents a “what-if” experiment — what if emissions rise, stabilize, or decline?</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Why CMIP matters (and why we spent a year writing about it)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>CMIP models underpin nearly every modern climate projection — from future sea-surface warming to biodiversity redistribution.<br>
+If you’ve ever used temperature or oxygen projections in ecology, you’ve indirectly used CMIP data.<br>
+(And yes — this section owes more than a little to that friendly review <em>“Demystifying global climate models for use in the life sciences”</em> – which some of us may have helped write)</p>
+</div>
+</div>
+<p>The CMIP framework is not a single model, but a <strong>community experiment</strong> that standardizes how models are run and shared, ensuring that scientists can compare results across modeling centers. These datasets are freely distributed through the <a href="https://esgf-node.llnl.gov/projects/cmip6/">Earth System Grid Federation (ESGF)</a>, which makes them available for research and teaching.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The CMIP6 “MIPs Wheel”
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>CMIP6 isn’t a single climate model — it’s a huge international collaboration that brings together more than 100 models from research centers around the world. These models are grouped into <strong>Model Intercomparison Projects (MIPs)</strong>, each focused on a big scientific question — for example:<br>
+<em>How do aerosols affect clouds? How does the ocean store heat and carbon? What happens under different future scenarios?</em></p>
+<p>At the center of the diagram below are a few <strong>core experiments</strong> that all models run to make results comparable. The outer circles show the different MIPs, each exploring a specific part of the Earth system.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="images/cmip6_mips.jpg" class="img-fluid" style="width:100.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="images/cmip6_mips.jpg" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
 </div>
 </div>
-<section id="schematic-of-the-cmipcmip6-experimental-design" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="schematic-of-the-cmipcmip6-experimental-design"><span class="header-section-number">3.1</span> Schematic of the CMIP/CMIP6 experimental design</h2>
-<section id="most-common-climate-scenarios" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="most-common-climate-scenarios"><span class="header-section-number">3.1.1</span> Most common climate scenarios</h3>
-<p>From CMIP5 version you will find those as RCPs (Representative Concentration Pathways) but for the new CMIP6 version they are called SSPs (Shared Socio‐Economic Pathways).</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="images/ssps.png" class="img-fluid" style="width:100.0%"></p>
 </div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="images/cmip6_models.png" class="img-fluid" style="width:100.0%"></p>
+<p>CMIP6 is what makes global climate projections possible — it provides a common framework so that results can be compared, validated, and used confidently in applied fields like ecology and conservation.</p>
+<p>As we explain in <span class="citation" data-cites="schoeman2023">(<a href="references.html#ref-schoeman2023" role="doc-biblioref">Schoeman et al. 2023</a>)</span>, the system might look complicated, but it’s what lets us link global climate science to questions about where and how species — and ecosystems — will respond to change.</p>
 </div>
 </div>
 </section>
+<section id="cmip6-experimental-design-climate-scenarios" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="cmip6-experimental-design-climate-scenarios"><span class="header-section-number">3.2</span> CMIP6 Experimental Design: Climate Scenarios</h2>
+<p>Climate models explore <em>possible futures</em> — not predictions, but <strong>scenarios</strong> that describe how society might develop and how that would influence greenhouse gas emissions.</p>
+<p>In CMIP5, these were called <strong>RCPs</strong> (Representative Concentration Pathways)<br>
+In CMIP6, they evolved into <strong>SSPs</strong> — <em>Shared Socioeconomic Pathways</em> — which combine both human and physical dimensions of climate change</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/ssp-graphics-01-1-e1721152243844.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Each SSP represents a different world:</p>
+<ul>
+<li>SSP1 – <strong>Sustainability</strong>: a “green road” with strong climate action</li>
+<li>SSP2 – <strong>Middle of the Road</strong>: current trends continue</li>
+<li>SSP3 – <strong>Regional Rivalry</strong>: fragmented world, high emissions</li>
+<li>SSP4 – <strong>Inequality</strong>: growing divide between rich and poor regions</li>
+<li>SSP5 – <strong>Fossil-fueled Development</strong>: rapid economic growth, very high emissions</li>
+</ul>
+<p>When these socioeconomic pathways are combined with different levels of radiative forcing (how much energy the atmosphere traps), we can simulate a wide range of future climates.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/cmip6_models.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>As shown above, temperature projections under the SSPs diverge sharply by mid-century.</p>
+<p>For example, SSP1-2.6 keeps warming below 2 °C, while SSP5-8.5 exceeds 4 °C by 2100 — a reminder that the choices societies make now shape the climate future we’ll experience.</p>
 </section>
-<section id="overview-of-ssps" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="overview-of-ssps"><span class="header-section-number">3.2</span> Overview of SSPs</h2>
-<p><strong>Most commonly SSPs used</strong>:</p>
-<ul>
-<li>SSP1-2.6: An optimistic scenario, characterised by a shift to a more sustainable economy and reduction in inequality resulting in a peak in radiative forcing of ~3 W m-2 before 2100</li>
-<li>SSP2-4.5: An intermediate scenario, with a stabilisation of radiative forcing levels at ~4.5 W m-2 by 2100</li>
-<li>SSP5-8.5: Characterised by a continued increase of greenhouse gas emissions resulting from a fossil-fuel-based economy and increased energy demand, with a radiative forcing &gt;8.5 W m-2 by 2100</li>
-</ul>
-<section id="how-to-download-cmip6-models" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="how-to-download-cmip6-models"><span class="header-section-number">3.2.1</span> How to download CMIP6 models</h3>
-<p>CMIP6 models are free available at the <a href="https://esgf.llnl.gov/"><strong>Earth System Grid Federation</strong></a> website. You will need an account to download models. <a href="https://esgf.github.io/esgf-user-support/user_guide.html"><strong>Check this tutorial</strong></a> of how to create an account.</p>
-<p>Through the website:</p>
-<ul>
-<li>Click <a href="https://esgf.llnl.gov/">here</a> to open the ESGF website</li>
-<li>Go to the <em>Nodes</em> tab to explore the different ESGF-CoG nodes</li>
-<li>Click the <a href="https://aims2.llnl.gov/">Metagrid UI</a> link, for the Metagrid new version</li>
-</ul>
-<p>Select a <a href="https://aims2.llnl.gov/">Metagrid UI</a> node, go to collection and then <a href="https://aims2.llnl.gov/">CMIP6</a> link. This is the main website to download CMIP6 models. At your left you have several filters that you can play with, my advice is filter first for variable.</p>
+<section id="downloading-cmip6-model-data" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="downloading-cmip6-model-data"><span class="header-section-number">3.3</span> Downloading CMIP6 Model Data</h2>
+<p>In this section, you’ll learn how to find and download real climate model outputs from <strong>CMIP6</strong> — the same datasets used by the IPCC in its latest assessment reports.<br>
+These files will form the foundation for your assignment, where you’ll visualize and analyze global sea surface temperature (<em>tos</em>) under a future climate scenario.</p>
+<hr>
+<section id="create-an-esgf-account" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="create-an-esgf-account"><span class="header-section-number">3.3.1</span> 1. Create an ESGF Account</h3>
+<p>CMIP6 data are freely available through the <strong>Earth System Grid Federation (ESGF)</strong> — a global network of data centers that archive Earth System Model outputs.<br>
+To download data, create an account following the official guide: <a href="https://esgf.github.io/esgf-user-support/user_guide.html" class="uri">https://esgf.github.io/esgf-user-support/user_guide.html</a>.<br>
+(You can browse without logging in, but you’ll need an account to download)</p>
+<hr>
 </section>
+<section id="navigating-the-metagrid-interface" class="level3" data-number="3.3.2">
+<h3 data-number="3.3.2" class="anchored" data-anchor-id="navigating-the-metagrid-interface"><span class="header-section-number">3.3.2</span> 2. Navigating the Metagrid Interface</h3>
+<p>Open the <strong>Metagrid UI</strong>: <a href="https://aims2.llnl.gov/" class="uri">https://aims2.llnl.gov/</a>.<br>
+This is a modern, user-friendly front end to ESGF that lets you browse CMIP6 data using filters.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/cmip601.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Metagrid UI</strong>: <a href="https://aims2.llnl.gov/" class="uri">https://aims2.llnl.gov/</a> organizes CMIP6 data into facets (filters) such as model name, variable, frequency, and scenario.</p>
 </section>
-<section id="variables" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="variables"><span class="header-section-number">3.3</span> Variables</h2>
-<p>There are a range of variables available from the GCM (General Circulation Model) outputs. Each tab has different model variable on different time scales. The tabs are in alphabetical order. The ones starting with “O” are for Ocean, and then followed by the timescale (clim = climatology, day, dec = decade, mon = month, yr) (source: <span class="citation" data-cites="schoeman2023">(<a href="references.html#ref-schoeman2023" role="doc-biblioref">Schoeman et al. 2023</a>)</span>).</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="images/cmip601.png" class="img-fluid" style="width:100.0%"></p>
-</div>
-</div>
-<p>From the left tab:</p>
+<section id="navigating-the-metagrid-interface-1" class="level3" data-number="3.3.3">
+<h3 data-number="3.3.3" class="anchored" data-anchor-id="navigating-the-metagrid-interface-1"><span class="header-section-number">3.3.3</span> 3. Navigating the Metagrid Interface</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 57%">
+<col style="width: 18%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Component</strong></th>
+<th><strong>What it means</strong></th>
+<th><strong>Example</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Activity ID</strong></td>
+<td>The experiment group (e.g., ScenarioMIP)</td>
+<td><code>ScenarioMIP</code></td>
+</tr>
+<tr class="even">
+<td><strong>Source ID</strong></td>
+<td>The model/institution</td>
+<td><code>GFDL-ESM4</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Experiment ID</strong></td>
+<td>The scenario (historical, ssp585, etc.)</td>
+<td><code>ssp585</code></td>
+</tr>
+<tr class="even">
+<td><strong>Variant Label</strong></td>
+<td>The ensemble member (run configuration)</td>
+<td><code>r1i1p1f1</code></td>
+</tr>
+<tr class="odd">
+<td><strong>Frequency</strong></td>
+<td>Time resolution</td>
+<td><code>mon</code></td>
+</tr>
+<tr class="even">
+<td><strong>Realm</strong></td>
+<td>Earth-system component</td>
+<td><code>ocean</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="navigating-the-metagrid-interface-2" class="level3" data-number="3.3.4">
+<h3 data-number="3.3.4" class="anchored" data-anchor-id="navigating-the-metagrid-interface-2"><span class="header-section-number">3.3.4</span> 4. Navigating the Metagrid Interface</h3>
+<p>Use the filters in the left panel. For this exercise, select:</p>
 <ul>
-<li>click the <strong>+</strong> in the <strong>variable</strong> option. Select <strong>tos</strong> (ocean temperature on surface). Then click <strong>Search</strong></li>
-<li>click the <strong>+</strong> in the <strong>Realm</strong> option. Select <strong>ocean</strong> and <strong>ocnBgChem</strong>. Then click <strong>Search</strong></li>
-<li>click the <strong>+</strong> in the <strong>Frequency</strong> option. Select <strong>mon</strong>. Then click <strong>Search</strong></li>
-<li>click the <strong>+</strong> in the <strong>Variant Label</strong> option. Select <strong>r1i1p1f1</strong> (this is the most common ensemble). Then click <strong>Search</strong></li>
+<li><code>Variable ID</code>: tos (sea surface temperature)</li>
+<li><code>Realm</code>: ocean</li>
+<li><code>Table ID</code>: Omon (monthly ocean outputs)</li>
+<li><code>Frequency</code>: mon</li>
+<li><code>Experiment ID</code>: ssp585 (future high-emission scenario)</li>
+<li><code>Variant Label</code>: r1i1p1f1 (standard ensemble run)</li>
+<li><code>Source ID</code>: GFDL-ESM4 (NOAA model)</li>
 </ul>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="images/cmip602.png" class="img-fluid" style="width:100.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="images/cmip602.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
 </div>
 </div>
+</div>
+<p>You should now see a list of model outputs matching your filters. Each row corresponds to one model run for a specific scenario and variable.</p>
+</section>
+<section id="understanding-file-names" class="level3" data-number="3.3.5">
+<h3 data-number="3.3.5" class="anchored" data-anchor-id="understanding-file-names"><span class="header-section-number">3.3.5</span> 5. Understanding File Names</h3>
+<p>CMIP6 files follow a standard naming convention, e.g.: <code>tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.nc</code></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>Part</strong></th>
+<th><strong>Meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>tos</code></td>
+<td>Sea surface temperature</td>
+</tr>
+<tr class="even">
+<td><code>Omon</code></td>
+<td>Monthly ocean output</td>
+</tr>
+<tr class="odd">
+<td><code>GFDL-ESM4</code></td>
+<td>Model name</td>
+</tr>
+<tr class="even">
+<td><code>ssp585</code></td>
+<td>Future scenario (high emissions)</td>
+</tr>
+<tr class="odd">
+<td><code>r1i1p1f1</code></td>
+<td>Ensemble member (run/physics/forcing setup)</td>
+</tr>
+<tr class="even">
+<td><code>gr</code></td>
+<td>Grid label (regridded)</td>
+</tr>
+<tr class="odd">
+<td><code>201501–203412</code></td>
+<td>Time period covered</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="downloading-the-file" class="level3" data-number="3.3.6">
+<h3 data-number="3.3.6" class="anchored" data-anchor-id="downloading-the-file"><span class="header-section-number">3.3.6</span> 6. Downloading the File</h3>
+<ol type="a">
+<li>Click List Files next to your chosen model entry.</li>
+<li>A table will list several .nc files, each covering ~20 years.</li>
+<li>Click HTTP Download for one file (e.g., 2015–2034).</li>
+</ol>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="images/cmip603.png" class="img-fluid" style="width:100.0%"></p>
+<div>
+<figure class="figure">
+<p><img src="images/cmip603.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
 </div>
 </div>
-<p>The ensemble names “r1i1p1”, “r2i1p1”, etc. in <strong>Variant Label</strong> indicate that the ensemble members differ only in their initial conditions (the model physics are the same for all ensemble members, but the members were initialized from different initial conditions out of the control simulation). Hence, the differences between the ensemble members represent internal variability.</p>
-<ul>
-<li>click the <strong>+</strong> in the <strong>Experiment ID</strong> option. In this option you will see every single <em>Experiment/Simulation</em>. For example, <strong>G1/G6/G7</strong> are the geoengineering climate scenarios. Go to the bottom of the <strong>Experiment ID</strong> tab and click <strong>ssp585</strong>. Then click <strong>Search</strong></li>
-<li>click the <strong>+</strong> in the <strong>Source ID</strong> option for the full model list and their Institution ID. Let’s click on <strong>GFDL-CM4</strong> model from GFDL/NOAA lab. Then click <strong>Search</strong></li>
-</ul>
-<p>If you have follow the previous steps you should get a tab result similar to this:</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="images/cmip603.png" class="img-fluid" style="width:100.0%"></p>
+</div>
+<p>Each file is ~130 MB. Do not download all time periods — one file is enough for this assignment.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Assignment Hint
 </div>
 </div>
-<p>To download the model, just click on the <strong>List Files</strong> tab and then select <strong>HTTP Download</strong></p>
+<div class="callout-body-container callout-body">
+<p>Use this setup: - Model: GFDL-ESM4 - Scenario: ssp585 - Variable: tos (sea surface temperature) - Period: 2015–2034 You’ll use this file in the next section to open, visualize, and analyze global SST in R. <em>Pro tip: Start filtering by variable — it’s the quickest way to narrow the search.</em></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Assignment Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>No downloads? Make sure you’re logged into <code>ESGF</code>.</p>
+<p>Empty results? Clear filters and re-apply <code>Variable</code> → <code>tos</code> first.</p>
+<p>Slow/failed download? Try another <code>ESGF</code> node mirror listed under <code>“Download Options”</code></p>
+</div>
+</div>
+</div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-schoeman2023" class="csl-entry" role="listitem">
 Schoeman, David S., Alex Sen Gupta, Cheryl S. Harrison, Jason D. Everett, Isaac Brito-Morales, Lee Hannah, Laurent Bopp, Patrick R. Roehrdanz, and Anthony J. Richardson. 2023. <span>“Demystifying Global Climate Models for Use in the Life Sciences.”</span> <em>Trends in Ecology &amp; Evolution</em>, May. <a href="https://doi.org/10.1016/j.tree.2023.04.005">https://doi.org/10.1016/j.tree.2023.04.005</a>.
 </div>
 </div>
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -367,18 +555,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -410,11 +587,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -424,8 +640,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -437,7 +662,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -481,6 +829,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -506,6 +855,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -567,13 +942,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./02_set_up.html" class="pagination-link">
+      <a href="./02_set_up.html" class="pagination-link" aria-label="Setting up your computer">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Setting up your computer</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./04_climate_data.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Getting Started with Climate Data</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./05_ncRaster.html" class="pagination-link" aria-label="From `NetCDF` to a Map in `R`">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">From <code>NetCDF</code> to a Map in <code>R</code></span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -581,4 +956,5 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-</body></html>
+
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/IsaakBM/ESM_240/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div></div></footer></body></html>
