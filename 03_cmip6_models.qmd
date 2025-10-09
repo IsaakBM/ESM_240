@@ -2,8 +2,8 @@
 
 ## What is a climate model? (in one picture)
 
-```{r, out.width = "50%", echo = FALSE}
-  knitr::include_graphics("images/cmip6_mips.jpg")
+```{r, out.width = "80%", echo = FALSE}
+  knitr::include_graphics("images/model_representation.png")
 ```
 
 At its core, a climate model divides the Earth into a 3-D grid (latitude–longitude horizontally, levels vertically) and steps forward in time.

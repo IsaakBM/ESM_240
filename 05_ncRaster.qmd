@@ -5,7 +5,7 @@
 **NetCDF** is a container for scientific arrays (e.g., temperature) plus dimensions (lon, lat, depth, time) and metadata (units, CF names).  
 CMIP6 outputs are saved as NetCDF because it’s compact and self-describing. We won’t cover NetCDF internals here—think of it as the standard file you download and open.
 
-```{r, out.width = "50%", echo = FALSE}
+```{r, out.width = "80%", echo = FALSE}
   knitr::include_graphics("images/model_representation.png")
 ```
 
