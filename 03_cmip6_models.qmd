@@ -103,16 +103,12 @@ To download data, create an account following the official guide: <https://esgf.
 Open the **Metagrid UI**: <https://aims2.llnl.gov/>.\
 This is a modern, user-friendly front end to ESGF that lets you browse CMIP6 data using filters.
 
-```{r, out.width = "100%", echo = FALSE}
-knitr::include_graphics("images/cmip601.png")
-```
-
 **Metagrid UI**: <https://aims2.llnl.gov/> organizes CMIP6 data into facets (filters) such as model name, variable, frequency, and scenario.
 
 ### 3. Navigating the Metagrid Interface
 
 | **Component**     | **What it means**                        | **Example**   |
-|-----------------|---------------------------------------|-----------------|
+|------------------|-------------------------------------|------------------|
 | **Activity ID**   | The experiment group (e.g., ScenarioMIP) | `ScenarioMIP` |
 | **Source ID**     | The model/institution                    | `GFDL-ESM4`   |
 | **Experiment ID** | The scenario (historical, ssp585, etc.)  | `ssp585`      |
