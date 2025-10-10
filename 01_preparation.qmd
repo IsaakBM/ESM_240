@@ -1,20 +1,16 @@
 # Welcome!
 
-Welcome to *ESM240 – Climate Change Biology: From Models to Applications*!  
+Welcome to *ESM240 – Climate Change Biology: From Models to Applications*!
 
-This eBook was developed as part of the *Climate Change Biology* module to guide you through one of the most practical and applied aspects of climate science — learning how to understand, find, and use climate model data in real-world ecological and conservation contexts.  
+This eBook was developed as part of the *Climate Change Biology* module to guide you through one of the most practical and applied aspects of climate science — learning how to understand, find, and use climate model data in real-world ecological and conservation contexts.
 
-The purpose here isn’t to make you a climate modeler. Instead, it’s to help you:
-- Understand what climate models are and who produces them
-- Recognize the major CMIP versions and the meaning behind climate scenarios (RCPs and SSPs)
-- Know where these data live — particularly in the **Earth System Grid Federation (ESGF)** and **Metagrid**
-- Confidently access and visualize basic outputs, such as sea-surface temperature fields, using R  
+The purpose here isn’t to make you a climate modeler. Instead, it’s to help you: - Understand what climate models are and who produces them - Recognize the major CMIP versions and the meaning behind climate scenarios (RCPs and SSPs) - Know where these data live — particularly in the **Earth System Grid Federation (ESGF)** and **Metagrid** - Confidently access and visualize basic outputs, such as sea-surface temperature fields, using R
 
-By the end of this module, you should be able to navigate the world of climate projections with confidence — knowing where to look, how to interpret model outputs, and how they connect to biological and conservation questions (🤞).  
+By the end of this module, you should be able to navigate the world of climate projections with confidence — knowing where to look, how to interpret model outputs, and how they connect to biological and conservation questions (🤞).
 
-This is an open educational resource built for master’s students and early-career scientists who want to bridge the gap between climate modeling and applied marine science.  
+This is an open educational resource built for master’s students and early-career scientists who want to bridge the gap between climate modeling and applied marine science.
 
-So, grab your coffee, open RStudio, and let’s dive into the climate of the future. 🌎☕  
+So, grab your coffee, open RStudio, and let’s dive into the climate of the future. 🌎☕
 
 ```{r, out.width = "100%", echo = FALSE}
   knitr::include_graphics("images/41893_2020_513_Fig4_HTML.jpg")

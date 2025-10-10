@@ -1,11 +1,11 @@
 # Preface {.unnumbered}
 
-This eBook was written and compiled by **Isaac Brito-Morales** (*ibrito@conservation.org*) as part of the *Climate Change Biology* module within the ESM240 course.  
+This eBook was written and compiled by **Isaac Brito-Morales** (*ibrito\@conservation.org*) as part of the *Climate Change Biology* module within the ESM240 course.
 
-The goal is simple: to help students and early-career scientists navigate the world of climate models — not to turn them into modelers, but to make sure they know where to find information, how to use it responsibly, and how to interpret it within an ecological and conservation context.  
+The goal is simple: to help students and early-career scientists navigate the world of climate models — not to turn them into modelers, but to make sure they know where to find information, how to use it responsibly, and how to interpret it within an ecological and conservation context.
 
-All code and examples are provided for educational purposes.  
-Please don’t distribute or reuse them without permission.  
+All code and examples are provided for educational purposes.\
+Please don’t distribute or reuse them without permission.
 
 ::: {.callout-caution collapse="false"}
 ## ⚠ Disclaimer
@@ -13,22 +13,4 @@ Please don’t distribute or reuse them without permission.
 No guarantees that every line of code will run perfectly — as one of my mentors used to say, *“that’s what learning (and debugging) is for.”*
 :::
 
----
-
-# Acknowledgements
-
-A big shoutout and massive high-five to my mentors and collaborators — you’ve been the real MVPs, guiding me through the wild maze of science with a flashlight and a sense of humor.  
-
-- Anthony Richardson  
-- David Schoeman  
-- Michael Burrows  
-- Jorge García Molinos  
-- Carissa Klein  
-- Daniel Dunn  
-- Jason Everett  
-- Hugh Possingham  
-- Lee Hannah  
-
-```{r, echo = FALSE, results = "asis"}
-  knitr::include_graphics("images/NCC_cover.JPG")
-```
+------------------------------------------------------------------------
