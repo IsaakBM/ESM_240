@@ -92,7 +92,7 @@ These files will form the foundation for your assignment, where you’ll visuali
 
 ### 1. Create an ESGF Account
 
-CMIP6 data are freely available through the [**Earth System Grid Federation (ESGF)**](https://esgf.github.io/) — a global network of data centers that archive Earth System Model outputs.\
+CMIP6 data are freely available through the [Earth System Grid Federation (ESGF)](https://esgf.github.io/) — a global network of data centers that archive Earth System Model outputs.\
 To download data, create an account following the official guide: <https://esgf.github.io/esgf-user-support/user_guide.html>.\
 (You can browse without logging in, but you’ll need an account to download)
 
