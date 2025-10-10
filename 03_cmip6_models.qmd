@@ -6,12 +6,11 @@
   knitr::include_graphics("images/model_representation.png")
 ```
 
-At its core, a climate model divides the Earth into a 3-D grid (latitude–longitude horizontally, levels vertically) and steps forward in time.
-In each grid cell the model tracks key state variables (e.g., temperature, humidity, winds, ocean currents, salinity, sea ice, carbon), and exchanges fluxes (heat, water, carbon) between neighboring cells and across components (atmosphere ↔ ocean ↔ land ↔ ice).
+At its core, a climate model divides the Earth into a 3-D grid (latitude–longitude horizontally, levels vertically) and steps forward in time. In each grid cell the model tracks key state variables (e.g., temperature, humidity, winds, ocean currents, salinity, sea ice, carbon), and exchanges fluxes (heat, water, carbon) between neighboring cells and across components (atmosphere ↔ ocean ↔ land ↔ ice).
 
-- Resolution: Typical global models use ~1° (~100 km) horizontal grids with tens of vertical levels
-- Components: Many models are full Earth System Models (`ESMs`) that include biogeochemistry (e.g., carbon cycle), not just physics
-- Outputs: Results are multi-dimensional arrays saved as `NetCDF` files (variable × lon × lat × depth × time)
+-   Resolution: Typical global models use \~1° (\~100 km) horizontal grids with tens of vertical levels
+-   Components: Many models are full Earth System Models (`ESMs`) that include biogeochemistry (e.g., carbon cycle), not just physics
+-   Outputs: Results are multi-dimensional arrays saved as `NetCDF` files (variable × lon × lat × depth × time)
 
 Why many models? Different groups make different (reasonable) choices in numerics and physics, so we compare them within the CMIP framework [@schoeman2023].
 
@@ -84,24 +83,24 @@ As shown above, temperature projections under the SSPs diverge sharply by mid-ce
 
 For example, SSP1-2.6 keeps warming below 2 °C, while SSP5-8.5 exceeds 4 °C by 2100 — a reminder that the choices societies make now shape the climate future we’ll experience.
 
-
-
 ## Downloading CMIP6 Model Data
 
-In this section, you’ll learn how to find and download real climate model outputs from **CMIP6** — the same datasets used by the IPCC in its latest assessment reports.  
+In this section, you’ll learn how to find and download real climate model outputs from **CMIP6** — the same datasets used by the IPCC in its latest assessment reports.\
 These files will form the foundation for your assignment, where you’ll visualize and analyze global sea surface temperature (*tos*) under a future climate scenario.
 
----
+------------------------------------------------------------------------
 
 ### 1. Create an ESGF Account
-CMIP6 data are freely available through the **Earth System Grid Federation (ESGF)** — a global network of data centers that archive Earth System Model outputs.  
-To download data, create an account following the official guide: <https://esgf.github.io/esgf-user-support/user_guide.html>.  
+
+CMIP6 data are freely available through the [**Earth System Grid Federation (ESGF)**](https://esgf.github.io/) — a global network of data centers that archive Earth System Model outputs.\
+To download data, create an account following the official guide: <https://esgf.github.io/esgf-user-support/user_guide.html>.\
 (You can browse without logging in, but you’ll need an account to download)
 
----
+------------------------------------------------------------------------
 
 ### 2. Navigating the Metagrid Interface
-Open the **Metagrid UI**: <https://aims2.llnl.gov/>.  
+
+Open the **Metagrid UI**: <https://aims2.llnl.gov/>.\
 This is a modern, user-friendly front end to ESGF that lets you browse CMIP6 data using filters.
 
 ```{r, out.width = "100%", echo = FALSE}
@@ -113,7 +112,7 @@ knitr::include_graphics("images/cmip601.png")
 ### 3. Navigating the Metagrid Interface
 
 | **Component**     | **What it means**                        | **Example**   |
-| ----------------- | ---------------------------------------- | ------------- |
+|-----------------|---------------------------------------|-----------------|
 | **Activity ID**   | The experiment group (e.g., ScenarioMIP) | `ScenarioMIP` |
 | **Source ID**     | The model/institution                    | `GFDL-ESM4`   |
 | **Experiment ID** | The scenario (historical, ssp585, etc.)  | `ssp585`      |
@@ -125,13 +124,13 @@ knitr::include_graphics("images/cmip601.png")
 
 Use the filters in the left panel. For this exercise, select:
 
-- `Variable ID`: tos (sea surface temperature)
-- `Realm`: ocean
-- `Table ID`: Omon (monthly ocean outputs)
-- `Frequency`: mon 
-- `Experiment ID`: ssp585 (future high-emission scenario)
-- `Variant Label`: r1i1p1f1 (standard ensemble run)
-- `Source ID`: GFDL-ESM4 (NOAA model)
+-   `Variable ID`: tos (sea surface temperature)
+-   `Realm`: ocean
+-   `Table ID`: Omon (monthly ocean outputs)
+-   `Frequency`: mon
+-   `Experiment ID`: ssp585 (future high-emission scenario)
+-   `Variant Label`: r1i1p1f1 (standard ensemble run)
+-   `Source ID`: GFDL-ESM4 (NOAA model)
 
 ```{r, out.width = "100%", echo = FALSE}
   knitr::include_graphics("images/cmip602.png")
@@ -144,7 +143,7 @@ You should now see a list of model outputs matching your filters. Each row corre
 CMIP6 files follow a standard naming convention, e.g.: `tos_Omon_GFDL-ESM4_ssp585_r1i1p1f1_gr_201501-203412.nc`
 
 | **Part**        | **Meaning**                                 |
-| --------------- | ------------------------------------------- |
+|-----------------|---------------------------------------------|
 | `tos`           | Sea surface temperature                     |
 | `Omon`          | Monthly ocean output                        |
 | `GFDL-ESM4`     | Model name                                  |
@@ -153,29 +152,22 @@ CMIP6 files follow a standard naming convention, e.g.: `tos_Omon_GFDL-ESM4_ssp58
 | `gr`            | Grid label (regridded)                      |
 | `201501–203412` | Time period covered                         |
 
-
 ### 6. Downloading the File
 
-a. Click List Files next to your chosen model entry.
-b. A table will list several .nc files, each covering ~20 years.
-c. Click HTTP Download for one file (e.g., 2015–2034).
+a.  Click List Files next to your chosen model entry.
+b.  A table will list several .nc files, each covering \~20 years.
+c.  Click HTTP Download for one file (e.g., 2015–2034).
 
 ```{r, out.width = "100%", echo = FALSE}
   knitr::include_graphics("images/cmip603.png")
 ```
 
-Each file is ~130 MB. Do not download all time periods — one file is enough for this assignment.
+Each file is \~130 MB. Do not download all time periods — one file is enough for this assignment.
 
 ::: callout-tip
 ## Assignment Hint
 
-Use this setup:
-- Model: GFDL-ESM4
-- Scenario: ssp585
-- Variable: tos (sea surface temperature)
-- Period: 2015–2034
-You’ll use this file in the next section to open, visualize, and analyze global SST in R.
-*Pro tip: Start filtering by variable — it’s the quickest way to narrow the search.*
+Use this setup: - Model: GFDL-ESM4 - Scenario: ssp585 - Variable: tos (sea surface temperature) - Period: 2015–2034 You’ll use this file in the next section to open, visualize, and analyze global SST in R. *Pro tip: Start filtering by variable — it’s the quickest way to narrow the search.*
 :::
 
 ::: {.callout-note collapse="true"}
